@@ -548,6 +548,76 @@ h2 {
 }
 .p-info h3 { font-size: 17px; font-weight: 700; }
 
+/* ── Resto Bistro card: real screenshot + glassmorphism ────── */
+.p-card--rb {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.p-card--rb:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 28px 64px rgba(0,0,0,.20);
+}
+.p-preview--rb {
+  padding: 0;
+  height: 210px;
+  background: #1a0800;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.rb-browser {
+  border-radius: 0;
+  margin-bottom: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  flex-shrink: 0;
+}
+.rb-img-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.rb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.rb-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 65%;
+  background: linear-gradient(to bottom, transparent, rgba(20,6,0,.88));
+  pointer-events: none;
+}
+.rb-glass {
+  position: absolute;
+  bottom: 14px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(14px) saturate(1.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 100px;
+  padding: 9px 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.22);
+  white-space: nowrap;
+  transition: background var(--trans), box-shadow var(--trans), border-color var(--trans);
+}
+.rb-glass span {
+  font-size: 13px; font-weight: 700;
+  color: #fff; display: block; letter-spacing: .01em;
+}
+.p-card--rb:hover .rb-glass {
+  background: rgba(29,121,233,.78);
+  border-color: rgba(255,255,255,.35);
+  box-shadow: 0 6px 28px rgba(29,121,233,.4);
+}
+
 /* ================================================================
    PROCESS
    ================================================================ */
