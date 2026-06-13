@@ -131,7 +131,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 /* ================================================================
    LANGUAGE TOGGLE
    ================================================================ */
-let lang = localStorage.getItem('dm_lang') || 'ru';
+let lang = localStorage.getItem('dm_lang') || 'en';
 
 function applyLang(l) {
   lang = l;
