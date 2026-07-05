@@ -36,7 +36,7 @@ ul { list-style: none; }
   --dark-card:    #141414;
   --radius:       20px;
   --radius-sm:    12px;
-  --header-h:     230px;
+  --header-h:     80px;
   --shadow:       0 4px 24px rgba(0,0,0,.08);
   --shadow-lg:    0 20px 60px rgba(0,0,0,.14);
   --trans:        .3s cubic-bezier(.4,0,.2,1);
@@ -106,7 +106,7 @@ ul { list-style: none; }
 
 /* Logo */
 .header-logo img {
-  height: 208px; width: auto; max-width: 320px;
+  height: 62px; width: auto; max-width: 220px;
   transition: opacity var(--trans);
 }
 .header-logo:hover img { opacity: .65; }
@@ -840,7 +840,7 @@ footer {
   gap: 20px; flex-wrap: wrap;
 }
 .footer-logo img {
-  height: 208px; width: auto; max-width: 320px; opacity: .85;
+  height: 80px; width: auto; max-width: 260px; opacity: .85;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
@@ -884,18 +884,16 @@ footer {
 
 /* ── Mobile ≤768px ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  :root { --header-h: 100px; }
+  :root { --header-h: 72px; }
 
   .header-inner { padding: 0 16px; height: var(--header-h); gap: 0; }
   .header-nav   { display: none; }
   .lang-toggle  { display: none; }
   .hamburger    { display: flex; }
 
-  /* Logo */
-  .header-logo img { height: 78px; max-width: 140px; }
-  .footer-logo img { height: 120px; max-width: 220px; }
+  .header-logo img { height: 48px; max-width: 160px; }
+  .footer-logo img { height: 64px; max-width: 200px; }
 
-  /* Compact button so it fits next to logo on iPhone */
   .btn-glass { padding: 7px 13px; font-size: 12px; }
   .header-right { gap: 10px; }
 
@@ -928,10 +926,10 @@ footer {
 
 /* ── Small mobile ≤480px ────────────────────────────────────── */
 @media (max-width: 480px) {
-  :root { --header-h: 88px; }
+  :root { --header-h: 64px; }
 
-  .header-logo img { height: 66px; max-width: 120px; }
-  .footer-logo img { height: 100px; }
+  .header-logo img { height: 40px; max-width: 130px; }
+  .footer-logo img { height: 54px; }
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
