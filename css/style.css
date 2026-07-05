@@ -884,16 +884,16 @@ footer {
 
 /* ── Mobile ≤768px ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  :root { --header-h: 80px; }
+  :root { --header-h: 110px; }
 
   .header-inner { padding: 0 20px; height: var(--header-h); }
   .header-nav   { display: none; }
   .lang-toggle  { display: none; }
-  .btn-glass    { display: none; }   /* in mobile menu already */
   .hamburger    { display: flex; }
 
-  .header-logo img { height: 60px; max-width: 160px; }
-  .footer-logo img { height: 120px; max-width: 220px; }
+  /* Logo stays big, button stays visible */
+  .header-logo img { height: 90px; max-width: 200px; }
+  .footer-logo img { height: 140px; max-width: 260px; }
 
   .container    { padding: 0 20px; }
   .section      { padding: 80px 0; }
@@ -924,10 +924,10 @@ footer {
 
 /* ── Small mobile ≤480px ────────────────────────────────────── */
 @media (max-width: 480px) {
-  :root { --header-h: 72px; }
+  :root { --header-h: 90px; }
 
-  .header-logo img { height: 52px; max-width: 140px; }
-  .footer-logo img { height: 90px; }
+  .header-logo img { height: 72px; max-width: 170px; }
+  .footer-logo img { height: 110px; }
 
   .about-cards { grid-template-columns: 1fr; }
   .hero-title  { font-size: 36px; }
