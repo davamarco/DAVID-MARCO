@@ -884,16 +884,20 @@ footer {
 
 /* ── Mobile ≤768px ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  :root { --header-h: 110px; }
+  :root { --header-h: 100px; }
 
-  .header-inner { padding: 0 20px; height: var(--header-h); }
+  .header-inner { padding: 0 16px; height: var(--header-h); gap: 0; }
   .header-nav   { display: none; }
   .lang-toggle  { display: none; }
   .hamburger    { display: flex; }
 
-  /* Logo stays big, button stays visible */
-  .header-logo img { height: 90px; max-width: 200px; }
-  .footer-logo img { height: 140px; max-width: 260px; }
+  /* Logo */
+  .header-logo img { height: 78px; max-width: 140px; }
+  .footer-logo img { height: 120px; max-width: 220px; }
+
+  /* Compact button so it fits next to logo on iPhone */
+  .btn-glass { padding: 7px 13px; font-size: 12px; }
+  .header-right { gap: 10px; }
 
   .container    { padding: 0 20px; }
   .section      { padding: 80px 0; }
@@ -924,10 +928,11 @@ footer {
 
 /* ── Small mobile ≤480px ────────────────────────────────────── */
 @media (max-width: 480px) {
-  :root { --header-h: 90px; }
+  :root { --header-h: 88px; }
 
-  .header-logo img { height: 72px; max-width: 170px; }
-  .footer-logo img { height: 110px; }
+  .header-logo img { height: 66px; max-width: 120px; }
+  .footer-logo img { height: 100px; }
+  .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
   .hero-title  { font-size: 36px; }
