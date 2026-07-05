@@ -106,7 +106,7 @@ ul { list-style: none; }
 
 /* Logo */
 .header-logo img {
-  height: 52px; width: auto; max-width: 200px;
+  height: 208px; width: auto; max-width: 320px;
   transition: opacity var(--trans);
 }
 .header-logo:hover img { opacity: .65; }
@@ -840,7 +840,7 @@ footer {
   gap: 20px; flex-wrap: wrap;
 }
 .footer-logo img {
-  height: 52px; width: auto; max-width: 200px; opacity: .85;
+  height: 208px; width: auto; max-width: 320px; opacity: .85;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
