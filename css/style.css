@@ -106,7 +106,7 @@ ul { list-style: none; }
 
 /* Logo */
 .header-logo img {
-  height: 62px; width: auto; max-width: 220px;
+  height: 150px; width: auto; max-width: 220px;
   transition: opacity var(--trans);
 }
 .header-logo:hover img { opacity: .65; }
@@ -840,7 +840,7 @@ footer {
   gap: 20px; flex-wrap: wrap;
 }
 .footer-logo img {
-  height: 80px; width: auto; max-width: 260px; opacity: .85;
+  height: 130px; width: auto; max-width: 260px; opacity: .85;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
@@ -891,8 +891,8 @@ footer {
   .lang-toggle  { display: none; }
   .hamburger    { display: flex; }
 
-  .header-logo img { height: 48px; max-width: 160px; }
-  .footer-logo img { height: 64px; max-width: 200px; }
+  .header-logo img { height: 120px; max-width: 160px; }
+  .footer-logo img { height: 120px; max-width: 200px; }
 
   .btn-glass { padding: 7px 13px; font-size: 12px; }
   .header-right { gap: 10px; }
@@ -928,8 +928,8 @@ footer {
 @media (max-width: 480px) {
   :root { --header-h: 64px; }
 
-  .header-logo img { height: 40px; max-width: 130px; }
-  .footer-logo img { height: 54px; }
+  .header-logo img { height: 120px; max-width: 130px; }
+  .footer-logo img { height: 120px; }
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
