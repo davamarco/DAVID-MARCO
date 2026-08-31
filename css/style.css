@@ -279,15 +279,6 @@ ul { list-style: none; }
   position: relative; overflow: hidden;
 }
 
-/* subtle radial glow behind photo */
-#hero::before {
-  content: '';
-  position: absolute; right: 0; top: 0;
-  width: 60%; height: 100%;
-  background: radial-gradient(ellipse at 70% 40%, rgba(29,121,233,.07) 0%, transparent 65%);
-  pointer-events: none;
-}
-
 .hero-inner {
   display: grid; grid-template-columns: 1fr 1fr;
   align-items: center; gap: 60px;
@@ -374,17 +365,6 @@ ul { list-style: none; }
   transition: filter .4s ease;
 }
 .hero-photo:hover { filter: contrast(1.12) brightness(.98); }
-
-.hero-glow {
-  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 340px; height: 340px; z-index: 1;
-  background: radial-gradient(circle, rgba(29,121,233,.18) 0%, transparent 70%);
-  animation: glowPulse 4s ease infinite;
-}
-@keyframes glowPulse {
-  0%,100% { transform: translateX(-50%) scale(1); opacity: 1; }
-  50%      { transform: translateX(-50%) scale(1.08); opacity: .75; }
-}
 
 /* ================================================================
    SCROLL ANIMATIONS
