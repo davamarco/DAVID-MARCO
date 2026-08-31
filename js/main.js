@@ -1,16 +1,6 @@
 /* ================================================================
    DAVID MARCO — main.js
-   ================================================================
-
-   TELEGRAM SETUP (2 минуты):
-   ─────────────────────────────────────────────────────────────
-   1. Открой Telegram → напиши @BotFather → /newbot
-      → придумай имя и username → скопируй токен
-   2. Напиши @userinfobot → скопируй свой "Id"
-   3. Вставь оба значения ниже ↓
-   ───────────────────────────────────────────────────────────── */
-const TG_TOKEN   = '8478743673:AAEeH8Bq47_I43NdF-0N4Y6DyzP1uxqj4TQ';
-const TG_CHAT_ID = '137117498';
+   ================================================================ */
 
 /* ================================================================
    PRELOADER
@@ -180,14 +170,15 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
 });
 
 /* ================================================================
-   CONTACT FORM → TELEGRAM
+   CONTACT FORM → WHATSAPP
    ================================================================ */
+const WA_NUMBER  = '19544455820';
+
 const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('submitBtn');
 const msgSuccess = document.getElementById('formSuccess');
 const msgError   = document.getElementById('formError');
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const name    = document.getElementById('fname').value.trim();
@@ -201,55 +192,25 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Loading state
-  const origText = submitBtn.textContent;
-  submitBtn.disabled   = true;
-  submitBtn.textContent = lang === 'ru' ? 'Отправляю...' : 'Sending...';
   msgSuccess.classList.remove('show');
   msgError.classList.remove('show');
 
-  const text = [
-    '🆕 *Новая заявка с сайта davidmarco*',
-    '',
-    `👤 *Имя:* ${name}`,
-    `📱 *WhatsApp/Telegram:* ${phone}`,
-    `📧 *Email:* ${email || '—'}`,
-    `💬 *Сообщение:* ${message || '—'}`,
-  ].join('\n');
+  const lines = ['New request from website:', `Name: ${name}`, `Contact: ${phone}`];
+  if (email)   lines.push(`Email: ${email}`);
+  if (message) lines.push(`Message: ${message}`);
 
-  try {
-    // Demo mode guard
-    if (TG_TOKEN === 'YOUR_BOT_TOKEN_HERE') {
-      await fakeDelay(800);
-      showFormMsg('success');
-      form.reset();
-      return;
-    }
+  const waWindow = window.open(
+    `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
+    '_blank'
+  );
 
-    const res = await fetch(
-      `https://api.telegram.org/bot${TG_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id:    TG_CHAT_ID,
-          text,
-          parse_mode: 'Markdown',
-        }),
-      }
-    );
-
-    if (!res.ok) throw new Error('tg_error');
-
-    form.reset();
-    showFormMsg('success');
-
-  } catch {
+  if (!waWindow) {
     showFormMsg('error');
-  } finally {
-    submitBtn.disabled    = false;
-    submitBtn.textContent = origText;
+    return;
   }
+
+  form.reset();
+  showFormMsg('success');
 });
 
 function showFormMsg(type) {
@@ -267,8 +228,4 @@ function shakField(input) {
     { duration: 300, easing: 'ease' }
   );
   setTimeout(() => (input.style.borderColor = ''), 1200);
-}
-
-function fakeDelay(ms) {
-  return new Promise(res => setTimeout(res, ms));
 }
