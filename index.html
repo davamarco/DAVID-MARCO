@@ -557,12 +557,6 @@
                   data-ru="Отправить заявку →" data-en="Send Request →">
             Отправить заявку →
           </button>
-          <div class="form-msg success" id="formSuccess" data-ru="✓ Спасибо! Продолжите переписку в WhatsApp — отвечу в течение 24 часов." data-en="✓ Thanks! Continue the conversation in WhatsApp — I'll reply within 24 hours.">
-            ✓ Спасибо! Продолжите переписку в WhatsApp — отвечу в течение 24 часов.
-          </div>
-          <div class="form-msg error" id="formError" data-ru="Не удалось открыть WhatsApp. Напишите мне напрямую: +1 (954) 445-5820." data-en="Couldn't open WhatsApp. Please message me directly: +1 (954) 445-5820.">
-            Не удалось открыть WhatsApp. Напишите мне напрямую: +1 (954) 445-5820.
-          </div>
         </form>
       </div>
 
@@ -692,6 +686,43 @@
     </div>
   </div>
 </footer>
+
+<!-- ============================================================
+     THANK YOU MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box" id="modalBox">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/>
+        <line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+
+    <img src="img/dm-logo.png" alt="David Marco" class="modal-logo" />
+
+    <div class="modal-icon" id="modalIcon">
+      <svg class="mi-success" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+      <svg class="mi-error" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="7" x2="12" y2="13.5"/>
+        <circle cx="12" cy="17" r="1.15" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+
+    <h3 class="modal-title" id="modalTitle">
+      <span class="ms-success" data-ru="Спасибо!" data-en="Thanks!">Спасибо!</span>
+      <span class="ms-error" data-ru="Не получилось открыть WhatsApp" data-en="Couldn't open WhatsApp">Не получилось открыть WhatsApp</span>
+    </h3>
+    <p class="modal-text">
+      <span class="ms-success" data-ru="Мы открыли WhatsApp с готовым сообщением. Нажмите «Отправить» в чате — и я отвечу в течение 24 часов." data-en="We've opened WhatsApp with your message ready. Just hit send in the chat — I'll reply within 24 hours.">Мы открыли WhatsApp с готовым сообщением. Нажмите «Отправить» в чате — и я отвечу в течение 24 часов.</span>
+      <span class="ms-error" data-ru="Похоже, браузер заблокировал всплывающее окно. Напишите мне напрямую: +1 (954) 445-5820" data-en="Looks like your browser blocked the pop-up. Please message me directly: +1 (954) 445-5820">Похоже, браузер заблокировал всплывающее окно. Напишите мне напрямую: +1 (954) 445-5820</span>
+    </p>
+
+    <button type="button" class="btn-primary modal-btn" id="modalOkBtn" data-ru="Понятно" data-en="Got it">Понятно</button>
+  </div>
+</div>
 
 <script src="js/main.js?v=2"></script>
 </body>

@@ -170,13 +170,38 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
 });
 
 /* ================================================================
+   THANK YOU MODAL
+   ================================================================ */
+const modalOverlay = document.getElementById('thankYouModal');
+const modalBox     = document.getElementById('modalBox');
+const modalClose   = document.getElementById('modalClose');
+const modalOkBtn   = document.getElementById('modalOkBtn');
+
+function openModal(type) {
+  modalBox.classList.toggle('is-error', type === 'error');
+  modalOverlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalOkBtn.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
+});
+
+/* ================================================================
    CONTACT FORM → WHATSAPP
    ================================================================ */
-const WA_NUMBER  = '19544455820';
-
-const form       = document.getElementById('contactForm');
-const msgSuccess = document.getElementById('formSuccess');
-const msgError   = document.getElementById('formError');
+const WA_NUMBER = '19544455820';
+const form      = document.getElementById('contactForm');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -192,32 +217,24 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  msgSuccess.classList.remove('show');
-  msgError.classList.remove('show');
-
   const lines = ['New request from website:', `Name: ${name}`, `Contact: ${phone}`];
   if (email)   lines.push(`Email: ${email}`);
   if (message) lines.push(`Message: ${message}`);
 
+  // Open the modal *before* window.open() — opening a new tab shifts the
+  // browser's focus away almost immediately, so the modal must already be
+  // rendered in this tab first or the user never sees it.
+  form.reset();
+  openModal('success');
+
   const waWindow = window.open(
     `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
-    '_blank'
+    '_blank',
+    'noopener,noreferrer'
   );
 
-  if (!waWindow) {
-    showFormMsg('error');
-    return;
-  }
-
-  form.reset();
-  showFormMsg('success');
+  if (!waWindow) modalBox.classList.add('is-error');
 });
-
-function showFormMsg(type) {
-  const el = type === 'success' ? msgSuccess : msgError;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 6000);
-}
 
 function shakField(input) {
   if (!input) return;

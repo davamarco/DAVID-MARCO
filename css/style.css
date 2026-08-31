@@ -766,15 +766,6 @@ h2 {
   color: var(--blue);
 }
 
-.form-msg {
-  display: none; text-align: center; padding: 14px;
-  border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
-  margin-top: 12px;
-}
-.form-msg.show  { display: block; }
-.form-msg.success { background: rgba(34,197,94,.1); color: #16a34a; }
-.form-msg.error   { background: rgba(239,68,68,.08); color: #dc2626; }
-
 /* Contact info */
 .contact-info { padding-top: 8px; }
 .c-item {
@@ -836,6 +827,67 @@ footer {
 }
 .footer-social-link svg { flex-shrink: 0; }
 .footer-social-link:hover { color: rgba(255,255,255,.9); transform: translateY(-2px); }
+
+/* ================================================================
+   THANK YOU MODAL
+   ================================================================ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(10,10,10,.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
+}
+.modal-overlay.show {
+  opacity: 1; visibility: visible;
+  transition: opacity .3s ease, visibility 0s linear;
+}
+
+.modal-box {
+  position: relative;
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 44px 36px 36px;
+  max-width: 380px; width: 100%;
+  text-align: center;
+  transform: translateY(24px) scale(.96);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.modal-overlay.show .modal-box { transform: translateY(0) scale(1); }
+
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray-text);
+  transition: background var(--trans), color var(--trans);
+}
+.modal-close:hover { background: var(--gray-bg); color: #000; }
+
+.modal-logo { width: 52px; height: 52px; object-fit: contain; margin: 0 auto 22px; }
+
+.modal-icon {
+  width: 64px; height: 64px; margin: 0 auto 20px;
+  border-radius: 50%; background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-box.is-error .modal-icon { background: #dc2626; }
+
+.modal-icon svg { display: none; }
+.modal-icon .mi-success { display: block; }
+.modal-box.is-error .modal-icon .mi-success { display: none; }
+.modal-box.is-error .modal-icon .mi-error   { display: block; }
+
+.modal-title { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+.modal-text  { font-size: 15px; color: var(--gray-text); line-height: 1.6; margin-bottom: 28px; }
+
+.modal-title .ms-error, .modal-text .ms-error { display: none; }
+.modal-box.is-error .ms-success { display: none; }
+.modal-box.is-error .ms-error   { display: inline; }
+
+.modal-btn { width: 100%; }
 
 /* ================================================================
    RESPONSIVE
