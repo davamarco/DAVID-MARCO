@@ -310,12 +310,10 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
    THANK YOU MODAL
    ================================================================ */
 const modalOverlay = document.getElementById('thankYouModal');
-const modalBox     = document.getElementById('modalBox');
 const modalClose   = document.getElementById('modalClose');
 const modalOkBtn   = document.getElementById('modalOkBtn');
 
-function openModal(type) {
-  modalBox.classList.toggle('is-error', type === 'error');
+function openModal() {
   modalOverlay.classList.add('show');
   document.body.style.overflow = 'hidden';
 }
@@ -360,17 +358,20 @@ form.addEventListener('submit', (e) => {
 
   // Open the modal *before* window.open() — opening a new tab shifts the
   // browser's focus away almost immediately, so the modal must already be
-  // rendered in this tab first or the user never sees it.
+  // rendered in this tab first or the user never sees it. There's no
+  // reliable way for JS to detect whether the WhatsApp redirect actually
+  // succeeded (window.open() returns a truthy handle even when a mobile
+  // OS just hands off to the WhatsApp app), so this used to guess via that
+  // return value — which was wrong often enough to show a false "couldn't
+  // open WhatsApp" error on successful sends. Always show success instead.
   form.reset();
-  openModal('success');
+  openModal();
 
-  const waWindow = window.open(
+  window.open(
     `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
     '_blank',
     'noopener,noreferrer'
   );
-
-  if (!waWindow) modalBox.classList.add('is-error');
 });
 
 function shakField(input) {
