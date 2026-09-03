@@ -96,7 +96,20 @@ function startScrollAnimations() {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.anim').forEach(el => io.observe(el));
+  document.querySelectorAll('.anim').forEach(el => {
+    if (el.closest('.services-timeline')) return; // handled by a repeating observer below
+    io.observe(el);
+  });
+
+  // Services timeline cards: replay on every scroll pass (both directions),
+  // unlike the rest of the site's fire-once reveal.
+  const timelineIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.services-timeline .service-card.anim').forEach(el => timelineIO.observe(el));
 }
 
 function triggerHeroAnimations() {

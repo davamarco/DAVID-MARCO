@@ -491,14 +491,22 @@ h2 {
 .timeline-item--left  .service-card { grid-column: 1; grid-row: 1; justify-self: end; }
 .timeline-item--right .service-card { grid-column: 3; grid-row: 1; justify-self: start; }
 
-.service-card {
+/* Selector deliberately prefixed with .services-timeline to outrank
+   .anim's transition shorthand (same trick as a.hero-google-badge) —
+   otherwise this and .anim would fight over the "transform" transition
+   at equal specificity, and whichever lost would snap instead of ease.
+   Hover uses the standalone `translate` property (not `transform`) so
+   the hover lift and the reveal slide never contend for the same
+   transition slot — the hover stays snappy while the reveal is slow. */
+.services-timeline .service-card {
   background: var(--dark-card); border-radius: var(--radius);
   padding: 32px 28px; max-width: 460px; width: 100%;
   border: 1px solid rgba(255,255,255,.07);
-  transition: transform var(--trans), border-color var(--trans), box-shadow var(--trans);
+  transition: translate var(--trans), border-color var(--trans), box-shadow var(--trans),
+              opacity 2.25s ease, transform 2.25s ease;
 }
-.service-card:hover {
-  transform: translateY(-5px);
+.services-timeline .service-card:hover {
+  translate: 0 -5px;
   border-color: var(--blue-alpha20);
   box-shadow: 0 12px 40px rgba(29,121,233,.15);
 }
