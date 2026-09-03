@@ -216,6 +216,35 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 
 /* ================================================================
+   FLOATING CONTACT BUTTON
+   ================================================================ */
+const fabBtn     = document.getElementById('contactFabBtn');
+const fabPanel   = document.getElementById('contactFabPanel');
+const fabClose   = document.getElementById('contactFabClose');
+const fabOverlay = document.getElementById('contactFabOverlay');
+
+function openFabPanel() {
+  fabPanel.classList.add('open');
+  fabOverlay.classList.add('open');
+  fabBtn.setAttribute('aria-expanded', 'true');
+}
+function closeFabPanel() {
+  fabPanel.classList.remove('open');
+  fabOverlay.classList.remove('open');
+  fabBtn.setAttribute('aria-expanded', 'false');
+}
+
+fabBtn.addEventListener('click', () => {
+  if (fabPanel.classList.contains('open')) closeFabPanel();
+  else openFabPanel();
+});
+fabClose.addEventListener('click', closeFabPanel);
+fabOverlay.addEventListener('click', closeFabPanel);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && fabPanel.classList.contains('open')) closeFabPanel();
+});
+
+/* ================================================================
    LANGUAGE TOGGLE
    ================================================================ */
 let lang = localStorage.getItem('dm_lang') || 'en';
