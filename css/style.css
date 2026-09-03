@@ -1075,9 +1075,14 @@ footer {
   overflow: hidden;
 }
 
+/* Text gets its own fixed-height row at the top; the image gets
+   whatever's left and is never allowed to crop — see .compare-img
+   below. Was absolute-positioned cover-fit before, which zoomed in
+   hard on tall mobile screens and cropped characters (the tortoise's
+   head, Leonardo's head on short wide desktops) right out of frame. */
 .compare-panel {
   position: absolute; inset: 0;
-  display: flex; align-items: flex-start; justify-content: center;
+  display: flex; flex-direction: column; align-items: center;
 }
 .compare-panel--after { z-index: 1; }
 /* Revealed left-to-right by --pos, which lives on .compare-slider and
@@ -1085,20 +1090,19 @@ footer {
 .compare-panel--before {
   z-index: 2;
   clip-path: inset(0 calc(100% - var(--pos)) 0 0);
-}
-
-.compare-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  pointer-events: none;
+  /* Opaque so it fully occludes the "after" panel underneath within its
+     clip region — without this, the gaps around its (now smaller,
+     contained) image and text were transparent, letting the after
+     panel's own centered text bleed through and double up with this
+     panel's text. */
+  background: #fff;
 }
 
 .compare-content {
   position: relative; z-index: 2;
+  flex-shrink: 0;
   text-align: center;
-  margin-top: clamp(60px, 12vh, 140px);
-  padding: 0 24px;
+  padding: clamp(56px, 11vh, 130px) 24px 20px;
 }
 .compare-badge {
   display: inline-block; padding: 6px 16px; border-radius: 100px;
@@ -1109,6 +1113,21 @@ footer {
 .compare-badge--after { background: var(--blue); color: #fff; }
 .compare-content h2 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 8px; }
 .compare-content p  { font-size: clamp(14px, 2vw, 17px); color: var(--gray-text); font-weight: 600; }
+
+/* Takes whatever vertical space is left below the text row; the image
+   inside is object-fit:contain, so the whole character always stays
+   in frame (no cropping) and just scales down instead of zooming in. */
+.compare-img-frame {
+  flex: 1; min-height: 0; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 32px clamp(40px, 6vh, 80px);
+}
+.compare-img {
+  max-width: 100%; max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
 
 .compare-handle {
   position: absolute; top: 0; bottom: 0;
