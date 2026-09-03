@@ -341,6 +341,14 @@ function applyLang(l) {
     }
   });
 
+  // Input placeholders live on the input itself, not a [data-ru] text node,
+  // since the visible label above already carries the field name — these
+  // need their own pass.
+  document.querySelectorAll('[data-ru-placeholder]').forEach(el => {
+    const val = el.getAttribute(`data-${l}-placeholder`);
+    if (val) el.placeholder = val;
+  });
+
   // Update lang buttons (both desktop and mobile)
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === l);
@@ -401,6 +409,22 @@ if (modalOverlay && modalClose && modalOkBtn) {
 }
 
 /* ================================================================
+   PLAN TOGGLE (contact form — Start / Business)
+   ================================================================ */
+let selectedPlan = null;
+const planToggle = document.getElementById('planToggle');
+
+if (planToggle) {
+  planToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('.plan-opt');
+    if (!btn) return;
+    planToggle.querySelectorAll('.plan-opt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedPlan = btn.dataset.plan;
+  });
+}
+
+/* ================================================================
    CONTACT FORM → WHATSAPP
    ================================================================ */
 const WA_NUMBER = '19544455820';
@@ -422,8 +446,9 @@ if (form) {
     }
 
     const lines = ['New request from website:', `Name: ${name}`, `Contact: ${phone}`];
-    if (email)   lines.push(`Email: ${email}`);
-    if (message) lines.push(`Message: ${message}`);
+    if (email)       lines.push(`Email: ${email}`);
+    if (selectedPlan) lines.push(`Plan: ${selectedPlan}`);
+    if (message)      lines.push(`Message: ${message}`);
 
     // Open the modal *before* window.open() — opening a new tab shifts the
     // browser's focus away almost immediately, so the modal must already be
@@ -434,6 +459,8 @@ if (form) {
     // return value — which was wrong often enough to show a false "couldn't
     // open WhatsApp" error on successful sends. Always show success instead.
     form.reset();
+    if (planToggle) planToggle.querySelectorAll('.plan-opt').forEach(b => b.classList.remove('active'));
+    selectedPlan = null;
     openModal();
 
     window.open(
