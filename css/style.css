@@ -328,7 +328,11 @@ ul { list-style: none; }
   display: grid; grid-template-columns: 1fr 1fr;
   align-items: center; gap: 60px;
   max-width: 1280px; margin: 0 auto;
-  padding: 80px 40px;
+  /* Was 80px top/bottom — stacked on top of #hero's own header-height
+     offset and the ready-strip below, it pushed the title ~130px below
+     the header on desktop and made the whole hero taller than most
+     viewports. */
+  padding: 40px 40px;
   width: 100%;
 }
 
@@ -608,11 +612,6 @@ h2 {
 }
 .p-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 
-.p-preview {
-  background: linear-gradient(135deg, var(--c1), var(--c2));
-  padding: 18px 18px 0; height: 210px;
-  display: flex; flex-direction: column;
-}
 .p-browser {
   display: flex; align-items: center; gap: 10px;
   background: rgba(255,255,255,.08); border-radius: 8px 8px 0 0;
@@ -626,37 +625,6 @@ h2 {
   font-size: 11px; color: rgba(255,255,255,.45);
   background: rgba(255,255,255,.08); padding: 3px 10px; border-radius: 4px;
 }
-.p-mock {
-  flex: 1; background: rgba(255,255,255,.04);
-  border-radius: 6px 6px 0 0; padding: 18px;
-}
-.p-mock-line {
-  border-radius: 5px; margin: 0;
-  background: rgba(255,255,255,.85);
-}
-.p-mock-line.mb8  { margin-bottom: 8px; }
-.p-mock-line.mb16 { margin-bottom: 16px; }
-.p-mock-line.w60 { width: 60%; }
-.p-mock-line.w55 { width: 55%; }
-.p-mock-line.w65 { width: 65%; }
-.p-mock-line.w50 { width: 50%; }
-.p-mock-line.w40 { width: 40%; }
-.p-mock-line.w35 { width: 35%; }
-.p-mock-line.w45 { width: 45%; }
-.p-mock-line.w30 { width: 30%; }
-.p-mock-line.h10 { height: 10px; }
-.p-mock-line.h7  { height: 7px; }
-.p-mock-line.op90 { opacity: .9; }
-.p-mock-line.op50 { opacity: .5; }
-.p-mock-btn {
-  display: inline-block; height: 30px; line-height: 30px;
-  padding: 0 18px; border-radius: 7px;
-  font-size: 11px; font-weight: 700; color: #fff;
-}
-.p-mock-btn.blue   { background: var(--blue); }
-.p-mock-btn.green  { background: #22c55e; }
-.p-mock-btn.orange { background: #f97316; }
-
 .p-info  { padding: 18px 22px; }
 .p-tag {
   display: inline-block; font-size: 11px; font-weight: 700;
@@ -955,15 +923,6 @@ footer {
 .footer-copy {
   font-size: 13px; color: rgba(255,255,255,.4);
 }
-.footer-links { display: flex; gap: 16px; align-items: center; }
-
-.footer-social-link {
-  display: flex; align-items: center; gap: 7px;
-  font-size: 13px; font-weight: 600; color: rgba(255,255,255,.5);
-  transition: color var(--trans), transform var(--trans);
-}
-.footer-social-link svg { flex-shrink: 0; }
-.footer-social-link:hover { color: rgba(255,255,255,.9); transform: translateY(-2px); }
 
 /* ================================================================
    THANK YOU MODAL
@@ -1194,7 +1153,6 @@ footer {
   .mobile-lang    { padding: 10px 24px; }
 
   .footer-inner   { flex-direction: column; text-align: center; }
-  .footer-links   { justify-content: center; flex-wrap: wrap; }
 
   .section-header { margin-bottom: 40px; }
   .section-header p { font-size: 15px; }
@@ -1259,11 +1217,6 @@ footer {
   background: #f5f5f7;
   padding: 28px 0 32px;
   text-align: center;
-}
-.social-strip-title {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .13em; text-transform: uppercase;
-  color: #86868b; margin-bottom: 20px;
 }
 .social-row {
   display: flex;
