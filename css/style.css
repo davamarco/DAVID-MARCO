@@ -7,13 +7,8 @@
 /* ── RESET ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-/* Orbitron has no Cyrillic glyphs (Latin-only font) — the browser silently
-   falls back to the next family in the stack for RU text, so pinning that
-   fallback to the site's own Manrope keeps RU text intentional-looking
-   instead of dropping to a generic system sans-serif. Set globally on body
-   so the whole site (not just headings) carries the Orbitron "digital" feel. */
 body {
-  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #fff;
   color: #000;
   overflow-x: hidden;
@@ -24,6 +19,17 @@ a  { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
+/* Orbitron is reserved for headline-scale text and buttons — it's a
+   technical/display face that reads poorly at paragraph sizes. Everything
+   else (descriptions, nav, form fields, FAQ, etc.) inherits Manrope from
+   body above. Orbitron has no Cyrillic glyphs, so the Manrope fallback
+   below keeps RU headings intentional-looking instead of dropping to a
+   generic system sans-serif. */
+h1, h2, h3,
+.btn-primary, .btn-outline, .btn-glass,
+.ready-text, .contact-fab, .fab-panel-title {
+  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 h1, h2, h3 {
   text-transform: uppercase;
 }
@@ -67,6 +73,11 @@ ul { list-style: none; }
   z-index: 9999;
   transition: opacity .7s ease, visibility .7s ease;
 }
+/* Set on <html> by an inline head script, before this stylesheet even
+   paints — an internal navigation within the same tab session skips the
+   intro outright (no display, no fade) rather than hiding it after the
+   fact, so there's no flash of the branded loader between pages. */
+html.skip-preloader #preloader { display: none; }
 #preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
 .preloader-inner {
@@ -158,7 +169,7 @@ ul { list-style: none; }
 
 /* Nav */
 .header-nav {
-  display: flex; align-items: center; gap: 28px;
+  display: flex; align-items: center; gap: 12px;
   flex: 1;
   transition: opacity var(--trans), transform var(--trans);
 }
@@ -167,7 +178,8 @@ ul { list-style: none; }
 }
 
 .nav-link {
-  font-size: 14px; font-weight: 600; color: #1d1d1f;
+  font-size: 13px; font-weight: 600; color: #1d1d1f;
+  text-transform: uppercase; letter-spacing: .05em;
   position: relative;
   transition: color var(--trans);
 }
@@ -180,6 +192,7 @@ ul { list-style: none; }
 }
 .nav-link:hover { color: var(--blue); }
 .nav-link:hover::after { width: 100%; }
+.nav-sep { font-size: 13px; color: var(--gray-border); }
 
 /* Right cluster */
 .header-right {
@@ -711,6 +724,65 @@ h2 {
 }
 
 /* ================================================================
+   CASE STUDY (project detail pages, /projects/*.html)
+   ================================================================ */
+.case-hero { padding: calc(var(--header-h) + 60px) 0 100px; }
+.case-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+}
+
+.case-back {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: #1d1d1f; margin-bottom: 28px;
+  transition: color var(--trans);
+}
+.case-back:hover { color: var(--blue); }
+.case-back-icon {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 1.5px solid rgba(0,0,0,.15); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color var(--trans), color var(--trans);
+}
+.case-back:hover .case-back-icon { border-color: var(--blue); color: var(--blue); }
+
+.case-title { font-size: clamp(32px, 5.5vw, 56px); margin-bottom: 22px; }
+.case-desc  { font-size: 16px; color: var(--gray-text); line-height: 1.75; max-width: 520px; margin-bottom: 32px; }
+
+.case-cta { margin-bottom: 40px; }
+.case-cta svg { margin-left: 10px; }
+
+.case-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--gray-border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.case-stat {
+  padding: 26px 28px;
+  border-right: 1px solid var(--gray-border);
+  border-bottom: 1px solid var(--gray-border);
+}
+.case-stat:nth-child(2n)          { border-right: none; }
+.case-stat:nth-child(3),
+.case-stat:nth-child(4)           { border-bottom: none; }
+.case-stat-label {
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gray-text); margin-bottom: 14px;
+}
+.case-stat-value { font-size: 18px; font-weight: 700; }
+
+.case-preview-frame {
+  background: #0a0a0a; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-lg); position: sticky; top: calc(var(--header-h) + 40px);
+}
+.case-preview-frame .p-browser { margin-bottom: 0; }
+.case-preview-img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4 / 3; object-fit: cover; object-position: top center;
+}
+
+/* ================================================================
    PROCESS
    ================================================================ */
 .process-row {
@@ -1195,6 +1267,9 @@ footer {
   .process-row::before { display: none; }
   .pricing-row { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+
+  .case-grid { grid-template-columns: 1fr; gap: 40px; }
+  .case-preview-frame { position: static; }
 }
 
 /* ── Mobile ≤768px ──────────────────────────────────────────── */
@@ -1242,6 +1317,9 @@ footer {
 
   .portfolio-grid { grid-template-columns: 1fr; }
   .about-cards    { grid-template-columns: 1fr 1fr; }
+
+  .case-hero  { padding: calc(var(--header-h) + 32px) 0 70px; }
+  .case-stat  { padding: 20px; }
   .process-row    { grid-template-columns: 1fr; }
   .pricing-row    { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 

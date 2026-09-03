@@ -6,6 +6,29 @@
    PRELOADER
    ================================================================ */
 ;(function initPreloader() {
+  const pl = document.getElementById('preloader');
+
+  // Reveals whatever the rest of the page needs to show its content —
+  // normally only run once the preloader intro finishes, but a skipped
+  // intro (see below) still needs these, just without the wait.
+  function revealPage() {
+    startScrollAnimations();
+    triggerFadeUps();
+    initReadyTextAnimation();
+  }
+
+  // The intro is a once-per-session brand moment, not a per-page spinner —
+  // a tiny inline script in <head> (runs before this file, before the
+  // preloader div ever paints) already stamped .skip-preloader on <html>
+  // and hid #preloader via CSS when this load is an internal navigation
+  // within the same tab session. A real reload (or a fresh session) still
+  // gets the full intro.
+  if (!pl || document.documentElement.classList.contains('skip-preloader')) {
+    if (document.readyState === 'complete') revealPage();
+    else window.addEventListener('load', revealPage);
+    return;
+  }
+
   document.body.style.overflow = 'hidden';
 
   // Letters + bar finish at 2000ms (see plLetterIn/plBarFill in style.css);
@@ -16,13 +39,10 @@
   const holdMs  = reduced ? 300 : 2300;
 
   window.addEventListener('load', () => {
-    const pl = document.getElementById('preloader');
     setTimeout(() => {
       pl.classList.add('hidden');
       document.body.style.overflow = '';
-      startScrollAnimations();
-      triggerFadeUps();
-      initReadyTextAnimation();
+      revealPage();
     }, holdMs);
   });
 })();
@@ -63,12 +83,15 @@ window.addEventListener('scroll', () => {
 const hamburger  = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
-hamburger.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  hamburger.classList.toggle('active', open);
-});
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('active', open);
+  });
+}
 
 function closeMobileMenu() {
+  if (!hamburger || !mobileMenu) return;
   mobileMenu.classList.remove('open');
   hamburger.classList.remove('active');
 }
@@ -276,20 +299,23 @@ function openFabPanel() {
   fabBtn.setAttribute('aria-expanded', 'true');
 }
 function closeFabPanel() {
+  if (!fabPanel || !fabOverlay || !fabBtn) return;
   fabPanel.classList.remove('open');
   fabOverlay.classList.remove('open');
   fabBtn.setAttribute('aria-expanded', 'false');
 }
 
-fabBtn.addEventListener('click', () => {
-  if (fabPanel.classList.contains('open')) closeFabPanel();
-  else openFabPanel();
-});
-fabClose.addEventListener('click', closeFabPanel);
-fabOverlay.addEventListener('click', closeFabPanel);
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && fabPanel.classList.contains('open')) closeFabPanel();
-});
+if (fabBtn && fabPanel && fabClose && fabOverlay) {
+  fabBtn.addEventListener('click', () => {
+    if (fabPanel.classList.contains('open')) closeFabPanel();
+    else openFabPanel();
+  });
+  fabClose.addEventListener('click', closeFabPanel);
+  fabOverlay.addEventListener('click', closeFabPanel);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fabPanel.classList.contains('open')) closeFabPanel();
+  });
+}
 
 /* ================================================================
    LANGUAGE TOGGLE
@@ -363,14 +389,16 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-modalClose.addEventListener('click', closeModal);
-modalOkBtn.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
-});
+if (modalOverlay && modalClose && modalOkBtn) {
+  modalClose.addEventListener('click', closeModal);
+  modalOkBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
+  });
+}
 
 /* ================================================================
    CONTACT FORM → WHATSAPP
@@ -378,41 +406,43 @@ document.addEventListener('keydown', (e) => {
 const WA_NUMBER = '19544455820';
 const form      = document.getElementById('contactForm');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  const name    = document.getElementById('fname').value.trim();
-  const phone   = document.getElementById('fphone').value.trim();
-  const email   = document.getElementById('femail').value.trim();
-  const message = document.getElementById('fmessage').value.trim();
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const message = document.getElementById('fmessage').value.trim();
 
-  if (!name || !phone) {
-    shakField(name   ? null : document.getElementById('fname'));
-    shakField(phone  ? null : document.getElementById('fphone'));
-    return;
-  }
+    if (!name || !phone) {
+      shakField(name   ? null : document.getElementById('fname'));
+      shakField(phone  ? null : document.getElementById('fphone'));
+      return;
+    }
 
-  const lines = ['New request from website:', `Name: ${name}`, `Contact: ${phone}`];
-  if (email)   lines.push(`Email: ${email}`);
-  if (message) lines.push(`Message: ${message}`);
+    const lines = ['New request from website:', `Name: ${name}`, `Contact: ${phone}`];
+    if (email)   lines.push(`Email: ${email}`);
+    if (message) lines.push(`Message: ${message}`);
 
-  // Open the modal *before* window.open() — opening a new tab shifts the
-  // browser's focus away almost immediately, so the modal must already be
-  // rendered in this tab first or the user never sees it. There's no
-  // reliable way for JS to detect whether the WhatsApp redirect actually
-  // succeeded (window.open() returns a truthy handle even when a mobile
-  // OS just hands off to the WhatsApp app), so this used to guess via that
-  // return value — which was wrong often enough to show a false "couldn't
-  // open WhatsApp" error on successful sends. Always show success instead.
-  form.reset();
-  openModal();
+    // Open the modal *before* window.open() — opening a new tab shifts the
+    // browser's focus away almost immediately, so the modal must already be
+    // rendered in this tab first or the user never sees it. There's no
+    // reliable way for JS to detect whether the WhatsApp redirect actually
+    // succeeded (window.open() returns a truthy handle even when a mobile
+    // OS just hands off to the WhatsApp app), so this used to guess via that
+    // return value — which was wrong often enough to show a false "couldn't
+    // open WhatsApp" error on successful sends. Always show success instead.
+    form.reset();
+    openModal();
 
-  window.open(
-    `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
-    '_blank',
-    'noopener,noreferrer'
-  );
-});
+    window.open(
+      `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  });
+}
 
 function shakField(input) {
   if (!input) return;

@@ -6,6 +6,22 @@
   <title>David Marco — Web Design Studio</title>
   <meta name="description" content="Modern landing pages for small businesses. Fast, beautiful, high-converting." />
 
+  <!-- Runs synchronously before #preloader ever paints, so an internal
+       navigation within the same tab session can skip the intro with zero
+       flash — see the .skip-preloader rule in style.css and initPreloader()
+       in main.js. -->
+  <script>
+    (function () {
+      try {
+        var nav = performance.getEntriesByType('navigation')[0];
+        var isReload = nav && nav.type === 'reload';
+        var visited = sessionStorage.getItem('dm_visited') === '1';
+        if (visited && !isReload) document.documentElement.classList.add('skip-preloader');
+        sessionStorage.setItem('dm_visited', '1');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=29" />
+  <link rel="stylesheet" href="css/style.css?v=31" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -47,10 +63,12 @@
     <!-- Nav -->
     <nav class="header-nav" id="headerNav">
       <a href="#hero"      class="nav-link smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
       <a href="#about"     class="nav-link smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-      <a href="#portfolio" class="nav-link smooth-scroll" data-ru="Портфолио" data-en="Portfolio">Портфолио</a>
-      <a href="#faq"       class="nav-link smooth-scroll">FAQ</a>
-      <a href="#contact"   class="nav-link smooth-scroll" data-ru="Контакты"  data-en="Contacts">Контакты</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="#portfolio" class="nav-link smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="#contact"   class="nav-link smooth-scroll" data-ru="Контакты"  data-en="Contact">Контакты</a>
     </nav>
 
     <!-- Right side -->
@@ -75,9 +93,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#hero"      class="smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
     <a href="#about"     class="smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-    <a href="#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Portfolio">Портфолио</a>
-    <a href="#faq"       class="smooth-scroll">FAQ</a>
-    <a href="#contact"   class="smooth-scroll" data-ru="Контакты"  data-en="Contacts">Контакты</a>
+    <a href="#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+    <a href="#contact"   class="smooth-scroll" data-ru="Контакты"  data-en="Contact">Контакты</a>
     <div class="mobile-lang">
       <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
       <button class="lang-btn" data-lang="en">🇺🇸 English</button>
@@ -402,7 +419,7 @@
     <div class="portfolio-grid">
 
       <!-- Card 1 — AG Motors Miami / RentCar (real screenshot + glassmorphism) -->
-      <a href="https://agmotorsmiami.com/" target="_blank" rel="noopener"
+      <a href="projects/ag-motors-miami.html"
          class="p-card p-card--rb anim">
         <div class="p-preview--rb">
           <div class="p-browser rb-browser">
@@ -413,7 +430,7 @@
             <img src="img/rentcar-preview.png" alt="AG Motors Miami" class="rb-img" />
             <div class="rb-fade"></div>
             <div class="rb-glass">
-              <span data-ru="Посетить сайт" data-en="Visit Site">Посетить сайт</span>
+              <span data-ru="Смотреть проект" data-en="View Project">Смотреть проект</span>
             </div>
           </div>
         </div>
@@ -424,7 +441,7 @@
       </a>
 
       <!-- Card 2 — Resto Bistro (real screenshot + glassmorphism) -->
-      <a href="https://davamarco.github.io/restobistro/" target="_blank" rel="noopener"
+      <a href="projects/resto-bistro.html"
          class="p-card p-card--rb anim delay-1">
         <div class="p-preview--rb">
           <div class="p-browser rb-browser">
@@ -435,7 +452,7 @@
             <img src="img/resto-bistro-preview.png" alt="Resto Bistro" class="rb-img" />
             <div class="rb-fade"></div>
             <div class="rb-glass">
-              <span data-ru="Посетить сайт" data-en="Visit Site">Посетить сайт</span>
+              <span data-ru="Смотреть проект" data-en="View Project">Смотреть проект</span>
             </div>
           </div>
         </div>
@@ -446,7 +463,7 @@
       </a>
 
       <!-- Card 3 — Frostline (real screenshot + glassmorphism) -->
-      <a href="https://davamarco.github.io/frostline/index.html" target="_blank" rel="noopener"
+      <a href="projects/frostline.html"
          class="p-card p-card--rb anim delay-2">
         <div class="p-preview--rb">
           <div class="p-browser rb-browser">
@@ -457,7 +474,7 @@
             <img src="img/frostline-preview.jpg" alt="Frostline" class="rb-img" />
             <div class="rb-fade"></div>
             <div class="rb-glass">
-              <span data-ru="Посетить сайт" data-en="Visit Site">Посетить сайт</span>
+              <span data-ru="Смотреть проект" data-en="View Project">Смотреть проект</span>
             </div>
           </div>
         </div>
@@ -468,7 +485,7 @@
       </a>
 
       <!-- Card 4 — Velluto Ice Cream -->
-      <a href="https://davamarco.github.io/velluto-icecream/index.html" target="_blank" rel="noopener"
+      <a href="projects/velluto.html"
          class="p-card p-card--rb anim delay-3">
         <div class="p-preview--rb">
           <div class="p-browser rb-browser">
@@ -479,7 +496,7 @@
             <img src="img/velluto-preview.png" alt="Velluto Ice Cream" class="rb-img" />
             <div class="rb-fade"></div>
             <div class="rb-glass">
-              <span data-ru="Посетить сайт" data-en="Visit Site">Посетить сайт</span>
+              <span data-ru="Смотреть проект" data-en="View Project">Смотреть проект</span>
             </div>
           </div>
         </div>
@@ -923,6 +940,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=14"></script>
+<script src="js/main.js?v=16"></script>
 </body>
 </html>
