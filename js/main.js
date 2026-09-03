@@ -117,6 +117,34 @@ function triggerHeroAnimations() {
   els.forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 100 + i * 80);
   });
+
+  animateHeroAccentWord();
+}
+
+/* Hero title accent word ("sell" / "продают") — plays once on load,
+   independent of the rest of the title's normal .fade-up. Uses GSAP
+   inline styles (highest specificity) so it can't collide with the
+   .fade-up/.anim cascade. Degrades gracefully to a plain, fully
+   visible word if GSAP fails to load — never left stuck invisible.
+   Long, deliberately slow duration so the reveal reads as its own
+   moment instead of blending into the title's normal fade-up. */
+function animateHeroAccentWord() {
+  const word = document.querySelector('.hero-title em');
+  if (!word || typeof gsap === 'undefined') return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Respect reduced-motion by dropping the blur/movement, but still
+    // a slow, visible fade rather than an instant, silent skip.
+    gsap.set(word, { opacity: 0 });
+    gsap.to(word, { opacity: 1, duration: 2, delay: 0.4, ease: 'power1.out' });
+    return;
+  }
+
+  gsap.set(word, { opacity: 0, y: 32, filter: 'blur(20px)' });
+  gsap.to(word, {
+    opacity: 1, y: 0, filter: 'blur(0px)',
+    duration: 3, delay: 0.6, ease: 'power3.out'
+  });
 }
 
 /* ================================================================

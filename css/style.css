@@ -309,9 +309,19 @@ ul { list-style: none; }
 
 /* Title */
 .hero-title {
-  font-size: clamp(40px, 5vw, 70px);
+  font-size: clamp(34px, 6vw, 80px);
   font-weight: 900; line-height: 1.08; letter-spacing: -.03em;
   margin-bottom: 22px; display: flex; flex-direction: column;
+}
+/* Cyrillic runs wider than the English copy at the same size — a
+   shared clamp tuned for English wraps "которые продают" onto 3
+   lines at the ~1025-1300px two-column pinch point and on wide
+   screens. Keep RU on its own, verified-safe curve instead. */
+html:lang(ru) .hero-title {
+  font-size: clamp(34px, 5vw, 66px);
+}
+@media (max-width: 340px) {
+  html:lang(ru) .hero-title { font-size: clamp(29px, 5vw, 66px); }
 }
 .hero-title em {
   font-style: normal; color: var(--blue);
@@ -1061,7 +1071,6 @@ footer {
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
-  .hero-title  { font-size: 36px; }
   .hero-visual { height: 260px; }
   .pricing-row { grid-template-columns: 1fr; }
 
