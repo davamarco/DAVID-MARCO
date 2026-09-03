@@ -499,7 +499,8 @@ a.hero-google-badge:hover {
 }
 .section-tag {
   display: inline-block;
-  font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
   color: var(--blue); margin-bottom: 14px;
 }
 .section-header h2 { margin-bottom: 14px; }
@@ -1194,13 +1195,6 @@ footer {
   text-align: center;
   padding: clamp(56px, 11vh, 130px) 24px 20px;
 }
-.compare-badge {
-  display: inline-block; padding: 6px 16px; border-radius: 100px;
-  font-size: 13px; font-weight: 700;
-  background: var(--gray-bg); color: #1d1d1f;
-  margin-bottom: 16px;
-}
-.compare-badge--after { background: var(--blue); color: #fff; }
 .compare-content h2 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 8px; }
 .compare-content p  { font-size: clamp(14px, 2vw, 17px); color: var(--gray-text); font-weight: 400; }
 
