@@ -14,7 +14,8 @@
       pl.classList.add('hidden');
       document.body.style.overflow = '';
       startScrollAnimations();
-      triggerHeroAnimations();
+      triggerFadeUps();
+      initReadyTextAnimation();
     }, 2600);
   });
 })();
@@ -112,39 +113,94 @@ function startScrollAnimations() {
   document.querySelectorAll('.services-timeline .service-card.anim').forEach(el => timelineIO.observe(el));
 }
 
-function triggerHeroAnimations() {
+function triggerFadeUps() {
   const els = document.querySelectorAll('.fade-up');
   els.forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 100 + i * 80);
   });
-
-  animateHeroAccentWord();
 }
 
-/* Hero title accent word ("sell" / "продают") — plays once on load,
-   independent of the rest of the title's normal .fade-up. Uses GSAP
-   inline styles (highest specificity) so it can't collide with the
-   .fade-up/.anim cascade. Degrades gracefully to a plain, fully
-   visible word if GSAP fails to load — never left stuck invisible.
-   Long, deliberately slow duration so the reveal reads as its own
-   moment instead of blending into the title's normal fade-up. */
-function animateHeroAccentWord() {
-  const word = document.querySelector('.hero-title em');
-  if (!word || typeof gsap === 'undefined') return;
+/* "Ready for new projects" strip, below the hero grid — words fly in
+   (dropping + rotating) as it scrolls into view, and replay every
+   time it re-enters the viewport in either scroll direction (not a
+   one-shot reveal). Requires GSAP + SplitText + ScrollTrigger; if any
+   of those failed to load, or the visitor prefers reduced motion, the
+   text is just shown as-is (.ready-text starts at opacity:0 in CSS
+   purely to avoid a flash of the pre-split text, so every code path
+   below — including the early-return ones — must explicitly reveal
+   it; never leave it silently invisible).
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    // Respect reduced-motion by dropping the blur/movement, but still
-    // a slow, visible fade rather than an instant, silent skip.
-    gsap.set(word, { opacity: 0 });
-    gsap.to(word, { opacity: 1, duration: 2, delay: 0.4, ease: 'power1.out' });
+   The language toggle (applyLang(), below) swaps this element's text via
+   textContent — which silently wipes out the SplitText word-spans below
+   once they exist, leaving the ScrollTrigger driving detached elements
+   (text stays visible via the container's opacity, just frozen — no fly-in
+   on that language). buildReadyTextAnimation() re-splits and rebuilds the
+   animation from scratch, so applyLang() can call it again after every
+   language switch, not just once on load. */
+let readyTextReady = false;
+let readyTextSplit = null;
+let readyTextMM    = null;
+
+function initReadyTextAnimation() {
+  const el = document.querySelector('.ready-text');
+  if (!el) return;
+
+  const librariesReady = typeof gsap !== 'undefined'
+    && typeof SplitText !== 'undefined'
+    && typeof ScrollTrigger !== 'undefined';
+
+  if (!librariesReady || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.style.opacity = '1';
     return;
   }
 
-  gsap.set(word, { opacity: 0, y: 32, filter: 'blur(20px)' });
-  gsap.to(word, {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    duration: 3, delay: 0.6, ease: 'power3.out'
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  document.fonts.ready.then(() => {
+    gsap.set(el, { opacity: 1 });
+    readyTextReady = true;
+    buildReadyTextAnimation();
   });
+}
+
+function buildReadyTextAnimation() {
+  const el = document.querySelector('.ready-text');
+  if (!el || !readyTextReady) return;
+
+  // mm.revert() also kills every tween/ScrollTrigger created inside its
+  // context functions (gsap.matchMedia is context-scoped), so this alone
+  // is enough to tear down the previous language's animation cleanly.
+  // Deliberately NOT calling readyTextSplit.revert() here: it restores the
+  // DOM to whatever text existed at the ORIGINAL split() call, which would
+  // stomp a language switch that happened after that — applyLang() already
+  // reset el's plain textContent (destroying the old word-spans as a side
+  // effect) before calling this, so there's nothing left to revert.
+  if (readyTextMM) readyTextMM.revert();
+
+  readyTextSplit = SplitText.create(el, { type: 'words', wordsClass: 'word++' });
+
+  readyTextMM = gsap.matchMedia();
+  readyTextMM.add(
+    { isMobile: '(max-width: 599px)', isDesktop: '(min-width: 600px)' },
+    (context) => {
+      const yAmt     = context.conditions.isMobile ? -40 : -100;
+      const rotRange = context.conditions.isMobile ? 30  : 80;
+
+      gsap.from(readyTextSplit.words, {
+        y: yAmt,
+        opacity: 0,
+        rotation: () => gsap.utils.random(-rotRange, rotRange),
+        stagger: 0.1,
+        duration: 1,
+        ease: 'back',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'restart reverse restart reverse'
+        }
+      });
+    }
+  );
 }
 
 /* ================================================================
@@ -187,6 +243,10 @@ function applyLang(l) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === l);
   });
+
+  // Re-split + rebuild the "Ready for new projects" fly-in now that its
+  // text just changed (no-op until the initial split has happened once).
+  buildReadyTextAnimation();
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
