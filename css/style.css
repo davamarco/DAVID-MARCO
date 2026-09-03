@@ -1065,6 +1065,90 @@ footer {
 }
 
 /* ================================================================
+   SEO BEFORE/AFTER COMPARE SLIDER
+   ================================================================ */
+.seo-compare { position: relative; background: #fff; }
+
+.compare-slider {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.compare-panel {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-start; justify-content: center;
+}
+.compare-panel--after { z-index: 1; }
+/* Revealed left-to-right by --pos, which lives on .compare-slider and
+   inherits down to here as a custom property. */
+.compare-panel--before {
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.compare-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  pointer-events: none;
+}
+
+.compare-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  margin-top: clamp(60px, 12vh, 140px);
+  padding: 0 24px;
+}
+.compare-badge {
+  display: inline-block; padding: 6px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 700;
+  background: var(--gray-bg); color: #1d1d1f;
+  margin-bottom: 16px;
+}
+.compare-badge--after { background: var(--blue); color: #fff; }
+.compare-content h2 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 8px; }
+.compare-content p  { font-size: clamp(14px, 2vw, 17px); color: var(--gray-text); font-weight: 600; }
+
+.compare-handle {
+  position: absolute; top: 0; bottom: 0;
+  left: var(--pos);
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  outline: none; /* replaced below with a ring on just the grip — the
+                     browser's default outline stretches the full height
+                     of this element, which is the whole viewport tall */
+}
+.compare-handle:focus-visible .compare-handle-grip {
+  box-shadow: 0 0 0 3px var(--blue-alpha20), var(--shadow-lg);
+}
+/* Wider invisible grab zone — the visible line is only 3px, too thin to
+   reliably grab with a mouse or finger. touch-action:none lives ONLY here
+   (not on the full-screen section) so page scroll everywhere else in this
+   section keeps working normally; only this ~44px strip captures drags. */
+.compare-handle-hit {
+  position: absolute; inset: 0 -22px;
+  cursor: ew-resize; touch-action: none;
+}
+.compare-handle-line {
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 3px; transform: translateX(-50%);
+  background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  pointer-events: none;
+}
+.compare-handle-grip {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: #fff; color: #000; box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; justify-content: center; gap: 3px;
+  pointer-events: none;
+}
+
+.compare-footer { text-align: center; padding: 56px 40px; }
+.compare-tagline { font-size: clamp(20px, 3vw, 30px); font-weight: 700; margin-bottom: 22px; }
+.compare-tagline em { font-style: normal; color: var(--blue); }
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 

@@ -211,6 +211,46 @@ function buildReadyTextAnimation() {
 }
 
 /* ================================================================
+   SEO COMPARE SLIDER (before/after drag)
+   ================================================================ */
+(function initCompareSlider() {
+  const slider = document.getElementById('compareSlider');
+  const handle = document.getElementById('compareHandle');
+  const hit    = handle && handle.querySelector('.compare-handle-hit');
+  if (!slider || !handle || !hit) return;
+
+  let dragging = false;
+
+  function setPos(pct) {
+    pct = Math.min(96, Math.max(4, pct));
+    slider.style.setProperty('--pos', pct + '%');
+    handle.setAttribute('aria-valuenow', Math.round(pct));
+  }
+
+  function pctFromEvent(e) {
+    const rect = slider.getBoundingClientRect();
+    return (e.clientX - rect.left) / rect.width * 100;
+  }
+
+  hit.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    hit.setPointerCapture(e.pointerId);
+    setPos(pctFromEvent(e));
+  });
+  hit.addEventListener('pointermove', (e) => {
+    if (dragging) setPos(pctFromEvent(e));
+  });
+  hit.addEventListener('pointerup', () => { dragging = false; });
+  hit.addEventListener('pointercancel', () => { dragging = false; });
+
+  handle.addEventListener('keydown', (e) => {
+    const current = parseFloat(getComputedStyle(slider).getPropertyValue('--pos')) || 50;
+    if (e.key === 'ArrowLeft')  { setPos(current - 5); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { setPos(current + 5); e.preventDefault(); }
+  });
+})();
+
+/* ================================================================
    FAQ ACCORDION
    ================================================================ */
 document.querySelectorAll('.faq-q').forEach(btn => {
