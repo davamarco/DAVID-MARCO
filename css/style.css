@@ -253,6 +253,7 @@ ul { list-style: none; }
 .mobile-menu a:hover { color: var(--blue); background: var(--blue-alpha10); }
 .mobile-menu .btn-primary {
   margin: 16px 40px; border-radius: 100px; text-align: center;
+  font-weight: 700; color: #fff;
 }
 .mobile-lang {
   display: flex; gap: 12px;
@@ -512,7 +513,7 @@ h2 {
 .about-left .section-tag { display: block; }
 .about-left h2 { margin-bottom: 22px; }
 .about-left p {
-  font-size: 17px; color: #3d3d3f; line-height: 1.75; margin-bottom: 16px;
+  font-size: 17px; font-weight: 400; color: var(--gray-text); line-height: 1.75; margin-bottom: 16px;
 }
 
 .about-cards {
@@ -833,7 +834,7 @@ h2 {
   transition: max-height .4s ease, padding .4s ease;
 }
 .faq-item.open .faq-a { max-height: 280px; padding-bottom: 22px; }
-.faq-a p { font-size: 15px; color: #444; line-height: 1.75; }
+.faq-a p { font-size: 15px; font-weight: 400; color: var(--gray-text); line-height: 1.75; }
 
 /* ================================================================
    CONTACT
@@ -1116,7 +1117,7 @@ footer {
 }
 .compare-badge--after { background: var(--blue); color: #fff; }
 .compare-content h2 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 8px; }
-.compare-content p  { font-size: clamp(14px, 2vw, 17px); color: var(--gray-text); font-weight: 600; }
+.compare-content p  { font-size: clamp(14px, 2vw, 17px); color: var(--gray-text); font-weight: 400; }
 
 /* Takes whatever vertical space is left below the text row; the image
    inside is object-fit:contain, so the whole character always stays
