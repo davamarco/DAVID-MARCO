@@ -8,6 +8,13 @@
 ;(function initPreloader() {
   document.body.style.overflow = 'hidden';
 
+  // Letters + bar finish at 2000ms (see plLetterIn/plBarFill in style.css);
+  // hide shortly after so the finished state is visible for a beat first.
+  // Under reduced motion there's no letter-by-letter animation to wait for
+  // (CSS shows everything instantly), so the loader should barely linger.
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const holdMs  = reduced ? 300 : 2300;
+
   window.addEventListener('load', () => {
     const pl = document.getElementById('preloader');
     setTimeout(() => {
@@ -16,7 +23,7 @@
       startScrollAnimations();
       triggerFadeUps();
       initReadyTextAnimation();
-    }, 2600);
+    }, holdMs);
   });
 })();
 
