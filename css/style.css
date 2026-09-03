@@ -77,7 +77,14 @@ ul { list-style: none; }
 .pl-word {
   font-family: 'Sacramento', cursive;
   font-weight: 400;
-  font-size: clamp(44px, 10vw, 90px);
+  /* Tuned (not guessed) against the bar's own rendered width — see
+     .preloader-bar below — so "david marco" reads at roughly the same
+     length as the bar at any viewport: ~52.7px font at 375px width,
+     ramping up to ~85.9px by the point the bar itself hits its 320px
+     cap (its container is 60vw minus the 48px side padding, so that's
+     ~581px viewport width), and holding flat past that since neither
+     grows any further. */
+  font-size: clamp(52.7px, calc(-7.64px + 16.09vw), 85.9px);
   line-height: 1;
   color: #fff;
   white-space: nowrap;
