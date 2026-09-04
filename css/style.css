@@ -1058,9 +1058,19 @@ h2 {
 
 /* Form */
 .contact-form-wrap {
-  background: var(--dark-card); border-radius: var(--radius);
+  background-color: var(--dark-card); border-radius: 0;
   padding: 40px;
   border: 1px solid rgba(255,255,255,.1);
+  position: relative;
+  /* Corner-bracket accents, matching .pricing-row */
+  background-image:
+    linear-gradient(var(--blue), var(--blue)), linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--blue), var(--blue)), linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--blue), var(--blue)), linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--blue), var(--blue)), linear-gradient(var(--blue), var(--blue));
+  background-repeat: no-repeat;
+  background-size: 14px 2px, 2px 14px, 14px 2px, 2px 14px, 14px 2px, 2px 14px, 14px 2px, 2px 14px;
+  background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
 }
 .field-dark { margin-bottom: 20px; }
 .field-dark label {
