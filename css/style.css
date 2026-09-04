@@ -162,7 +162,7 @@ html.skip-preloader #preloader { display: none; }
 
 /* Logo */
 .header-logo img {
-  height: 150px; width: auto; max-width: 220px;
+  height: 68px; width: auto; max-width: 78px;
   transition: opacity var(--trans);
 }
 .header-logo:hover img { opacity: .65; }
@@ -1137,7 +1137,7 @@ footer {
 
 .footer-logo { display: inline-block; }
 .footer-logo img {
-  height: 26px; width: auto; opacity: .9;
+  height: 120px; width: auto; max-width: 138px; opacity: .9;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
@@ -1216,7 +1216,7 @@ footer {
 }
 .modal-close:hover { background: var(--gray-bg); color: #000; }
 
-.modal-logo { height: 76px; width: auto; max-width: 200px; object-fit: contain; margin: 0 auto 22px; }
+.modal-logo { height: 56px; width: auto; max-width: 64px; object-fit: contain; margin: 0 auto 22px; }
 
 .modal-icon {
   width: 64px; height: 64px; margin: 0 auto 20px;
@@ -1446,8 +1446,8 @@ footer {
   .lang-toggle  { display: none; }
   .hamburger    { display: flex; }
 
-  .header-logo img { height: 120px; max-width: 160px; }
-  .footer-logo img { height: 22px; max-width: 100%; }
+  .header-logo img { height: 60px; max-width: 69px; }
+  .footer-logo img { height: 100px; max-width: 100%; }
 
   .btn-glass { padding: 7px 13px; font-size: 12px; }
   .header-right { gap: 10px; }
@@ -1502,7 +1502,8 @@ footer {
   .mobile-lang    { padding: 10px 24px; }
 
   footer          { padding-bottom: 40px; }
-  .footer-top     { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .footer-top     { grid-template-columns: 1fr; gap: 36px; text-align: center; justify-items: center; }
+  .footer-logo    { justify-self: center; margin: 0 auto; }
   .footer-col     { align-items: center; }
   .footer-social-block { text-align: center; }
   .footer-social-row   { justify-content: center; }
@@ -1529,8 +1530,8 @@ footer {
 @media (max-width: 480px) {
   :root { --header-h: 64px; }
 
-  .header-logo img { height: 120px; max-width: 130px; }
-  .footer-logo img { height: 18px; }
+  .header-logo img { height: 54px; max-width: 62px; }
+  .footer-logo img { height: 80px; }
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
