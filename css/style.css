@@ -1107,7 +1107,7 @@ footer {
 
 .footer-logo { display: inline-block; }
 .footer-logo img {
-  height: 36px; width: auto; opacity: .9;
+  height: 26px; width: auto; opacity: .9;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
@@ -1420,7 +1420,7 @@ footer {
   .hamburger    { display: flex; }
 
   .header-logo img { height: 120px; max-width: 160px; }
-  .footer-logo img { height: 30px; max-width: 100%; }
+  .footer-logo img { height: 22px; max-width: 100%; }
 
   .btn-glass { padding: 7px 13px; font-size: 12px; }
   .header-right { gap: 10px; }
@@ -1499,7 +1499,7 @@ footer {
   :root { --header-h: 64px; }
 
   .header-logo img { height: 120px; max-width: 130px; }
-  .footer-logo img { height: 24px; }
+  .footer-logo img { height: 18px; }
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
