@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — David Marco</title>
+  <meta name="description" content="Privacy Policy for David Marco / ITDAVITO LLC — how we collect, use and protect your information." />
+  <meta name="robots" content="noindex" />
+
+  <!-- Runs synchronously before #preloader ever paints, so an internal
+       navigation within the same tab session can skip the intro with zero
+       flash — see the .skip-preloader rule in style.css and initPreloader()
+       in main.js. -->
+  <script>
+    (function () {
+      try {
+        var nav = performance.getEntriesByType('navigation')[0];
+        var isReload = nav && nav.type === 'reload';
+        var visited = sessionStorage.getItem('dm_visited') === '1';
+        if (visited && !isReload) document.documentElement.classList.add('skip-preloader');
+        sessionStorage.setItem('dm_visited', '1');
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css?v=37" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+</head>
+<body>
+
+<!-- ============================================================
+     PRELOADER
+     ============================================================ -->
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading">
+  <div class="preloader-inner">
+    <div class="pl-word" aria-hidden="true">
+      <span class="pl-letter">d</span><span class="pl-letter">a</span><span class="pl-letter">v</span><span class="pl-letter">i</span><span class="pl-letter">d</span><span class="pl-letter pl-space">&nbsp;</span><span class="pl-letter">m</span><span class="pl-letter">a</span><span class="pl-letter">r</span><span class="pl-letter">c</span><span class="pl-letter">o</span>
+    </div>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header id="header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="index.html#hero" class="header-logo">
+      <img src="img/logo-black.png" alt="David Marco" />
+    </a>
+
+    <!-- Nav -->
+    <nav class="header-nav" id="headerNav">
+      <a href="index.html#hero"      class="nav-link" data-ru="Главная"   data-en="Home">Главная</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="index.html#about"     class="nav-link" data-ru="Про меня"  data-en="About">Про меня</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="index.html#portfolio" class="nav-link" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="index.html#contact"   class="nav-link" data-ru="Контакты"  data-en="Contact">Контакты</a>
+    </nav>
+
+    <!-- Right side -->
+    <div class="header-right">
+      <!-- Language switcher -->
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn" data-lang="ru">🇷🇺</button>
+        <button class="lang-btn" data-lang="en">🇺🇸</button>
+      </div>
+
+      <!-- CTA -->
+      <a href="index.html#pricing" class="btn-glass" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#hero"      data-ru="Главная"   data-en="Home">Главная</a>
+    <a href="index.html#about"     data-ru="Про меня"  data-en="About">Про меня</a>
+    <a href="index.html#portfolio" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+    <a href="index.html#contact"   data-ru="Контакты"  data-en="Contact">Контакты</a>
+    <div class="mobile-lang">
+      <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+      <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+    </div>
+    <a href="index.html#pricing" class="btn-primary" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     PRIVACY POLICY
+     ============================================================ -->
+<section class="policy-hero section-dark">
+  <div class="container">
+    <a href="index.html#hero" class="policy-back">
+      <span class="policy-back-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="17" y1="17" x2="7" y2="7"/>
+          <polyline points="7 17 7 7 17 7"/>
+        </svg>
+      </span>
+      <span data-ru="Назад на главную" data-en="Back to Home">Назад на главную</span>
+    </a>
+
+    <div class="contact-badge">
+      <span class="contact-badge-bar" aria-hidden="true"></span>
+      <span data-ru="Юридическая информация" data-en="Legal">Юридическая информация</span>
+    </div>
+
+    <h1 data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</h1>
+    <p class="policy-updated" data-ru="Действует с 3 сентября 2026 года" data-en="Effective September 3, 2026">Действует с 3 сентября 2026 года</p>
+
+    <p class="policy-intro" data-ru="В ITDAVITO LLC («David Marco», «мы», «нас» или «наш») ваша конфиденциальность имеет для нас значение. Эта Политика конфиденциальности объясняет, как мы собираем, используем и защищаем информацию, которой вы делитесь с нами при посещении сайта или использовании наших услуг — веб-дизайна, разработки сайтов и создания лендингов." data-en="At ITDAVITO LLC (&quot;David Marco,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), your privacy matters to us. This Privacy Policy outlines how we collect, use, and protect the information you share with us when you visit our website or engage with our services, including web design, website development, and landing page creation.">
+      В ITDAVITO LLC («David Marco», «мы», «нас» или «наш») ваша конфиденциальность имеет для нас значение. Эта Политика конфиденциальности объясняет, как мы собираем, используем и защищаем информацию, которой вы делитесь с нами при посещении сайта или использовании наших услуг — веб-дизайна, разработки сайтов и создания лендингов.
+    </p>
+  </div>
+</section>
+
+<section class="policy-body section-dark">
+  <div class="container">
+    <div class="policy-content">
+
+      <div class="policy-block">
+        <h2><span class="policy-num">01</span><span data-ru="Какую информацию мы собираем" data-en="Information We Collect">Какую информацию мы собираем</span></h2>
+        <p data-ru="Когда вы взаимодействуете с нами — заполняя форму, обращаясь через WhatsApp, Telegram или email, либо просматривая наш сайт — мы можем собирать персональные данные: имя, email, номер телефона и информацию о вашем бизнесе или проекте." data-en="When you interact with us — whether by filling out a form, reaching out via WhatsApp, Telegram, or email, or browsing our website — we may collect personal information such as your name, email address, phone number, and details about your business or project.">
+          Когда вы взаимодействуете с нами — заполняя форму, обращаясь через WhatsApp, Telegram или email, либо просматривая наш сайт — мы можем собирать персональные данные: имя, email, номер телефона и информацию о вашем бизнесе или проекте.
+        </p>
+        <p data-ru="Мы также можем собирать технические данные: IP-адрес, тип браузера, информацию об устройстве и поведение на сайте. Часть данных может поступать из таких инструментов, как Google Analytics." data-en="We may also collect technical data such as your IP address, browser type, device information, and website usage behavior. Relevant data may also come from tools such as Google Analytics.">
+          Мы также можем собирать технические данные: IP-адрес, тип браузера, информацию об устройстве и поведение на сайте. Часть данных может поступать из таких инструментов, как Google Analytics.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">02</span><span data-ru="Как мы используем вашу информацию" data-en="How We Use Your Information">Как мы используем вашу информацию</span></h2>
+        <p data-ru="Мы используем эту информацию, чтобы отвечать на обращения, предоставлять и улучшать наши услуги, делиться обновлениями по проекту и улучшать ваш опыт взаимодействия с David Marco. Иногда мы можем присылать сервисные обновления с возможностью отписаться в любой момент." data-en="We use this information to respond to inquiries, provide and improve our services, share project updates, and improve your experience with David Marco. We may also send occasional service updates, with an option to opt out at any time.">
+          Мы используем эту информацию, чтобы отвечать на обращения, предоставлять и улучшать наши услуги, делиться обновлениями по проекту и улучшать ваш опыт взаимодействия с David Marco. Иногда мы можем присылать сервисные обновления с возможностью отписаться в любой момент.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">03</span><span data-ru="Как мы не используем вашу информацию" data-en="How We Do Not Use Your Information">Как мы не используем вашу информацию</span></h2>
+        <p data-ru="Мы не продаём и не передаём в аренду ваши персональные данные. Мы не обрабатываем платежи через сайт — все расчёты с клиентами производятся напрямую и приватно, вне сайта." data-en="We do not sell or rent your personal information. We do not process payments through our website — all payment arrangements are made directly and privately with each client, outside of the site.">
+          Мы не продаём и не передаём в аренду ваши персональные данные. Мы не обрабатываем платежи через сайт — все расчёты с клиентами производятся напрямую и приватно, вне сайта.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">04</span><span data-ru="Передача информации" data-en="Sharing of Information">Передача информации</span></h2>
+        <p data-ru="Мы можем передавать данные доверенным поставщикам услуг, которые помогают нам работать — например, платформам хостинга и инструментам аналитики. Такие партнёры обязаны обращаться с вашей информацией ответственно. Мы также можем раскрывать информацию, если этого требует закон, либо для защиты наших законных прав." data-en="We may share data with trusted service providers that help us operate, such as website hosting platforms and analytics tools. These partners are required to handle your information responsibly. We may also disclose information when required by law or to protect our legal rights.">
+          Мы можем передавать данные доверенным поставщикам услуг, которые помогают нам работать — например, платформам хостинга и инструментам аналитики. Такие партнёры обязаны обращаться с вашей информацией ответственно. Мы также можем раскрывать информацию, если этого требует закон, либо для защиты наших законных прав.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">05</span><span data-ru="Хранение данных и ваши права" data-en="Data Retention and Your Rights">Хранение данных и ваши права</span></h2>
+        <p data-ru="Мы храним данные только столько, сколько необходимо для целей, описанных в этой политике, или для соблюдения юридических обязательств. Вы можете запросить доступ, исправление или удаление своих персональных данных, написав нам на davidmarco.prod@gmail.com. В зависимости от вашего региона у вас также может быть право возразить против обработки, ограничить использование или отозвать согласие." data-en="We retain data only as long as necessary to fulfill the purposes described in this policy or to meet legal obligations. You may request access, correction, or deletion of your personal data by contacting us at davidmarco.prod@gmail.com. Depending on your location, you may also have rights to object to processing, restrict usage, or withdraw consent.">
+          Мы храним данные только столько, сколько необходимо для целей, описанных в этой политике, или для соблюдения юридических обязательств. Вы можете запросить доступ, исправление или удаление своих персональных данных, написав нам на <a href="mailto:davidmarco.prod@gmail.com">davidmarco.prod@gmail.com</a>. В зависимости от вашего региона у вас также может быть право возразить против обработки, ограничить использование или отозвать согласие.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">06</span><span data-ru="Безопасность" data-en="Security">Безопасность</span></h2>
+        <p data-ru="Мы применяем современные отраслевые практики для защиты вашей информации. Хотя ни одна цифровая система не может быть полностью защищена от рисков, мы непрерывно работаем над тем, чтобы обезопасить вашу конфиденциальность и предотвратить несанкционированный доступ." data-en="We use industry-standard practices to help protect your information. While no digital system is completely risk-free, we work continuously to safeguard your privacy and prevent unauthorized access.">
+          Мы применяем современные отраслевые практики для защиты вашей информации. Хотя ни одна цифровая система не может быть полностью защищена от рисков, мы непрерывно работаем над тем, чтобы обезопасить вашу конфиденциальность и предотвратить несанкционированный доступ.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">07</span><span data-ru="Файлы cookie" data-en="Cookies">Файлы cookie</span></h2>
+        <p data-ru="Наш сайт использует cookie-файлы, в том числе от Google Analytics, чтобы улучшать взаимодействие с сайтом, запоминать выбранный язык и анализировать эффективность сайта. Вы можете управлять cookie-файлами или отключить их в настройках браузера, однако блокировка некоторых из них может повлиять на работу сайта." data-en="Our website uses cookies, including those from Google Analytics, to improve your browsing experience, remember your language preference, and analyze website performance. You can manage or disable cookies through your browser settings, although blocking certain cookies may affect site functionality.">
+          Наш сайт использует cookie-файлы, в том числе от Google Analytics, чтобы улучшать взаимодействие с сайтом, запоминать выбранный язык и анализировать эффективность сайта. Вы можете управлять cookie-файлами или отключить их в настройках браузера, однако блокировка некоторых из них может повлиять на работу сайта.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">08</span><span data-ru="Изменения в политике" data-en="Changes to This Policy">Изменения в политике</span></h2>
+        <p data-ru="Мы можем обновлять эту Политику конфиденциальности по мере изменения законодательных требований или практики нашей работы. Продолжая пользоваться сайтом и услугами, вы соглашаетесь с внесёнными изменениями." data-en="We may update this Privacy Policy as legal requirements or our business practices change. Continued use of our website and services indicates acceptance of any revisions.">
+          Мы можем обновлять эту Политику конфиденциальности по мере изменения законодательных требований или практики нашей работы. Продолжая пользоваться сайтом и услугами, вы соглашаетесь с внесёнными изменениями.
+        </p>
+      </div>
+
+      <div class="policy-block">
+        <h2><span class="policy-num">09</span><span data-ru="Связаться с нами" data-en="Contact Us">Связаться с нами</span></h2>
+        <p data-ru="По вопросам, связанным с этой политикой или вашими персональными данными, свяжитесь с нами по адресу davidmarco.prod@gmail.com. ITDAVITO LLC работает между Майами (Флорида) и Шарлоттом (Северная Каролина)." data-en="For questions about this policy or your personal data, contact us at davidmarco.prod@gmail.com. ITDAVITO LLC operates between Miami, Florida and Charlotte, North Carolina.">
+          По вопросам, связанным с этой политикой или вашими персональными данными, свяжитесь с нами по адресу <a href="mailto:davidmarco.prod@gmail.com">davidmarco.prod@gmail.com</a>. ITDAVITO LLC работает между Майами (Флорида) и Шарлоттом (Северная Каролина).
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html#hero" class="footer-logo">
+        <img src="img/logo-white.png" alt="David Marco" />
+      </a>
+      <p class="footer-copy" data-ru="© 2025 David Marco. Создаю лендинги, которые продают." data-en="© 2025 David Marco. Building landing pages that sell.">
+        © 2025 David Marco. Создаю лендинги, которые продают.
+      </p>
+      <nav class="footer-links">
+        <a href="privacy-policy.html" data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING CONTACT BUTTON
+     ============================================================ -->
+<button type="button" class="contact-fab" id="contactFabBtn" aria-haspopup="true" aria-expanded="false" aria-controls="contactFabPanel">
+  <svg class="fab-btn-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+  <span data-ru="Отправить сообщение" data-en="Send a message">Отправить сообщение</span>
+</button>
+
+<div class="contact-fab-panel" id="contactFabPanel" role="dialog" aria-modal="false" aria-label="Contact options">
+  <div class="fab-panel-header">
+    <span class="fab-panel-title" data-ru="Написать мне" data-en="Message me">Написать мне</span>
+    <button type="button" class="fab-panel-close" id="contactFabClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="5" y1="5" x2="19" y2="19"/>
+        <line x1="19" y1="5" x2="5" y2="19"/>
+      </svg>
+    </button>
+  </div>
+
+  <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
+    <span class="fab-panel-icon fab-icon--whatsapp">
+      <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+    </span>
+    <span class="fab-panel-text" data-ru="Написать в WhatsApp" data-en="Send to WhatsApp">Написать в WhatsApp</span>
+  </a>
+
+  <a href="https://t.me/davitoo7" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
+    <span class="fab-panel-icon fab-icon--telegram">
+      <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
+        <path d="M248 8C111 8 8 111 8 248s103 240 240 240 240-103 240-240S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239-92.1c11.1-4 20.8 2.7 17.3 19.4z"/>
+      </svg>
+    </span>
+    <span class="fab-panel-text" data-ru="Написать в Telegram" data-en="Send to Telegram">Написать в Telegram</span>
+  </a>
+
+  <a href="mailto:davidmarco.prod@gmail.com" class="fab-panel-item">
+    <span class="fab-panel-icon fab-icon--email">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
+        <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path>
+        <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon>
+        <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path>
+        <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"></path>
+      </svg>
+    </span>
+    <span class="fab-panel-text" data-ru="Написать на Email" data-en="Send to Email">Написать на Email</span>
+  </a>
+</div>
+<div class="contact-fab-overlay" id="contactFabOverlay"></div>
+
+<script src="js/main.js?v=18"></script>
+</body>
+</html>

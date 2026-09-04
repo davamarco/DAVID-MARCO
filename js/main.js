@@ -438,10 +438,12 @@ if (form) {
     const phone   = document.getElementById('fphone').value.trim();
     const email   = document.getElementById('femail').value.trim();
     const message = document.getElementById('fmessage').value.trim();
+    const agree   = document.getElementById('fagree');
 
-    if (!name || !phone) {
+    if (!name || !phone || (agree && !agree.checked)) {
       shakField(name   ? null : document.getElementById('fname'));
       shakField(phone  ? null : document.getElementById('fphone'));
+      if (agree && !agree.checked) shakCheckbox(agree.closest('.policy-check'));
       return;
     }
 
@@ -480,4 +482,17 @@ function shakField(input) {
     { duration: 300, easing: 'ease' }
   );
   setTimeout(() => (input.style.borderColor = ''), 1200);
+}
+
+function shakCheckbox(label) {
+  if (!label) return;
+  const box = label.querySelector('.policy-check-box');
+  if (!box) return;
+  label.classList.add('shake');
+  box.animate(
+    [{ transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' },
+     { transform: 'translateX(-4px)' }, { transform: 'translateX(0)' }],
+    { duration: 300, easing: 'ease' }
+  );
+  setTimeout(() => label.classList.remove('shake'), 1200);
 }
