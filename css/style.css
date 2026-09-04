@@ -1107,7 +1107,7 @@ footer {
 
 .footer-logo { display: inline-block; }
 .footer-logo img {
-  height: 52px; width: auto; opacity: .9;
+  height: 36px; width: auto; opacity: .9;
   transition: opacity var(--trans);
 }
 .footer-logo:hover img { opacity: 1; }
@@ -1143,8 +1143,9 @@ footer {
 
 .footer-bottom { display: flex; align-items: center; }
 .footer-copy {
-  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 13px; color: rgba(255,255,255,.4);
+  font-family: 'JetBrains Mono', 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12.5px; font-weight: 500; letter-spacing: .03em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
 }
 
 /* ================================================================
@@ -1419,7 +1420,7 @@ footer {
   .hamburger    { display: flex; }
 
   .header-logo img { height: 120px; max-width: 160px; }
-  .footer-logo img { height: 40px; max-width: 100%; }
+  .footer-logo img { height: 30px; max-width: 100%; }
 
   .btn-glass { padding: 7px 13px; font-size: 12px; }
   .header-right { gap: 10px; }
@@ -1498,7 +1499,7 @@ footer {
   :root { --header-h: 64px; }
 
   .header-logo img { height: 120px; max-width: 130px; }
-  .footer-logo img { height: 32px; }
+  .footer-logo img { height: 24px; }
   .btn-glass { padding: 6px 10px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
