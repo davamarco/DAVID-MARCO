@@ -148,9 +148,9 @@ html.skip-preloader #preloader { display: none; }
    ================================================================ */
 #header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,.82);
+  background: rgba(10,10,10,.82);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   transition: var(--trans);
 }
 
@@ -178,7 +178,7 @@ html.skip-preloader #preloader { display: none; }
 }
 
 .nav-link {
-  font-size: 13px; font-weight: 600; color: #1d1d1f;
+  font-size: 13px; font-weight: 600; color: #fff;
   text-transform: uppercase; letter-spacing: .05em;
   position: relative;
   transition: color var(--trans);
@@ -192,7 +192,7 @@ html.skip-preloader #preloader { display: none; }
 }
 .nav-link:hover { color: var(--blue); }
 .nav-link:hover::after { width: 100%; }
-.nav-sep { font-size: 13px; color: var(--gray-border); }
+.nav-sep { font-size: 13px; color: rgba(255,255,255,.25); }
 
 /* Right cluster */
 .header-right {
@@ -202,7 +202,7 @@ html.skip-preloader #preloader { display: none; }
 /* Lang toggle */
 .lang-toggle {
   display: flex; gap: 4px;
-  background: var(--gray-bg); border-radius: 100px; padding: 3px;
+  background: rgba(255,255,255,.08); border-radius: 100px; padding: 3px;
 }
 .lang-btn {
   font-size: 17px; line-height: 1;
@@ -242,7 +242,7 @@ html.skip-preloader #preloader { display: none; }
 }
 .hamburger span {
   display: block; width: 22px; height: 2px;
-  background: #000; border-radius: 2px;
+  background: #fff; border-radius: 2px;
   transition: var(--trans);
 }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -252,15 +252,15 @@ html.skip-preloader #preloader { display: none; }
 /* Mobile menu */
 .mobile-menu {
   display: none; flex-direction: column; gap: 0;
-  border-top: 1px solid var(--gray-border);
-  background: rgba(255,255,255,.96);
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(10,10,10,.96);
   backdrop-filter: blur(20px);
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   padding: 15px 40px;
-  font-size: 16px; font-weight: 600; color: #1d1d1f;
-  border-bottom: 1px solid rgba(0,0,0,.05);
+  font-size: 16px; font-weight: 600; color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.08);
   transition: color var(--trans), background var(--trans);
 }
 .mobile-menu a:hover { color: var(--blue); background: var(--blue-alpha10); }
@@ -271,11 +271,11 @@ html.skip-preloader #preloader { display: none; }
 .mobile-lang {
   display: flex; gap: 12px;
   padding: 12px 40px;
-  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .mobile-lang .lang-btn {
   font-size: 14px; width: auto; padding: 6px 14px; gap: 6px;
-  background: var(--gray-bg); opacity: 1; border-radius: 100px;
+  background: rgba(255,255,255,.08); opacity: 1; border-radius: 100px;
 }
 .mobile-lang .lang-btn.active {
   background: var(--blue); color: #fff; box-shadow: none;
@@ -329,41 +329,66 @@ html.skip-preloader #preloader { display: none; }
   transform: translateY(-2px);
 }
 
+/* Hero sits on a dark background now — .btn-outline's default black
+   text/border (tuned for the site's light sections) would vanish here. */
+#hero .btn-outline { color: #fff; border-color: rgba(255,255,255,.3); }
+#hero .btn-outline:hover { color: var(--blue); border-color: var(--blue); }
+
 .btn-full { width: 100%; }
 
 /* ================================================================
    HERO
    ================================================================ */
 #hero {
-  min-height: 100svh;
-  display: flex; flex-direction: column; justify-content: center;
+  height: 100svh;
+  display: flex; flex-direction: column;
   padding-top: var(--header-h);
   position: relative; overflow: hidden;
+  background: var(--dark-bg); color: #fff;
 }
 
 .hero-inner {
   display: grid; grid-template-columns: 1fr 1fr;
-  align-items: center; gap: 60px;
+  align-items: stretch; gap: 60px;
   max-width: 1280px; margin: 0 auto;
-  /* Was 80px top/bottom — stacked on top of #hero's own header-height
-     offset and the ready-strip below, it pushed the title ~130px below
-     the header on desktop and made the whole hero taller than most
-     viewports. */
   padding: 40px 40px;
   width: 100%;
+  /* Fills #hero's full height (now that the ready-strip lives in its own
+     section below, not competing for space in here), so .hero-visual
+     (height:100%) reaches all the way down to the bottom of the screen. */
+  flex: 1; min-height: 0;
 }
 
-/* "Ready for new projects" strip */
+/* hero-inner stretches full height for the photo's sake — re-center the
+   text column's own content within that taller box. align-items:flex-start
+   is needed because a column flexbox defaults to stretch on the cross
+   axis, which was forcing every child (notably .hero-google-badge) to
+   the column's full width instead of its own content width. */
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: flex-start;
+}
+
+/* "Ready for new projects" — its own section now, right below #hero. */
 .hero-ready-strip {
   width: 100%; text-align: center;
-  padding: 24px 40px 60px;
+  padding: 60px 40px;
+  color: #fff;
+  /* From Uiverse.io by adamgiebl — grid-paper pattern, recolored to sit
+     on our --dark-bg instead of its original #191a1a/gray palette. */
+  --grid-line: rgba(255,255,255,.08);
+  background-color: var(--dark-bg);
+  background-image:
+    linear-gradient(0deg,  transparent 24%, var(--grid-line) 25%, var(--grid-line) 26%, transparent 27%, transparent 74%, var(--grid-line) 75%, var(--grid-line) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, var(--grid-line) 25%, var(--grid-line) 26%, transparent 27%, transparent 74%, var(--grid-line) 75%, var(--grid-line) 76%, transparent 77%, transparent);
+  background-size: 55px 55px;
 }
 .ready-text {
   display: inline-block; max-width: 50%; margin: 0 auto;
   font-size: clamp(22px, 3.6vw, 42px);
   font-weight: 800; line-height: 1.3; letter-spacing: 0;
   text-transform: uppercase;
-  color: #000;
+  color: #fff;
   opacity: 0; /* revealed by JS (instantly if GSAP/SplitText/ScrollTrigger
                  or motion preference rules out the animated reveal) */
 }
@@ -373,6 +398,7 @@ html.skip-preloader #preloader { display: none; }
   font-size: clamp(30px, 5.2vw, 68px);
   font-weight: 900; line-height: 1.15; letter-spacing: 0;
   margin-bottom: 22px; display: flex; flex-direction: column;
+  color: #fff;
 }
 /* Cyrillic runs wider than the English copy at the same size — a
    shared clamp tuned for English wraps "которые продают" onto 3
@@ -393,7 +419,7 @@ html:lang(ru) .hero-title {
 
 /* Desc */
 .hero-desc {
-  font-size: 18px; font-weight: 400; color: var(--gray-text);
+  font-size: 18px; font-weight: 400; color: rgba(255,255,255,.6);
   line-height: 1.65; max-width: 460px; margin-bottom: 36px;
 }
 
@@ -436,34 +462,42 @@ a.hero-google-badge:hover {
 }
 .h-stat { display: flex; flex-direction: column; }
 .h-stat strong {
-  font-size: 28px; font-weight: 800; line-height: 1; color: #000;
+  font-size: 28px; font-weight: 800; line-height: 1; color: #fff;
 }
 .h-stat span {
-  font-size: 12px; font-weight: 600; color: var(--gray-text); margin-top: 4px;
+  font-size: 12px; font-weight: 600; color: rgba(255,255,255,.5); margin-top: 4px;
 }
 .h-divider {
-  width: 1px; height: 36px; background: var(--gray-border); flex-shrink: 0;
+  width: 1px; height: 36px; background: rgba(255,255,255,.15); flex-shrink: 0;
 }
 
-/* Photo */
+/* Photo — full-bleed to the bottom edge of the hero, no card/frame, so
+   it reaches all the way down instead of floating with dead space below
+   it (was a fixed 680px card; .hero-inner now stretches full height and
+   this fills 100% of that). */
 .hero-visual {
   display: flex; justify-content: flex-end; align-items: flex-end;
-  height: 680px; position: relative;
+  height: 100%; position: relative;
 }
 .hero-photo-wrap {
-  position: relative; height: 100%;
+  position: relative; height: 100%; width: 100%;
   display: flex; align-items: flex-end;
   will-change: transform;
 }
 .hero-photo {
-  height: 100%; width: auto;
-  object-fit: cover; object-position: top center;
+  /* david.jpg is a wide 2091x1166 landscape frame (the subject only
+     occupies its center ~40%) — width:auto let the box's rendered width
+     follow that landscape ratio at full height, which at hero height
+     massively overflowed the column and got clipped by #hero's
+     overflow:hidden, cutting off his arm. Locking both dimensions to
+     the column's own box lets object-fit actually crop as intended;
+     54% keeps the crop centered on him (measured from the source photo,
+     not a guess). */
+  height: 100%; width: 100%;
+  object-fit: cover; object-position: 54% center;
   position: relative; z-index: 2;
-  /* Removes white background from B&W photo — blends perfectly with white site */
-  mix-blend-mode: multiply;
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
-  mask-image:         linear-gradient(to bottom, black 50%, transparent 92%);
-  filter: contrast(1.1) brightness(.96);
+  display: block;
+  filter: contrast(1.05) brightness(.97);
   transition: filter .4s ease;
 }
 .hero-photo:hover { filter: contrast(1.12) brightness(.98); }
@@ -521,6 +555,27 @@ h2 {
 /* ================================================================
    ABOUT
    ================================================================ */
+#about {
+  position: relative;
+  background: var(--gray-bg);
+}
+/* From Uiverse.io by Gautammsharma — faded grid pattern, recolored to
+   our own gray tokens instead of the original slate palette. Grid lines
+   fade out toward the bottom via the mask, revealing the section's
+   solid --gray-bg underneath ("grid on top, solid below"). */
+#about::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(to right,  var(--gray-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gray-border) 1px, transparent 1px);
+  background-size: 20px 30px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+  mask-image:         radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+  pointer-events: none;
+}
+#about .container { position: relative; z-index: 1; }
+
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
 }
@@ -1418,7 +1473,13 @@ footer {
 
 /* ── Tablet ≤1024px ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; padding: 60px 40px; }
+  /* Desktop pins #hero to exactly one viewport tall so the photo can
+     stretch edge-to-edge; stacked mobile content (text + photo +
+     ready-strip) is routinely taller than that, so it needs to grow
+     instead of being clipped by #hero's overflow:hidden. */
+  #hero { height: auto; min-height: 100svh; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; padding: 60px 40px; flex: none; }
+  .hero-content { align-items: center; }
   .hero-visual { order: -1; height: 400px; justify-content: center; }
   .hero-actions, .hero-stats { justify-content: center; }
   .hero-desc { margin-left: auto; margin-right: auto; }
