@@ -69,13 +69,63 @@ document.querySelectorAll('.smooth-scroll').forEach(el => {
 });
 
 /* ================================================================
-   HEADER — sticky + collapse
+   HEADER — sticky + glass nav with sliding indicator
    ================================================================ */
 const header = document.getElementById('header');
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 90);
 }, { passive: true });
+
+(function initNavIndicator() {
+  const nav       = document.getElementById('headerNav');
+  const indicator = nav && nav.querySelector('.nav-indicator');
+  if (!nav || !indicator) return;
+
+  const links    = [...nav.querySelectorAll('.nav-link')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  let current    = null;
+
+  function moveTo(link) {
+    indicator.style.width     = link.offsetWidth + 'px';
+    indicator.style.transform = `translateX(${link.offsetLeft}px)`;
+    indicator.classList.add('ready');
+  }
+
+  function setActive(link) {
+    if (!link) return;
+    current = link;
+    links.forEach(a => a.classList.toggle('active', a === link));
+    moveTo(link);
+  }
+
+  // Which section is under the header right now
+  let lock = 0; // while a click-scroll is animating, don't let scroll-spy fight it
+  function spy() {
+    if (Date.now() < lock) return;
+    let idx = 0;
+    sections.forEach((sec, i) => {
+      if (sec && sec.getBoundingClientRect().top <= window.innerHeight * 0.35) idx = i;
+    });
+    if (links[idx] !== current) setActive(links[idx]);
+  }
+
+  links.forEach(a => a.addEventListener('click', () => {
+    lock = Date.now() + 900;
+    setActive(a);
+  }));
+
+  window.addEventListener('scroll', spy, { passive: true });
+  window.addEventListener('resize', () => current && moveTo(current));
+  // Labels change width when the language switches — re-measure after applyLang
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => setTimeout(() => current && moveTo(current), 0)));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => current && moveTo(current));
+
+  window.addEventListener('load', () => current && moveTo(current));
+  spy();
+  if (!current) setActive(links[0]);
+})();
 
 /* ================================================================
    HAMBURGER / MOBILE MENU

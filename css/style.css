@@ -26,7 +26,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    below keeps RU headings intentional-looking instead of dropping to a
    generic system sans-serif. */
 h1, h2, h3,
-.btn-primary, .btn-outline, .btn-glass,
+.btn-primary, .btn-outline,
 .ready-text, .contact-fab, .fab-panel-title {
   font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -148,8 +148,8 @@ html.skip-preloader #preloader { display: none; }
    ================================================================ */
 #header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(10,10,10,.82);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: rgba(10,10,10,.78);
+  backdrop-filter: blur(24px) saturate(140%); -webkit-backdrop-filter: blur(24px) saturate(140%);
   border-bottom: 1px solid rgba(255,255,255,.08);
   transition: var(--trans);
 }
@@ -167,74 +167,83 @@ html.skip-preloader #preloader { display: none; }
 }
 .header-logo:hover img { opacity: .65; }
 
-/* Nav */
+/* Nav — glass pill with a sliding highlight */
 .header-nav {
-  display: flex; align-items: center; gap: 12px;
-  flex: 1;
-  transition: opacity var(--trans), transform var(--trans);
-}
-#header.scrolled .header-nav {
-  opacity: 0; pointer-events: none; transform: translateY(-6px);
-}
-
-.nav-link {
-  font-size: 13px; font-weight: 600; color: #fff;
-  text-transform: uppercase; letter-spacing: .05em;
   position: relative;
-  transition: color var(--trans);
+  display: flex; align-items: center; gap: 2px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 8px 30px rgba(0,0,0,.28);
+  backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
-.nav-link::after {
-  content: '';
-  position: absolute; bottom: -3px; left: 0;
-  width: 0; height: 2px;
-  background: var(--blue); border-radius: 1px;
-  transition: width var(--trans);
+.nav-indicator {
+  position: absolute; top: 5px; bottom: 5px; left: 0;
+  width: 0; border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,.12));
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 4px 14px rgba(0,0,0,.25);
+  opacity: 0; pointer-events: none;
+  transition: transform .5s cubic-bezier(.4,0,.2,1), width .5s cubic-bezier(.4,0,.2,1), opacity .3s;
 }
-.nav-link:hover { color: var(--blue); }
-.nav-link:hover::after { width: 100%; }
-.nav-sep { font-size: 13px; color: rgba(255,255,255,.25); }
+.nav-indicator.ready { opacity: 1; }
+.nav-link {
+  position: relative; z-index: 1;
+  padding: 9px 18px; border-radius: 100px;
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,.62);
+  text-transform: uppercase; letter-spacing: .08em; white-space: nowrap;
+  transition: color .3s;
+}
+.nav-link:hover { color: #fff; }
+.nav-link.active { color: #fff; }
 
 /* Right cluster */
 .header-right {
-  display: flex; align-items: center; gap: 14px; margin-left: auto;
+  display: flex; align-items: center; gap: 14px;
 }
+.header-cta { padding: 12px 26px; font-size: 14px; white-space: nowrap; }
 
-/* Lang toggle */
+/* Lang toggle — glass segmented switch with a sliding thumb */
 .lang-toggle {
-  display: flex; gap: 4px;
-  background: rgba(255,255,255,.08); border-radius: 100px; padding: 3px;
+  position: relative;
+  display: flex;
+  padding: 3px; border-radius: 100px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
-.lang-btn {
-  font-size: 17px; line-height: 1;
-  width: 32px; height: 32px; border-radius: 100px;
-  display: flex; align-items: center; justify-content: center;
-  opacity: .45;
-  transition: all var(--trans);
+.lang-toggle::before {
+  content: ''; position: absolute; top: 3px; bottom: 3px; left: 3px;
+  width: calc(50% - 3px); border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.14));
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 3px 10px rgba(0,0,0,.25);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
 }
-.lang-btn.active {
-  opacity: 1;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+.lang-toggle:has(.lang-btn[data-lang="en"].active)::before { transform: translateX(100%); }
+.lang-toggle .lang-btn {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 8px; border-radius: 100px;
+  font-size: 12px; font-weight: 800; letter-spacing: .06em; color: rgba(255,255,255,.55);
+  transition: color .3s;
 }
+.lang-toggle .lang-btn.active { color: #fff; }
+.lang-toggle .lang-btn:hover { color: #fff; }
 
-/* Glass CTA button */
-.btn-glass {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 9px 22px; border-radius: 100px;
-  font-size: 14px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .03em;
-  color: var(--blue);
-  background: var(--blue-alpha10);
-  border: 1px solid var(--blue-alpha20);
-  backdrop-filter: blur(10px);
-  transition: all var(--trans); white-space: nowrap; cursor: pointer;
+/* Round flags (inline SVG so they render on every OS — emoji flags
+   show up as plain "RU"/"US" letters on Windows) */
+.flag {
+  display: inline-block; flex: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background-size: cover; background-position: center;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.25);
 }
-.btn-glass:hover {
-  background: var(--blue); color: #fff;
-  border-color: var(--blue);
-  box-shadow: 0 6px 24px var(--blue-glow);
-  transform: translateY(-1px);
-}
+.flag-ru { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3CclipPath id='c'%3E%3Ccircle cx='12' cy='12' r='12'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23c)'%3E%3Crect width='24' height='8' fill='%23fff'/%3E%3Crect y='8' width='24' height='8' fill='%230039A6'/%3E%3Crect y='16' width='24' height='8' fill='%23D52B1E'/%3E%3C/g%3E%3C/svg%3E"); }
+.flag-us { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3CclipPath id='c'%3E%3Ccircle cx='12' cy='12' r='12'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23c)'%3E%3Crect width='24' height='24' fill='%23fff'/%3E%3Cg fill='%23B22234'%3E%3Crect y='0' width='24' height='2.2'/%3E%3Crect y='4.4' width='24' height='2.2'/%3E%3Crect y='8.8' width='24' height='2.2'/%3E%3Crect y='13.2' width='24' height='2.2'/%3E%3Crect y='17.6' width='24' height='2.2'/%3E%3Crect y='22' width='24' height='2'/%3E%3C/g%3E%3Crect width='11' height='13.2' fill='%233C3B6E'/%3E%3C/g%3E%3C/svg%3E"); }
 
 /* Hamburger */
 .hamburger {
@@ -274,11 +283,13 @@ html.skip-preloader #preloader { display: none; }
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .mobile-lang .lang-btn {
-  font-size: 14px; width: auto; padding: 6px 14px; gap: 6px;
-  background: rgba(255,255,255,.08); opacity: 1; border-radius: 100px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.7);
+  padding: 8px 16px 8px 10px; border-radius: 100px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
 }
 .mobile-lang .lang-btn.active {
-  background: var(--blue); color: #fff; box-shadow: none;
+  background: rgba(255,255,255,.22); color: #fff;
 }
 
 /* ================================================================
@@ -1510,7 +1521,7 @@ footer {
   .header-logo img { height: 60px; max-width: 69px; }
   .footer-logo img { height: 100px; max-width: 100%; }
 
-  .btn-glass { padding: 7px 13px; font-size: 12px; }
+  .header-cta { padding: 9px 16px; font-size: 12px; }
   .header-right { gap: 10px; }
 
   .container    { padding: 0 20px; }
@@ -1593,7 +1604,7 @@ footer {
 
   .header-logo img { height: 54px; max-width: 62px; }
   .footer-logo img { height: 80px; }
-  .btn-glass { padding: 6px 10px; font-size: 11px; }
+  .header-cta { padding: 8px 12px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
   .hero-visual { height: 260px; }

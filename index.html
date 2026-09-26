@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=56" />
+  <link rel="stylesheet" href="css/style.css?v=58" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -64,27 +64,26 @@
            alt="DAVITO logo" width="68" height="59" />
     </a>
 
-    <!-- Nav -->
-    <nav class="header-nav" id="headerNav">
+    <!-- Nav (glass pill with sliding indicator) -->
+    <nav class="header-nav" id="headerNav" aria-label="Main">
+      <span class="nav-indicator" aria-hidden="true"></span>
       <a href="#hero"      class="nav-link smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
       <a href="#about"     class="nav-link smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
       <a href="#portfolio" class="nav-link smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="#faq"       class="nav-link smooth-scroll" data-ru="FAQ"       data-en="FAQ">FAQ</a>
       <a href="#contact"   class="nav-link smooth-scroll" data-ru="Контакты"  data-en="Contact">Контакты</a>
     </nav>
 
     <!-- Right side -->
     <div class="header-right">
       <!-- Language switcher -->
-      <div class="lang-toggle" id="langToggle">
-        <button class="lang-btn" data-lang="ru">🇷🇺</button>
-        <button class="lang-btn" data-lang="en">🇺🇸</button>
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="ru" aria-label="Русский"><span class="flag flag-ru"></span><span class="lang-code">RU</span></button>
+        <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag flag-us"></span><span class="lang-code">EN</span></button>
       </div>
 
-      <!-- CTA -->
-      <a href="#pricing" class="btn-glass smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
+      <!-- CTA (same button as in the hero) -->
+      <a href="#contact" class="btn-primary header-cta smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
 
       <!-- Hamburger -->
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -98,12 +97,13 @@
     <a href="#hero"      class="smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
     <a href="#about"     class="smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
     <a href="#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+    <a href="#faq"       class="smooth-scroll" data-ru="FAQ"       data-en="FAQ">FAQ</a>
     <a href="#contact"   class="smooth-scroll" data-ru="Контакты"  data-en="Contact">Контакты</a>
     <div class="mobile-lang">
-      <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
-      <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+      <button class="lang-btn" data-lang="ru"><span class="flag flag-ru"></span>Русский</button>
+      <button class="lang-btn" data-lang="en"><span class="flag flag-us"></span>English</button>
     </div>
-    <a href="#pricing" class="btn-primary smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
+    <a href="#contact" class="btn-primary smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
   </div>
 </header>
 
@@ -978,6 +978,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=18"></script>
+<script src="js/main.js?v=19"></script>
 </body>
 </html>
