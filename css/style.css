@@ -182,11 +182,11 @@ html.skip-preloader #preloader { display: none; }
 .nav-indicator {
   position: absolute; top: 5px; bottom: 5px; left: 0;
   width: 0; border-radius: 100px;
-  background: linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,.12));
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 4px 14px rgba(0,0,0,.25);
+  background: linear-gradient(180deg, #3b93ff, var(--blue) 55%, var(--blue-dark));
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 4px 18px rgba(29,121,233,.55);
   opacity: 0; pointer-events: none;
-  transition: transform .5s cubic-bezier(.4,0,.2,1), width .5s cubic-bezier(.4,0,.2,1), opacity .3s;
+  transition: transform .75s cubic-bezier(.65,0,.25,1), width .75s cubic-bezier(.65,0,.25,1), opacity .3s;
 }
 .nav-indicator.ready { opacity: 1; }
 .nav-link {
