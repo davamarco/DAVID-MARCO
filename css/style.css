@@ -200,6 +200,8 @@ html.skip-preloader #preloader { display: none; }
 }
 .nav-link:hover { color: #fff; }
 .nav-link.active { color: #fff; }
+/* while the pointer is on the menu, only the hovered link is bright */
+.header-nav:hover .nav-link.active:not(:hover) { color: rgba(255,255,255,.62); }
 
 /* Right cluster */
 .header-right {

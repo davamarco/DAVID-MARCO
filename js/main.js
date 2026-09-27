@@ -83,9 +83,11 @@ window.addEventListener('scroll', () => {
   if (!nav || !indicator) return;
 
   const links    = [...nav.querySelectorAll('.nav-link')];
-  // Sub-pages link back to index.html#… — nothing to track there.
-  if (links.some(a => !a.getAttribute('href').startsWith('#'))) return;
-  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  // On the home page links are in-page anchors and the highlight rests on the
+  // section being viewed; on sub-pages (they link back to index.html#…) there
+  // is no "current" link, so the highlight only appears under the pointer.
+  const inPage   = links.every(a => a.getAttribute('href').startsWith('#'));
+  const sections = inPage ? links.map(a => document.querySelector(a.getAttribute('href'))) : [];
   let current    = null;
 
   function moveTo(link) {
@@ -94,17 +96,22 @@ window.addEventListener('scroll', () => {
     indicator.classList.add('ready');
   }
 
+  function rest() {                       // pointer left the menu
+    if (current) moveTo(current);
+    else indicator.classList.remove('ready');
+  }
+
   function setActive(link) {
     if (!link) return;
     current = link;
     links.forEach(a => a.classList.toggle('active', a === link));
-    moveTo(link);
+    if (!nav.matches(':hover')) moveTo(link);
   }
 
   // Which section is under the header right now
   let lock = 0; // while a click-scroll is animating, don't let scroll-spy fight it
   function spy() {
-    if (Date.now() < lock) return;
+    if (!inPage || Date.now() < lock) return;
     let idx = 0;
     sections.forEach((sec, i) => {
       if (sec && sec.getBoundingClientRect().top <= window.innerHeight * 0.35) idx = i;
@@ -112,21 +119,30 @@ window.addEventListener('scroll', () => {
     if (links[idx] !== current) setActive(links[idx]);
   }
 
-  links.forEach(a => a.addEventListener('click', () => {
-    lock = Date.now() + 900;
-    setActive(a);
-  }));
+  // The highlight follows the pointer (or keyboard focus)
+  links.forEach(a => {
+    a.addEventListener('mouseenter', () => moveTo(a));
+    a.addEventListener('focus',      () => moveTo(a));
+    a.addEventListener('click', () => {
+      if (!inPage) return;
+      lock = Date.now() + 900;
+      setActive(a);
+    });
+  });
+  nav.addEventListener('mouseleave', rest);
+  nav.addEventListener('focusout',   rest);
 
-  window.addEventListener('scroll', spy, { passive: true });
-  window.addEventListener('resize', () => current && moveTo(current));
+  if (inPage) window.addEventListener('scroll', spy, { passive: true });
+  const remeasure = () => current && !nav.matches(':hover') && moveTo(current);
+  window.addEventListener('resize', remeasure);
   // Labels change width when the language switches — re-measure after applyLang
   document.querySelectorAll('.lang-btn').forEach(b =>
-    b.addEventListener('click', () => setTimeout(() => current && moveTo(current), 0)));
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => current && moveTo(current));
+    b.addEventListener('click', () => setTimeout(remeasure, 0)));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+  window.addEventListener('load', remeasure);
 
-  window.addEventListener('load', () => current && moveTo(current));
   spy();
-  if (!current) setActive(links[0]);
+  if (inPage && !current) setActive(links[0]);
 })();
 
 /* ================================================================
