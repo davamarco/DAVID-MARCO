@@ -111,7 +111,7 @@ window.addEventListener('scroll', () => {
   }
 
   links.forEach(a => a.addEventListener('click', () => {
-    lock = Date.now() + 1200;
+    lock = Date.now() + 900;
     setActive(a);
   }));
 
