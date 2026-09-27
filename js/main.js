@@ -83,6 +83,8 @@ window.addEventListener('scroll', () => {
   if (!nav || !indicator) return;
 
   const links    = [...nav.querySelectorAll('.nav-link')];
+  // Sub-pages link back to index.html#… — nothing to track there.
+  if (links.some(a => !a.getAttribute('href').startsWith('#'))) return;
   const sections = links.map(a => document.querySelector(a.getAttribute('href')));
   let current    = null;
 

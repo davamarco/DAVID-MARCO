@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=56" />
+  <link rel="stylesheet" href="css/style.css?v=68" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -55,58 +55,61 @@
      HEADER
      ============================================================ -->
 <header id="header">
-  <div class="header-inner">
+    <div class="header-inner">
 
-    <!-- Logo -->
-    <a href="index.html#hero" class="header-logo">
-      <img src="img/logo-128.png"
-           srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w"
-           sizes="68px"
-           alt="DAVITO logo" width="68" height="59" />
-    </a>
+      <!-- Logo -->
+      <a href="index.html#hero" class="header-logo">
+        <img src="img/logo-128.png"
+          srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w" sizes="68px"
+          alt="DAVITO logo" width="68" height="59" />
+      </a>
 
-    <!-- Nav -->
-    <nav class="header-nav" id="headerNav">
-      <a href="index.html#hero"      class="nav-link" data-ru="Главная"   data-en="Home">Главная</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
-      <a href="index.html#about"     class="nav-link" data-ru="Про меня"  data-en="About">Про меня</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
-      <a href="index.html#portfolio" class="nav-link" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-      <span class="nav-sep" aria-hidden="true">/</span>
-      <a href="index.html#contact"   class="nav-link" data-ru="Контакты"  data-en="Contact">Контакты</a>
-    </nav>
+      <!-- Nav (glass pill with sliding indicator) -->
+      <nav class="header-nav" id="headerNav" aria-label="Main">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a href="index.html#hero" class="nav-link" data-ru="Главная" data-en="Home">Главная</a>
+        <a href="index.html#about" class="nav-link" data-ru="Про меня" data-en="About">Про меня</a>
+        <a href="index.html#portfolio" class="nav-link" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+        <a href="index.html#pricing" class="nav-link" data-ru="Цены" data-en="Pricing">Цены</a>
+        <a href="index.html#faq" class="nav-link" data-ru="FAQ" data-en="FAQ">FAQ</a>
+      </nav>
 
-    <!-- Right side -->
-    <div class="header-right">
-      <!-- Language switcher -->
-      <div class="lang-toggle" id="langToggle">
-        <button class="lang-btn" data-lang="ru">🇷🇺</button>
-        <button class="lang-btn" data-lang="en">🇺🇸</button>
+      <!-- Right side -->
+      <div class="header-right">
+        <!-- Language switcher -->
+        <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="ru" aria-label="Русский"><span class="flag flag-ru"></span><span
+              class="lang-code">RU</span></button>
+          <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag flag-us"></span><span
+              class="lang-code">EN</span></button>
+        </div>
+
+        <!-- CTA (same button as in the hero) -->
+        <a href="index.html#contact" class="btn-primary header-cta" data-ru="Заказать сайт"
+          data-en="Order Website">Заказать сайт</a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-      <!-- CTA -->
-      <a href="index.html#pricing" class="btn-glass" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
-
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </div>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#hero"      data-ru="Главная"   data-en="Home">Главная</a>
-    <a href="index.html#about"     data-ru="Про меня"  data-en="About">Про меня</a>
-    <a href="index.html#portfolio" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-    <a href="index.html#contact"   data-ru="Контакты"  data-en="Contact">Контакты</a>
-    <div class="mobile-lang">
-      <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
-      <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#hero" class="smooth-scroll" data-ru="Главная" data-en="Home">Главная</a>
+      <a href="index.html#about" class="smooth-scroll" data-ru="Про меня" data-en="About">Про меня</a>
+      <a href="index.html#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+      <a href="index.html#pricing" class="smooth-scroll" data-ru="Цены" data-en="Pricing">Цены</a>
+      <a href="index.html#faq" class="smooth-scroll" data-ru="FAQ" data-en="FAQ">FAQ</a>
+      <div class="mobile-lang">
+        <button class="lang-btn" data-lang="ru"><span class="flag flag-ru"></span>Русский</button>
+        <button class="lang-btn" data-lang="en"><span class="flag flag-us"></span>English</button>
+      </div>
+      <a href="index.html#contact" class="btn-primary" data-ru="Заказать сайт" data-en="Order Website">Заказать
+        сайт</a>
     </div>
-    <a href="index.html#pricing" class="btn-primary" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
-  </div>
-</header>
+  </header>
 
 <!-- ============================================================
      PRIVACY POLICY
@@ -327,6 +330,6 @@
 </div>
 <div class="contact-fab-overlay" id="contactFabOverlay"></div>
 
-<script src="js/main.js?v=18"></script>
+<script src="js/main.js?v=22"></script>
 </body>
 </html>

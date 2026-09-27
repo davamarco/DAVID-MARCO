@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,966 +19,1199 @@
         var visited = sessionStorage.getItem('dm_visited') === '1';
         if (visited && !isReload) document.documentElement.classList.add('skip-preloader');
         sessionStorage.setItem('dm_visited', '1');
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=61" />
+  <link rel="stylesheet" href="css/style.css?v=68" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="apple-touch-icon" href="assets/favicon-180.png" />
 </head>
+
 <body>
 
-<!-- ============================================================
+  <!-- ============================================================
      PRELOADER
      ============================================================ -->
-<div id="preloader" role="status" aria-live="polite" aria-label="Loading">
-  <div class="preloader-inner">
-    <div class="pl-word" aria-hidden="true">
-      <span class="pl-letter">d</span><span class="pl-letter">a</span><span class="pl-letter">v</span><span class="pl-letter">i</span><span class="pl-letter">d</span><span class="pl-letter pl-space">&nbsp;</span><span class="pl-letter">m</span><span class="pl-letter">a</span><span class="pl-letter">r</span><span class="pl-letter">c</span><span class="pl-letter">o</span>
+  <div id="preloader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="preloader-inner">
+      <div class="pl-word" aria-hidden="true">
+        <span class="pl-letter">d</span><span class="pl-letter">a</span><span class="pl-letter">v</span><span
+          class="pl-letter">i</span><span class="pl-letter">d</span><span class="pl-letter pl-space">&nbsp;</span><span
+          class="pl-letter">m</span><span class="pl-letter">a</span><span class="pl-letter">r</span><span
+          class="pl-letter">c</span><span class="pl-letter">o</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
     </div>
-    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
   </div>
-</div>
 
-<!-- ============================================================
+  <!-- ============================================================
      HEADER
      ============================================================ -->
-<header id="header">
-  <div class="header-inner">
+  <header id="header">
+    <div class="header-inner">
 
-    <!-- Logo -->
-    <a href="#hero" class="header-logo smooth-scroll">
-      <img src="img/logo-128.png"
-           srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w"
-           sizes="68px"
-           alt="DAVITO logo" width="68" height="59" />
-    </a>
+      <!-- Logo -->
+      <a href="#hero" class="header-logo smooth-scroll">
+        <img src="img/logo-128.png"
+          srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w" sizes="68px"
+          alt="DAVITO logo" width="68" height="59" />
+      </a>
 
-    <!-- Nav (glass pill with sliding indicator) -->
-    <nav class="header-nav" id="headerNav" aria-label="Main">
-      <span class="nav-indicator" aria-hidden="true"></span>
-      <a href="#hero"      class="nav-link smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
-      <a href="#about"     class="nav-link smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-      <a href="#portfolio" class="nav-link smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-      <a href="#pricing"   class="nav-link smooth-scroll" data-ru="Цены"      data-en="Pricing">Цены</a>
-      <a href="#faq"       class="nav-link smooth-scroll" data-ru="FAQ"       data-en="FAQ">FAQ</a>
-    </nav>
+      <!-- Nav (glass pill with sliding indicator) -->
+      <nav class="header-nav" id="headerNav" aria-label="Main">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a href="#hero" class="nav-link smooth-scroll" data-ru="Главная" data-en="Home">Главная</a>
+        <a href="#about" class="nav-link smooth-scroll" data-ru="Про меня" data-en="About">Про меня</a>
+        <a href="#portfolio" class="nav-link smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+        <a href="#pricing" class="nav-link smooth-scroll" data-ru="Цены" data-en="Pricing">Цены</a>
+        <a href="#faq" class="nav-link smooth-scroll" data-ru="FAQ" data-en="FAQ">FAQ</a>
+      </nav>
 
-    <!-- Right side -->
-    <div class="header-right">
-      <!-- Language switcher -->
-      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
-        <button class="lang-btn" data-lang="ru" aria-label="Русский"><span class="flag flag-ru"></span><span class="lang-code">RU</span></button>
-        <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag flag-us"></span><span class="lang-code">EN</span></button>
+      <!-- Right side -->
+      <div class="header-right">
+        <!-- Language switcher -->
+        <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="ru" aria-label="Русский"><span class="flag flag-ru"></span><span
+              class="lang-code">RU</span></button>
+          <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag flag-us"></span><span
+              class="lang-code">EN</span></button>
+        </div>
+
+        <!-- CTA (same button as in the hero) -->
+        <a href="#contact" class="btn-primary header-cta smooth-scroll" data-ru="Заказать сайт"
+          data-en="Order Website">Заказать сайт</a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-      <!-- CTA (same button as in the hero) -->
-      <a href="#contact" class="btn-primary header-cta smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
-
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </div>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#hero"      class="smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
-    <a href="#about"     class="smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-    <a href="#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-    <a href="#pricing"   class="smooth-scroll" data-ru="Цены"      data-en="Pricing">Цены</a>
-    <a href="#faq"       class="smooth-scroll" data-ru="FAQ"       data-en="FAQ">FAQ</a>
-    <div class="mobile-lang">
-      <button class="lang-btn" data-lang="ru"><span class="flag flag-ru"></span>Русский</button>
-      <button class="lang-btn" data-lang="en"><span class="flag flag-us"></span>English</button>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero" class="smooth-scroll" data-ru="Главная" data-en="Home">Главная</a>
+      <a href="#about" class="smooth-scroll" data-ru="Про меня" data-en="About">Про меня</a>
+      <a href="#portfolio" class="smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
+      <a href="#pricing" class="smooth-scroll" data-ru="Цены" data-en="Pricing">Цены</a>
+      <a href="#faq" class="smooth-scroll" data-ru="FAQ" data-en="FAQ">FAQ</a>
+      <div class="mobile-lang">
+        <button class="lang-btn" data-lang="ru"><span class="flag flag-ru"></span>Русский</button>
+        <button class="lang-btn" data-lang="en"><span class="flag flag-us"></span>English</button>
+      </div>
+      <a href="#contact" class="btn-primary smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать
+        сайт</a>
     </div>
-    <a href="#contact" class="btn-primary smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
-  </div>
-</header>
+  </header>
 
-<!-- ============================================================
+  <!-- ============================================================
      HERO
      ============================================================ -->
-<section id="hero">
-  <div class="hero-inner">
-    <!-- Text -->
-    <div class="hero-content">
-      <h1 class="hero-title fade-up delay-1">
-        <span class="line" data-ru="Создаю сайты,"       data-en="I build websites">Создаю сайты,</span>
-        <span class="line" data-ru="которые <em>продают</em>" data-en="that <em>sell</em>">которые <em>продают</em></span>
-      </h1>
+  <section id="hero">
+    <div class="hero-inner">
+      <!-- Text -->
+      <div class="hero-content">
+        <div class="hero-main">
+          <a href="https://g.page/r/CXDAESpnKGIWEBM/review" target="_blank" rel="noopener noreferrer"
+            class="hero-google-badge fade-up" aria-label="5.0 rating on Google, 10+ reviews">
+            <svg class="ggb-icon" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path fill="#4285F4"
+                d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" />
+              <path fill="#34A853"
+                d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" />
+              <path fill="#FBBC05"
+                d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z" />
+              <path fill="#EA4335"
+                d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.167 6.656 3.58 9 3.58z" />
+            </svg>
+            <span class="ggb-stars" aria-hidden="true">★★★★★</span>
+            <span class="ggb-score">5.0</span>
+            <span class="ggb-sep" aria-hidden="true">|</span>
+            <span class="ggb-reviews" data-ru="10+ отзывов на Google" data-en="10+ reviews on Google">10 reviews on
+              Google</span>
+          </a>
 
-      <p class="hero-desc fade-up delay-2"
-         data-ru="Современные лендинги для малого бизнеса. Чистый дизайн, быстрая загрузка и максимальная конверсия."
-         data-en="Modern landing pages for small businesses. Clean design, fast loading and maximum conversion.">
-        Современные лендинги для малого бизнеса. Чистый дизайн, быстрая загрузка и максимальная конверсия.
-      </p>
+          <h1 class="hero-title hero-title--brand fade-up delay-1">
+            <span class="line">A strong <em>brand</em></span>
+            <span class="line">starts with a</span>
+            <span class="line">strong <em>website</em></span>
+          </h1>
 
-      <a href="https://g.page/r/CXDAESpnKGIWEBM/review"
-         target="_blank" rel="noopener noreferrer"
-         class="hero-google-badge fade-up"
-         aria-label="5.0 rating on Google, 10 reviews">
-        <svg class="ggb-icon" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
-          <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
-          <path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/>
-          <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.167 6.656 3.58 9 3.58z"/>
-        </svg>
-        <span class="ggb-stars" aria-hidden="true">★★★★★</span>
-        <span class="ggb-score">5.0</span>
-        <span class="ggb-sep" aria-hidden="true">|</span>
-        <span class="ggb-reviews" data-ru="10 отзывов на Google" data-en="10 reviews on Google">10 reviews on Google</span>
-      </a>
+          <div class="hero-contacts fade-up delay-4">
+            <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="hc-btn hc-wa">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+              </svg>
+              <span data-ru="Написать в WhatsApp" data-en="WhatsApp Message">WhatsApp Message</span>
+            </a>
+            <a href="tel:+19544455820" class="hc-btn hc-call">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" />
+              </svg>
+              <span data-ru="Позвонить (954) 445-5820" data-en="Call (954) 445-5820">Call (954) 445-5820</span>
+            </a>
+            <a href="https://www.instagram.com/davitoo7/" target="_blank" rel="noopener noreferrer" class="hc-ig"
+              aria-label="Follow on Instagram" title="Follow on Instagram">
+              <svg viewBox="0 0 100 100" width="64" height="64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <clipPath id="igBody">
+                    <rect x="2" y="2" width="96" height="96" rx="21" />
+                  </clipPath>
+                  <linearGradient id="igCream" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f6efe3" />
+                    <stop offset="1" stop-color="#d8ccb6" />
+                  </linearGradient>
+                  <linearGradient id="igBrown" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#a86d45" />
+                    <stop offset="1" stop-color="#7a4a2d" />
+                  </linearGradient>
+                  <radialGradient id="igGlass" cx=".38" cy=".34" r=".8">
+                    <stop offset="0" stop-color="#5f8a9b" />
+                    <stop offset=".45" stop-color="#274a5b" />
+                    <stop offset="1" stop-color="#0b1a23" />
+                  </radialGradient>
+                  <radialGradient id="igCore" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#1a1410" />
+                    <stop offset=".6" stop-color="#2b3e4a" />
+                    <stop offset="1" stop-color="#13232c" />
+                  </radialGradient>
+                  <linearGradient id="igRing" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fbf7ee" />
+                    <stop offset="1" stop-color="#c9bda6" />
+                  </linearGradient>
+                </defs>
+                <g clip-path="url(#igBody)">
+                  <rect width="100" height="100" fill="url(#igCream)" />
+                  <rect width="100" height="41" fill="url(#igBrown)" />
+                  <rect y="36" width="100" height="10" fill="#000" opacity=".07" />
+                  <!-- rainbow stripes -->
+                  <rect x="11.5" width="4.6" height="36" fill="#d8344a" />
+                  <rect x="16.1" width="4.6" height="36" fill="#ee8a2b" />
+                  <rect x="20.7" width="4.6" height="36" fill="#f1bf30" />
+                  <rect x="25.3" width="4.6" height="36" fill="#58a850" />
+                  <rect x="29.9" width="4.6" height="36" fill="#5088c8" />
+                </g>
+                <!-- viewfinder -->
+                <rect x="67" y="12" width="21" height="21" rx="6" fill="#3a2a22" />
+                <circle cx="77.5" cy="22.5" r="7.3" fill="url(#igGlass)" />
+                <circle cx="75.3" cy="20.3" r="1.7" fill="#fff" opacity=".55" />
+                <!-- main lens -->
+                <ellipse cx="50" cy="66" rx="27" ry="4" fill="#000" opacity=".16" />
+                <circle cx="50" cy="55" r="30" fill="url(#igRing)" stroke="#bfb29b" stroke-width=".8" />
+                <circle cx="50" cy="55" r="25.5" fill="url(#igGlass)" />
+                <circle cx="50" cy="55" r="17.5" fill="#0b1a23" opacity=".55" />
+                <circle cx="50" cy="55" r="13" fill="url(#igCore)" />
+                <circle cx="50" cy="55" r="6" fill="#0b0b0b" opacity=".75" />
+                <path d="M31.5 46 A22 22 0 0 1 56 33.4" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="3"
+                  stroke-linecap="round" />
+                <circle cx="63" cy="66" r="3" fill="#fff" opacity=".22" />
+                <!-- "Insta" tag -->
+                <rect x="9" y="31" width="30" height="11" rx="4" fill="#4a3a2f" stroke="#e9dfcf" stroke-width="1" />
+                <text x="24" y="39.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+                  font-weight="700" font-size="8.4" fill="#fff">Insta</text>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-      <div class="hero-actions fade-up delay-3">
-        <a href="#contact" class="btn-primary smooth-scroll" data-ru="Заказать сайт" data-en="Order Website">Заказать сайт</a>
-        <a href="#portfolio" class="btn-outline smooth-scroll" data-ru="Смотреть работы" data-en="View Works">Смотреть работы</a>
+        <div class="hero-actions fade-up delay-3">
+          <div class="hero-order">
+            <a href="#contact" class="btn-primary smooth-scroll" data-ru="Заказать сайт"
+              data-en="Order Website">Заказать сайт</a>
+            <a href="#contact" class="hero-arrow smooth-scroll" aria-label="Scroll to order">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3.6"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 8l7 7 7-7" />
+                <path d="M5 15l7 7 7-7" opacity=".55" />
+              </svg>
+            </a>
+          </div>
+          <a href="#portfolio" class="btn-outline smooth-scroll" data-ru="Смотреть работы" data-en="View Works">Смотреть
+            работы</a>
+        </div>
       </div>
 
-      <div class="hero-stats fade-up delay-4">
-        <div class="h-stat">
-          <strong>20+</strong>
-          <span data-ru="проектов" data-en="projects">проектов</span>
-        </div>
-        <div class="h-divider"></div>
-        <div class="h-stat">
-          <strong>3+</strong>
-          <span data-ru="года опыта" data-en="years exp.">года опыта</span>
-        </div>
-        <div class="h-divider"></div>
-        <div class="h-stat">
-          <strong>100%</strong>
-          <span data-ru="довольных клиентов" data-en="happy clients">довольных клиентов</span>
+      <!-- Photo -->
+      <div class="hero-visual fade-up delay-2">
+        <div class="hero-photo-wrap" id="heroPhotoWrap">
+          <img src="img/david.jpg" alt="David Marco" class="hero-photo" id="heroPhoto" />
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Photo -->
-    <div class="hero-visual fade-up delay-2">
-      <div class="hero-photo-wrap" id="heroPhotoWrap">
-        <img src="img/david.jpg" alt="David Marco" class="hero-photo" id="heroPhoto" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
+  <!-- ============================================================
      READY STRIP
      ============================================================ -->
-<section class="hero-ready-strip">
-  <p class="ready-text" data-ru="Готов к новым проектам" data-en="Ready for new projects">Готов к новым проектам</p>
-</section>
+  <section class="hero-ready-strip">
+    <p class="ready-text" data-ru="Готов к новым проектам" data-en="Ready for new projects">Готов к новым проектам</p>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      ABOUT
      ============================================================ -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="about-grid">
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
 
-      <!-- Left -->
-      <div class="about-left anim">
-        <div class="section-tag" data-ru="Про меня" data-en="About Me">Про меня</div>
-        <h2 data-ru="Разработчик&nbsp;с душой&nbsp;дизайнера" data-en="Developer&nbsp;with a designer's&nbsp;soul">
-          Разработчик&nbsp;с душой&nbsp;дизайнера
-        </h2>
-        <p data-ru="Меня зовут Давид. Мне 29 лет, я живу в Майами и создаю современные лендинги для малого бизнеса по всему миру. Я убеждён: каждый бизнес заслуживает красивого и эффективного онлайн-присутствия — будь то маленькая пекарня или частная клиника."
-           data-en="My name is David. I'm 29, based in Miami, and I build modern landing pages for small businesses worldwide. I believe every business deserves a beautiful and effective online presence — whether it's a small bakery or a private clinic.">
-          Меня зовут Давид. Мне 29 лет, я живу в Майами и создаю современные лендинги для малого бизнеса по всему миру. Я убеждён: каждый бизнес заслуживает красивого и эффективного онлайн-присутствия — будь то маленькая пекарня или частная клиника.
-        </p>
-        <p data-ru="Мой подход прост: минималистичный дизайн, быстрая загрузка и фокус на конверсии. Каждый сайт — это не просто страница, а инструмент роста вашего бизнеса."
-           data-en="My approach is simple: minimalist design, fast loading and a focus on conversion. Every website is not just a page, but a growth tool for your business.">
-          Мой подход прост: минималистичный дизайн, быстрая загрузка и фокус на конверсии. Каждый сайт — это не просто страница, а инструмент роста вашего бизнеса.
-        </p>
-      </div>
-
-      <!-- Right: cards -->
-      <div class="about-right anim delay-2">
-        <div class="about-cards">
-          <div class="about-card">
-            <div class="about-card-icon"></div>
-            <h4 data-ru="Быстро" data-en="Fast">Быстро</h4>
-            <p data-ru="Сдаю проекты в срок — никаких оправданий и задержек" data-en="Deliver projects on time — no excuses or delays">Сдаю проекты в срок — никаких оправданий и задержек</p>
-          </div>
-          <div class="about-card">
-            <div class="about-card-icon"></div>
-            <h4 data-ru="Конверсия" data-en="Conversion">Конверсия</h4>
-            <p data-ru="Каждый элемент сайта работает на увеличение заявок" data-en="Every element works to increase leads">Каждый элемент сайта работает на увеличение заявок</p>
-          </div>
-          <div class="about-card">
-            <div class="about-card-icon"></div>
-            <h4 data-ru="Адаптивность" data-en="Responsive">Адаптивность</h4>
-            <p data-ru="Идеальное отображение на любом устройстве" data-en="Perfect display on any device">Идеальное отображение на любом устройстве</p>
-          </div>
-          <div class="about-card">
-            <div class="about-card-icon"></div>
-            <h4 data-ru="Поддержка" data-en="Support">Поддержка</h4>
-            <p data-ru="На связи до и после запуска проекта" data-en="Available before and after project launch">На связи до и после запуска проекта</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SERVICES
-     ============================================================ -->
-<section id="services" class="section section-dark">
-  <div class="container">
-    <div class="section-header anim">
-      <div class="section-tag" data-ru="Услуги" data-en="Services">Услуги</div>
-      <h2 data-ru="Что я делаю" data-en="What I do">Что я делаю</h2>
-    </div>
-
-    <div class="services-timeline">
-      <div class="timeline-line" aria-hidden="true"></div>
-
-      <div class="timeline-item timeline-item--left">
-        <div class="service-card anim delay-1">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="8 4 3 12 8 20"/>
-              <polyline points="16 4 21 12 16 20"/>
-            </svg>
-          </div>
-          <h3 data-ru="Разработка лендингов" data-en="Landing Development">Разработка лендингов</h3>
-          <p data-ru="Создаю современные одностраничные сайты с нуля — от дизайна до публикации." data-en="I create modern one-page websites from scratch — from design to deployment.">Создаю современные одностраничные сайты с нуля — от дизайна до публикации.</p>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-
-      <div class="timeline-item timeline-item--right">
-        <div class="service-card anim delay-2">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="14" height="10" rx="1.5"/>
-              <line x1="6" y1="17" x2="12" y2="17"/>
-              <rect x="15" y="9" width="7" height="12" rx="1.5"/>
-            </svg>
-          </div>
-          <h3 data-ru="Адаптивный дизайн" data-en="Responsive Design">Адаптивный дизайн</h3>
-          <p data-ru="Сайт корректно отображается на телефоне, планшете и компьютере." data-en="The site displays correctly on phones, tablets and computers.">Сайт корректно отображается на телефоне, планшете и компьютере.</p>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-
-      <div class="timeline-item timeline-item--left">
-        <div class="service-card anim delay-3">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 12h4l2 3h4l2-3h4"/>
-              <path d="M4 12v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6"/>
-              <path d="M20 12 17 4H7L4 12"/>
-            </svg>
-          </div>
-          <h3 data-ru="Формы заявок" data-en="Lead Forms">Формы заявок</h3>
-          <p data-ru="Подключаю форму заявок с мгновенными уведомлениями в Telegram, WhatsApp, SMS и на email." data-en="I connect a lead form with instant notifications via Telegram, WhatsApp, SMS or email.">Подключаю форму заявок с мгновенными уведомлениями в Telegram, WhatsApp, SMS и на email.</p>
-          <div class="service-channels">
-            <span class="channel-chip">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" aria-hidden="true">
-                <path d="M25,2c12.703,0,23,10.297,23,23S37.703,48,25,48S2,37.703,2,25S12.297,2,25,2z M32.934,34.375 c0.423-1.298,2.405-14.234,2.65-16.783c0.074-0.772-0.17-1.285-0.648-1.514c-0.578-0.278-1.434-0.139-2.427,0.219 c-1.362,0.491-18.774,7.884-19.78,8.312c-0.954,0.405-1.856,0.847-1.856,1.487c0,0.45,0.267,0.703,1.003,0.966 c0.766,0.273,2.695,0.858,3.834,1.172c1.097,0.303,2.346,0.04,3.046-0.395c0.742-0.461,9.305-6.191,9.92-6.693 c0.614-0.502,1.104,0.141,0.602,0.644c-0.502,0.502-6.38,6.207-7.155,6.997c-0.941,0.959-0.273,1.953,0.358,2.351 c0.721,0.454,5.906,3.932,6.687,4.49c0.781,0.558,1.573,0.811,2.298,0.811C32.191,36.439,32.573,35.484,32.934,34.375z"/>
-              </svg>
-              <span class="sr-only" data-ru="Telegram" data-en="Telegram">Telegram</span>
-            </span>
-            <span class="channel-chip">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-              </svg>
-              <span class="sr-only" data-ru="WhatsApp" data-en="WhatsApp">WhatsApp</span>
-            </span>
-            <span class="channel-chip">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M4 4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h1v4l5-4h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4Z"/>
-              </svg>
-              <span class="sr-only" data-ru="SMS" data-en="SMS">SMS</span>
-            </span>
-            <span class="channel-chip">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.867 477.867" fill="currentColor" aria-hidden="true">
-                <path d="M460.8,68.267H17.067l221.867,182.75L463.309,68.779C462.488,68.539,461.649,68.368,460.8,68.267z"/>
-                <path d="M249.702,286.31c-6.288,5.149-15.335,5.149-21.623,0L0,98.406v294.127c0,9.426,7.641,17.067,17.067,17.067H460.8 c9.426,0,17.067-7.641,17.067-17.067V100.932L249.702,286.31z"/>
-              </svg>
-              <span class="sr-only" data-ru="Email" data-en="Email">Email</span>
-            </span>
-          </div>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-
-      <div class="timeline-item timeline-item--right">
-        <div class="service-card anim delay-1">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="10.5" cy="10.5" r="6.5"/>
-              <line x1="20" y1="20" x2="15.5" y2="15.5"/>
-            </svg>
-          </div>
-          <h3 data-ru="SEO-оптимизация" data-en="SEO Optimization">SEO-оптимизация</h3>
-          <p data-ru="Базовая настройка метатегов, скорости загрузки и структуры страницы." data-en="Basic setup of meta tags, loading speed and page structure.">Базовая настройка метатегов, скорости загрузки и структуры страницы.</p>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-
-      <div class="timeline-item timeline-item--left">
-        <div class="service-card anim delay-2">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2c3 2 5 6 5 10 0 2-.5 4-1.5 5.5L12 22l-3.5-4.5C7.5 16 7 14 7 12c0-4 2-8 5-10Z"/>
-              <circle cx="12" cy="10" r="2"/>
-              <path d="M8.5 15.5 5 17l1-4"/>
-              <path d="M15.5 15.5 19 17l-1-4"/>
-            </svg>
-          </div>
-          <h3 data-ru="Хостинг и публикация" data-en="Hosting & Launch">Хостинг и публикация</h3>
-          <p data-ru="Помогаю выбрать домен, настроить хостинг и запустить сайт." data-en="I help choose a domain, set up hosting and launch the site.">Помогаю выбрать домен, настроить хостинг и запустить сайт.</p>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-
-      <div class="timeline-item timeline-item--right">
-        <div class="service-card anim delay-3">
-          <div class="service-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 13v-1a8 8 0 0 1 16 0v1"/>
-              <rect x="3" y="13" width="4" height="6" rx="1.5"/>
-              <rect x="17" y="13" width="4" height="6" rx="1.5"/>
-              <path d="M20 19v1a3 3 0 0 1-3 3h-3"/>
-            </svg>
-          </div>
-          <h3 data-ru="Поддержка и правки" data-en="Support & Updates">Поддержка и правки</h3>
-          <p data-ru="После сдачи проекта остаюсь на связи и вношу необходимые изменения." data-en="After delivery I stay in touch and make necessary changes.">После сдачи проекта остаюсь на связи и вношу необходимые изменения.</p>
-        </div>
-        <span class="timeline-dot" aria-hidden="true"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SEO COMPARE (before/after drag slider)
-     ============================================================ -->
-<section id="seo-compare" class="seo-compare">
-  <div class="compare-slider" id="compareSlider" style="--pos:50%">
-    <div class="compare-panel compare-panel--after">
-      <div class="compare-content">
-        <h2 data-ru="С SEO" data-en="With SEO">With SEO</h2>
-        <p data-ru="Быстро, заметно, впереди" data-en="Fast, Visible, Ahead">Fast, Visible, Ahead</p>
-      </div>
-      <div class="compare-img-frame">
-        <img src="img/seo-with.jpg" alt="With SEO" class="compare-img" />
-      </div>
-    </div>
-    <div class="compare-panel compare-panel--before" id="comparePanelBefore">
-      <div class="compare-content">
-        <h2 data-ru="Без SEO" data-en="Without SEO">Without SEO</h2>
-        <p data-ru="Медленно, теряется, отстаёт" data-en="Slow, Struggles, Stays Behind">Slow, Struggles, Stays Behind</p>
-      </div>
-      <div class="compare-img-frame">
-        <img src="img/seo-without.jpg" alt="Without SEO" class="compare-img" />
-      </div>
-    </div>
-
-    <div class="compare-handle" id="compareHandle" role="slider" tabindex="0"
-         aria-label="Compare without and with SEO" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-      <span class="compare-handle-hit"></span>
-      <span class="compare-handle-line" aria-hidden="true"></span>
-      <span class="compare-handle-grip" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 6 3 12 9 18"/>
-          <polyline points="15 6 21 12 15 18"/>
-        </svg>
-      </span>
-    </div>
-  </div>
-
-  <div class="compare-footer">
-    <p class="compare-tagline" data-ru="<em>Сила</em> <em>оптимизации</em>" data-en="The <em>Power</em> of <em>Optimization</em>">The <em>Power</em> of <em>Optimization</em></p>
-    <a href="#pricing" class="btn-primary smooth-scroll" data-ru="Заказать SEO-оптимизацию" data-en="Order SEO Optimization">Order SEO Optimization</a>
-  </div>
-</section>
-
-<!-- ============================================================
-     PORTFOLIO
-     ============================================================ -->
-<section id="portfolio" class="section section-dark">
-  <div class="container">
-    <div class="section-header anim">
-      <div class="section-tag" data-ru="Портфолио" data-en="Projects">Портфолио</div>
-      <h2 data-ru="Мои работы" data-en="My Works">Мои работы</h2>
-      <p data-ru="Примеры лендингов для разных направлений бизнеса" data-en="Landing page examples for different business niches">Примеры лендингов для разных направлений бизнеса</p>
-    </div>
-
-    <div class="portfolio-grid">
-
-      <!-- Card 1 — AG Motors Miami / RentCar -->
-      <a href="projects/ag-motors-miami.html" class="p-card">
-        <div class="p-card-tags">
-          <span class="p-num">/001/</span>
-          <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и разработка</span>
-        </div>
-        <div class="p-preview">
-          <div class="p-browser">
-            <div class="p-dots"><span></span><span></span><span></span></div>
-            <div class="p-url">agmotorsmiami.com</div>
-          </div>
-          <img src="img/rentcar-preview.png" alt="AG Motors Miami" class="p-img" />
-        </div>
-        <div class="p-info">
-          <div class="p-info-row">
-            <h3>AG Motors Miami</h3>
-            <span class="p-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </span>
-          </div>
-          <span class="p-tag" data-ru="Аренда авто" data-en="Car Rental">Аренда авто</span>
-        </div>
-      </a>
-
-      <!-- Card 2 — Resto Bistro -->
-      <a href="projects/resto-bistro.html" class="p-card">
-        <div class="p-card-tags">
-          <span class="p-num">/002/</span>
-          <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и разработка</span>
-        </div>
-        <div class="p-preview">
-          <div class="p-browser">
-            <div class="p-dots"><span></span><span></span><span></span></div>
-            <div class="p-url">restobistro.com</div>
-          </div>
-          <img src="img/resto-bistro-preview.png" alt="Resto Bistro" class="p-img" />
-        </div>
-        <div class="p-info">
-          <div class="p-info-row">
-            <h3>Resto Bistro</h3>
-            <span class="p-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </span>
-          </div>
-          <span class="p-tag" data-ru="Ресторан" data-en="Restaurant">Ресторан</span>
-        </div>
-      </a>
-
-      <!-- Card 3 — Frostline -->
-      <a href="projects/frostline.html" class="p-card">
-        <div class="p-card-tags">
-          <span class="p-num">/003/</span>
-          <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и разработка</span>
-        </div>
-        <div class="p-preview">
-          <div class="p-browser">
-            <div class="p-dots"><span></span><span></span><span></span></div>
-            <div class="p-url">frostline.co</div>
-          </div>
-          <img src="img/frostline-preview.jpg" alt="Frostline" class="p-img" />
-        </div>
-        <div class="p-info">
-          <div class="p-info-row">
-            <h3>Frostline</h3>
-            <span class="p-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </span>
-          </div>
-          <span class="p-tag" data-ru="Горный курорт" data-en="Mountain Resort">Горный курорт</span>
-        </div>
-      </a>
-
-      <!-- Card 4 — Velluto Ice Cream -->
-      <a href="projects/velluto.html" class="p-card">
-        <div class="p-card-tags">
-          <span class="p-num">/004/</span>
-          <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и разработка</span>
-        </div>
-        <div class="p-preview">
-          <div class="p-browser">
-            <div class="p-dots"><span></span><span></span><span></span></div>
-            <div class="p-url">velluto-icecream.com</div>
-          </div>
-          <img src="img/velluto-preview.png" alt="Velluto Ice Cream" class="p-img" />
-        </div>
-        <div class="p-info">
-          <div class="p-info-row">
-            <h3>Velluto</h3>
-            <span class="p-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </span>
-          </div>
-          <span class="p-tag" data-ru="Мороженое" data-en="Ice Cream">Мороженое</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PROCESS
-     ============================================================ -->
-<section id="process" class="section section-gray">
-  <div class="container">
-    <div class="section-header anim">
-      <div class="section-tag" data-ru="Как работаем" data-en="How We Work">Как работаем</div>
-      <h2 data-ru="4 шага к вашему сайту" data-en="4 steps to your website">4 шага к вашему сайту</h2>
-    </div>
-
-    <div class="process-row">
-      <div class="process-step anim">
-        <div class="step-num">01</div>
-        <h3 data-ru="Консультация" data-en="Consultation">Консультация</h3>
-        <p data-ru="Обсуждаем ваш бизнес, цели и пожелания. Задаю правильные вопросы, чтобы сайт работал на вас." data-en="We discuss your business, goals and wishes. I ask the right questions to make the site work for you.">Обсуждаем ваш бизнес, цели и пожелания. Задаю правильные вопросы, чтобы сайт работал на вас.</p>
-      </div>
-      <div class="process-step anim delay-1">
-        <div class="step-num">02</div>
-        <h3 data-ru="Дизайн" data-en="Design">Дизайн</h3>
-        <p data-ru="Разрабатываю макет с учётом вашего бренда и целевой аудитории. Вы видите результат до начала вёрстки." data-en="I develop a layout considering your brand and target audience. You see the result before coding begins.">Разрабатываю макет с учётом вашего бренда и целевой аудитории. Вы видите результат до начала вёрстки.</p>
-      </div>
-      <div class="process-step anim delay-2">
-        <div class="step-num">03</div>
-        <h3 data-ru="Разработка" data-en="Development">Разработка</h3>
-        <p data-ru="Верстаю сайт, добавляю анимации и адаптацию. Подключаю форму заявок в ваш Telegram." data-en="I code the site, add animations and responsiveness. Connect the lead form to your Telegram.">Верстаю сайт, добавляю анимации и адаптацию. Подключаю форму заявок в ваш Telegram.</p>
-      </div>
-      <div class="process-step anim delay-3">
-        <div class="step-num">04</div>
-        <h3 data-ru="Запуск" data-en="Launch">Запуск</h3>
-        <p data-ru="Публикую сайт, помогаю с доменом и хостингом. Ваш бизнес готов работать в сети." data-en="I publish the site, help with domain and hosting. Your business is ready to work online.">Публикую сайт, помогаю с доменом и хостингом. Ваш бизнес готов работать в сети.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PRICING
-     ============================================================ -->
-<section id="pricing" class="section">
-  <div class="container">
-    <div class="section-header anim">
-      <div class="section-tag" data-ru="Тарифы" data-en="Pricing">Тарифы</div>
-      <h2 data-ru="Простые и понятные цены" data-en="Simple and clear pricing">Простые и понятные цены</h2>
-      <p data-ru="Без скрытых платежей и неожиданных доплат" data-en="No hidden fees or unexpected surcharges">Без скрытых платежей и неожиданных доплат</p>
-    </div>
-
-    <div class="pricing-row">
-
-      <!-- Plan 1: Start -->
-      <div class="price-card anim">
-        <div class="price-head">
-          <div class="price-name" data-ru="Старт" data-en="Start">Старт</div>
-          <div class="price-val">
-            <span class="price-cur">$</span><span class="price-num">349</span>
-          </div>
-          <div class="price-sub" data-ru="Для тех, кто только выходит в онлайн" data-en="For those just going online">Для тех, кто только выходит в онлайн</div>
-        </div>
-        <div class="price-flat-row">
-          <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
-          <span class="price-flat-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 5"/></svg>
-          </span>
-        </div>
-        <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
-        <ul class="price-list">
-          <li class="yes" data-ru="Одностраничный лендинг"    data-en="One-page landing">Одностраничный лендинг</li>
-          <li class="yes" data-ru="Адаптивный дизайн"         data-en="Responsive design">Адаптивный дизайн</li>
-          <li class="yes" data-ru="Форма обратной связи"       data-en="Contact form">Форма обратной связи</li>
-          <li class="yes" data-ru="Базовая SEO-оптимизация"    data-en="Basic SEO">Базовая SEO-оптимизация</li>
-          <li class="yes" data-ru="Помощь с публикацией"       data-en="Publishing help">Помощь с публикацией</li>
-          <li class="yes" data-ru="1 правка после сдачи"       data-en="1 revision">1 правка после сдачи</li>
-          <li class="no"  data-ru="Анимации и scroll-эффекты"  data-en="Animations & scroll effects">Анимации и scroll-эффекты</li>
-          <li class="no"  data-ru="Поддержка 30 дней"          data-en="30-day support">Поддержка 30 дней</li>
-        </ul>
-        <div class="price-time" data-ru="⏱ Срок: 3–4 дня" data-en="⏱ Delivery: 3–4 days">⏱ Срок: 3–4 дня</div>
-        <a href="#contact" class="btn-outline smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
-      </div>
-
-      <!-- Plan 2: Business (recommended) -->
-      <div class="price-card price-card--hot anim delay-2">
-        <div class="reco-badge" data-ru="Рекомендуем" data-en="Recommended">Рекомендуем</div>
-        <div class="price-head">
-          <div class="price-name" data-ru="Бизнес" data-en="Business">Бизнес</div>
-          <div class="price-val">
-            <span class="price-cur">$</span><span class="price-num">699</span>
-          </div>
-          <div class="price-sub" data-ru="Для тех, кто хочет выделиться среди конкурентов" data-en="For those who want to stand out from competitors">Для тех, кто хочет выделиться среди конкурентов</div>
-        </div>
-        <div class="price-flat-row">
-          <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
-          <span class="price-flat-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 5"/></svg>
-          </span>
-        </div>
-        <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
-        <ul class="price-list">
-          <li class="yes" data-ru="Многосекционный лендинг"       data-en="Multi-section landing">Многосекционный лендинг</li>
-          <li class="yes" data-ru="Адаптивный дизайн"              data-en="Responsive design">Адаптивный дизайн</li>
-          <li class="yes" data-ru="Анимации и scroll-эффекты"      data-en="Animations & scroll effects">Анимации и scroll-эффекты</li>
-          <li class="yes" data-ru="Форма заявок → Telegram"        data-en="Lead form → Telegram">Форма заявок → Telegram</li>
-          <li class="yes" data-ru="Продвинутая SEO-оптимизация"    data-en="Advanced SEO">Продвинутая SEO-оптимизация</li>
-          <li class="yes" data-ru="Помощь с доменом и хостингом"   data-en="Domain & hosting help">Помощь с доменом и хостингом</li>
-          <li class="yes" data-ru="3 правки после сдачи"           data-en="3 revisions">3 правки после сдачи</li>
-          <li class="yes" data-ru="Поддержка 30 дней"              data-en="30-day support">Поддержка 30 дней</li>
-        </ul>
-        <div class="price-time" data-ru="⏱ Срок: 5–7 дней" data-en="⏱ Delivery: 5–7 days">⏱ Срок: 5–7 дней</div>
-        <a href="#contact" class="btn-primary smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
-      </div>
-
-      <!-- Plan 3: Premium -->
-      <div class="price-card anim delay-3">
-        <div class="price-head">
-          <div class="price-name" data-ru="Премиум" data-en="Premium">Премиум</div>
-          <div class="price-val">
-            <span class="price-cur">$</span><span class="price-num">1199</span>
-          </div>
-          <div class="price-sub" data-ru="Для тех, кому нужен полноценный сайт с расширенными возможностями" data-en="For those who need a full website with advanced capabilities">Для тех, кому нужен полноценный сайт с расширенными возможностями</div>
-        </div>
-        <div class="price-flat-row">
-          <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
-          <span class="price-flat-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 5"/></svg>
-          </span>
-        </div>
-        <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
-        <ul class="price-list">
-          <li class="yes" data-ru="Многостраничный сайт (до 5 страниц)" data-en="Multi-page website (up to 5 pages)">Многостраничный сайт (до 5 страниц)</li>
-          <li class="yes" data-ru="Всё из тарифа «Бизнес»"              data-en="Everything in Business plan">Всё из тарифа «Бизнес»</li>
-          <li class="yes" data-ru="Индивидуальный дизайн разделов"     data-en="Custom section design">Индивидуальный дизайн разделов</li>
-          <li class="yes" data-ru="Расширенная аналитика"              data-en="Advanced analytics">Расширенная аналитика</li>
-          <li class="yes" data-ru="Приоритетная поддержка 60 дней"     data-en="Priority 60-day support">Приоритетная поддержка 60 дней</li>
-          <li class="yes" data-ru="5 правок после сдачи"               data-en="5 revisions">5 правок после сдачи</li>
-          <li class="yes" data-ru="Личная онбординг-консультация"      data-en="Personal onboarding call">Личная онбординг-консультация</li>
-        </ul>
-        <div class="price-time" data-ru="⏱ Срок: 10–14 дней" data-en="⏱ Delivery: 10–14 days">⏱ Срок: 10–14 дней</div>
-        <a href="#contact" class="btn-outline smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FAQ
-     ============================================================ -->
-<section id="faq" class="section section-gray">
-  <div class="container">
-    <div class="section-header anim">
-      <h2 data-ru="<em>Часто</em> задаваемые вопросы" data-en="<em>Frequently</em> Asked Questions"><em>Часто</em> задаваемые вопросы</h2>
-    </div>
-
-    <div class="faq-wrap anim">
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span data-ru="Сколько времени занимает создание сайта?" data-en="How long does it take to build a website?">Сколько времени занимает создание сайта?</span>
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-a">
-          <p data-ru="Зависит от тарифа. Тариф «Старт» — 3–4 рабочих дня, тариф «Бизнес» — 5–7 рабочих дней. Точные сроки обсуждаем на консультации."
-             data-en="It depends on the plan. 'Start' — 3–4 business days, 'Business' — 5–7 business days. Exact timelines are discussed at the consultation.">
-            Зависит от тарифа. Тариф «Старт» — 3–4 рабочих дня, тариф «Бизнес» — 5–7 рабочих дней. Точные сроки обсуждаем на консультации.
+        <!-- Left -->
+        <div class="about-left anim">
+          <div class="section-tag" data-ru="Про меня" data-en="About Me">Про меня</div>
+          <h2 data-ru="Разработчик&nbsp;с душой&nbsp;дизайнера" data-en="Developer&nbsp;with a designer's&nbsp;soul">
+            Разработчик&nbsp;с душой&nbsp;дизайнера
+          </h2>
+          <p data-ru="Меня зовут Давид. Мне 29 лет, я живу в Майами и создаю современные лендинги для малого бизнеса по всему миру. Я убеждён: каждый бизнес заслуживает красивого и эффективного онлайн-присутствия — будь то маленькая пекарня или частная клиника."
+            data-en="My name is David. I'm 29, based in Miami, and I build modern landing pages for small businesses worldwide. I believe every business deserves a beautiful and effective online presence — whether it's a small bakery or a private clinic.">
+            Меня зовут Давид. Мне 29 лет, я живу в Майами и создаю современные лендинги для малого бизнеса по всему
+            миру. Я убеждён: каждый бизнес заслуживает красивого и эффективного онлайн-присутствия — будь то маленькая
+            пекарня или частная клиника.
+          </p>
+          <p data-ru="Мой подход прост: минималистичный дизайн, быстрая загрузка и фокус на конверсии. Каждый сайт — это не просто страница, а инструмент роста вашего бизнеса."
+            data-en="My approach is simple: minimalist design, fast loading and a focus on conversion. Every website is not just a page, but a growth tool for your business.">
+            Мой подход прост: минималистичный дизайн, быстрая загрузка и фокус на конверсии. Каждый сайт — это не просто
+            страница, а инструмент роста вашего бизнеса.
           </p>
         </div>
-      </div>
 
-      <div class="faq-item">
-        <button class="faq-q">
-          <span data-ru="Работаете ли вы с малым бизнесом?" data-en="Do you work with small businesses?">Работаете ли вы с малым бизнесом?</span>
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-a">
-          <p data-ru="Да, именно малый бизнес — моя специализация. Я работаю с барбершопами, кафе, стоматологиями, фитнес-студиями и другими локальными бизнесами."
-             data-en="Yes, small business is my specialization. I work with barbershops, cafes, dental clinics, fitness studios and other local businesses.">
-            Да, именно малый бизнес — моя специализация. Я работаю с барбершопами, кафе, стоматологиями, фитнес-студиями и другими локальными бизнесами.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span data-ru="Помогаете с доменом и хостингом?" data-en="Do you help with domain and hosting?">Помогаете с доменом и хостингом?</span>
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-a">
-          <p data-ru="Да. Помогу выбрать домен, настроить хостинг и опубликовать сайт. Вам не нужно разбираться в технической стороне — я всё сделаю сам."
-             data-en="Yes. I'll help choose a domain, set up hosting and publish the site. You don't need to deal with the technical side — I'll handle everything.">
-            Да. Помогу выбрать домен, настроить хостинг и опубликовать сайт. Вам не нужно разбираться в технической стороне — я всё сделаю сам.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span data-ru="Будет ли сайт адаптирован под телефон?" data-en="Will the site work on mobile?">Будет ли сайт адаптирован под телефон?</span>
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-a">
-          <p data-ru="Абсолютно. Все мои сайты корректно отображаются на телефонах, планшетах и компьютерах. Адаптивность — обязательная часть каждого проекта."
-             data-en="Absolutely. All my sites display correctly on phones, tablets and computers. Responsiveness is a mandatory part of every project.">
-            Абсолютно. Все мои сайты корректно отображаются на телефонах, планшетах и компьютерах. Адаптивность — обязательная часть каждого проекта.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span data-ru="Можно вносить правки после сдачи?" data-en="Can changes be made after delivery?">Можно вносить правки после сдачи?</span>
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-a">
-          <p data-ru="Да. В течение 14 дней после сдачи проекта правки включены в стоимость (в рамках вашего тарифа). После этого — по договорённости."
-             data-en="Yes. Within 14 days after delivery, revisions are included in the price (within your plan). After that — by agreement.">
-            Да. В течение 14 дней после сдачи проекта правки включены в стоимость (в рамках вашего тарифа). После этого — по договорённости.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
-<section id="contact" class="section section-dark">
-  <div class="container">
-    <div class="contact-grid">
-
-      <!-- Left: heading + CTA -->
-      <div class="contact-left anim">
-        <div class="contact-badge">
-          <span class="contact-badge-bar" aria-hidden="true"></span>
-          <span data-ru="Контакты" data-en="Contact">Контакты</span>
-        </div>
-        <h2 data-ru="Начнём работу?" data-en="Ready to start?">Начнём работу?</h2>
-        <p data-ru="Оставьте заявку — отвечу в течение 24 часов" data-en="Leave a request — I'll reply within 24 hours">Оставьте заявку — отвечу в течение 24 часов</p>
-
-        <a href="mailto:davidmarco.prod@gmail.com" class="contact-link">
-          <span class="contact-link-label" data-ru="Написать мне" data-en="Get in touch">Написать мне</span>
-          <span class="contact-link-value">
-            <span data-ru="Связаться со мной" data-en="Contact With Me">Contact With Me</span>
-            <svg class="contact-link-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="7" y1="17" x2="17" y2="7"/>
-              <polyline points="7 7 17 7 17 17"/>
-            </svg>
-          </span>
-        </a>
-      </div>
-
-      <!-- Form -->
-      <div class="contact-form-wrap anim delay-2">
-        <form id="contactForm" novalidate>
-          <div class="field-dark">
-            <label for="fname" data-ru="Ваше имя" data-en="Name">Ваше имя</label>
-            <input type="text" id="fname" data-ru-placeholder="Ваше имя" data-en-placeholder="Your name" placeholder="Ваше имя" required autocomplete="off" />
-          </div>
-          <div class="field-dark">
-            <label for="fphone" data-ru="WhatsApp или Telegram" data-en="Phone">WhatsApp или Telegram</label>
-            <input type="text" id="fphone" data-ru-placeholder="Ваш номер" data-en-placeholder="Your number" placeholder="Ваш номер" required autocomplete="off" />
-          </div>
-          <div class="field-dark">
-            <label for="femail" data-ru="Email (необязательно)" data-en="Email">Email (необязательно)</label>
-            <input type="email" id="femail" data-ru-placeholder="Ваш email" data-en-placeholder="Enter your email" placeholder="Ваш email" autocomplete="off" />
-          </div>
-          <div class="field-dark">
-            <label data-ru="Выберите тариф" data-en="Select Plan">Выберите тариф</label>
-            <div class="plan-toggle" id="planToggle">
-              <button type="button" class="plan-opt" data-plan="Start" data-ru="Старт" data-en="Start">Старт</button>
-              <button type="button" class="plan-opt" data-plan="Business" data-ru="Бизнес" data-en="Business">Бизнес</button>
-              <button type="button" class="plan-opt" data-plan="Premium" data-ru="Премиум" data-en="Premium">Премиум</button>
+        <!-- Right: cards -->
+        <div class="about-right anim delay-2">
+          <div class="about-cards">
+            <div class="about-card">
+              <div class="about-card-icon"></div>
+              <h4 data-ru="Быстро" data-en="Fast">Быстро</h4>
+              <p data-ru="Сдаю проекты в срок — никаких оправданий и задержек"
+                data-en="Deliver projects on time — no excuses or delays">Сдаю проекты в срок — никаких оправданий и
+                задержек</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon"></div>
+              <h4 data-ru="Конверсия" data-en="Conversion">Конверсия</h4>
+              <p data-ru="Каждый элемент сайта работает на увеличение заявок"
+                data-en="Every element works to increase leads">Каждый элемент сайта работает на увеличение заявок</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon"></div>
+              <h4 data-ru="Адаптивность" data-en="Responsive">Адаптивность</h4>
+              <p data-ru="Идеальное отображение на любом устройстве" data-en="Perfect display on any device">Идеальное
+                отображение на любом устройстве</p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon"></div>
+              <h4 data-ru="Поддержка" data-en="Support">Поддержка</h4>
+              <p data-ru="На связи до и после запуска проекта" data-en="Available before and after project launch">На
+                связи до и после запуска проекта</p>
             </div>
           </div>
-          <div class="field-dark">
-            <label for="fmessage" data-ru="Расскажите о своём бизнесе" data-en="Send Message">Расскажите о своём бизнесе</label>
-            <textarea id="fmessage" data-ru-placeholder="Расскажите подробнее" data-en-placeholder="Give us more info" placeholder="Расскажите подробнее" rows="4"></textarea>
-          </div>
-          <label class="policy-check" for="fagree">
-            <input type="checkbox" id="fagree" required />
-            <span class="policy-check-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 5"/></svg>
-            </span>
-            <span class="policy-check-text" data-ru='Я согласен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>' data-en='I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>'>Я согласен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
-          </label>
-          <button type="submit" class="btn-primary btn-full" id="submitBtn"
-                  data-ru="Отправить заявку →" data-en="Send Request →">
-            Отправить заявку →
-          </button>
-        </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SERVICES
+     ============================================================ -->
+  <section id="services" class="section section-dark">
+    <div class="container">
+      <div class="section-header anim">
+        <div class="section-tag" data-ru="Услуги" data-en="Services">Услуги</div>
+        <h2 data-ru="Что я делаю" data-en="What I do">Что я делаю</h2>
       </div>
 
-    </div>
-  </div>
-</section>
+      <div class="services-timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
 
-<!-- ============================================================
+        <div class="timeline-item timeline-item--left">
+          <div class="service-card anim delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="8 4 3 12 8 20" />
+                <polyline points="16 4 21 12 16 20" />
+              </svg>
+            </div>
+            <h3 data-ru="Разработка лендингов" data-en="Landing Development">Разработка лендингов</h3>
+            <p data-ru="Создаю современные одностраничные сайты с нуля — от дизайна до публикации."
+              data-en="I create modern one-page websites from scratch — from design to deployment.">Создаю современные
+              одностраничные сайты с нуля — от дизайна до публикации.</p>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline-item timeline-item--right">
+          <div class="service-card anim delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="14" height="10" rx="1.5" />
+                <line x1="6" y1="17" x2="12" y2="17" />
+                <rect x="15" y="9" width="7" height="12" rx="1.5" />
+              </svg>
+            </div>
+            <h3 data-ru="Адаптивный дизайн" data-en="Responsive Design">Адаптивный дизайн</h3>
+            <p data-ru="Сайт корректно отображается на телефоне, планшете и компьютере."
+              data-en="The site displays correctly on phones, tablets and computers.">Сайт корректно отображается на
+              телефоне, планшете и компьютере.</p>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline-item timeline-item--left">
+          <div class="service-card anim delay-3">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12h4l2 3h4l2-3h4" />
+                <path d="M4 12v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6" />
+                <path d="M20 12 17 4H7L4 12" />
+              </svg>
+            </div>
+            <h3 data-ru="Формы заявок" data-en="Lead Forms">Формы заявок</h3>
+            <p data-ru="Подключаю форму заявок с мгновенными уведомлениями в Telegram, WhatsApp, SMS и на email."
+              data-en="I connect a lead form with instant notifications via Telegram, WhatsApp, SMS or email.">Подключаю
+              форму заявок с мгновенными уведомлениями в Telegram, WhatsApp, SMS и на email.</p>
+            <div class="service-channels">
+              <span class="channel-chip">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M25,2c12.703,0,23,10.297,23,23S37.703,48,25,48S2,37.703,2,25S12.297,2,25,2z M32.934,34.375 c0.423-1.298,2.405-14.234,2.65-16.783c0.074-0.772-0.17-1.285-0.648-1.514c-0.578-0.278-1.434-0.139-2.427,0.219 c-1.362,0.491-18.774,7.884-19.78,8.312c-0.954,0.405-1.856,0.847-1.856,1.487c0,0.45,0.267,0.703,1.003,0.966 c0.766,0.273,2.695,0.858,3.834,1.172c1.097,0.303,2.346,0.04,3.046-0.395c0.742-0.461,9.305-6.191,9.92-6.693 c0.614-0.502,1.104,0.141,0.602,0.644c-0.502,0.502-6.38,6.207-7.155,6.997c-0.941,0.959-0.273,1.953,0.358,2.351 c0.721,0.454,5.906,3.932,6.687,4.49c0.781,0.558,1.573,0.811,2.298,0.811C32.191,36.439,32.573,35.484,32.934,34.375z" />
+                </svg>
+                <span class="sr-only" data-ru="Telegram" data-en="Telegram">Telegram</span>
+              </span>
+              <span class="channel-chip">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                </svg>
+                <span class="sr-only" data-ru="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+              </span>
+              <span class="channel-chip">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4 4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h1v4l5-4h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4Z" />
+                </svg>
+                <span class="sr-only" data-ru="SMS" data-en="SMS">SMS</span>
+              </span>
+              <span class="channel-chip">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.867 477.867" fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    d="M460.8,68.267H17.067l221.867,182.75L463.309,68.779C462.488,68.539,461.649,68.368,460.8,68.267z" />
+                  <path
+                    d="M249.702,286.31c-6.288,5.149-15.335,5.149-21.623,0L0,98.406v294.127c0,9.426,7.641,17.067,17.067,17.067H460.8 c9.426,0,17.067-7.641,17.067-17.067V100.932L249.702,286.31z" />
+                </svg>
+                <span class="sr-only" data-ru="Email" data-en="Email">Email</span>
+              </span>
+            </div>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline-item timeline-item--right">
+          <div class="service-card anim delay-1">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <line x1="20" y1="20" x2="15.5" y2="15.5" />
+              </svg>
+            </div>
+            <h3 data-ru="SEO-оптимизация" data-en="SEO Optimization">SEO-оптимизация</h3>
+            <p data-ru="Базовая настройка метатегов, скорости загрузки и структуры страницы."
+              data-en="Basic setup of meta tags, loading speed and page structure.">Базовая настройка метатегов,
+              скорости загрузки и структуры страницы.</p>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline-item timeline-item--left">
+          <div class="service-card anim delay-2">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2c3 2 5 6 5 10 0 2-.5 4-1.5 5.5L12 22l-3.5-4.5C7.5 16 7 14 7 12c0-4 2-8 5-10Z" />
+                <circle cx="12" cy="10" r="2" />
+                <path d="M8.5 15.5 5 17l1-4" />
+                <path d="M15.5 15.5 19 17l-1-4" />
+              </svg>
+            </div>
+            <h3 data-ru="Хостинг и публикация" data-en="Hosting & Launch">Хостинг и публикация</h3>
+            <p data-ru="Помогаю выбрать домен, настроить хостинг и запустить сайт."
+              data-en="I help choose a domain, set up hosting and launch the site.">Помогаю выбрать домен, настроить
+              хостинг и запустить сайт.</p>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline-item timeline-item--right">
+          <div class="service-card anim delay-3">
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 13v-1a8 8 0 0 1 16 0v1" />
+                <rect x="3" y="13" width="4" height="6" rx="1.5" />
+                <rect x="17" y="13" width="4" height="6" rx="1.5" />
+                <path d="M20 19v1a3 3 0 0 1-3 3h-3" />
+              </svg>
+            </div>
+            <h3 data-ru="Поддержка и правки" data-en="Support & Updates">Поддержка и правки</h3>
+            <p data-ru="После сдачи проекта остаюсь на связи и вношу необходимые изменения."
+              data-en="After delivery I stay in touch and make necessary changes.">После сдачи проекта остаюсь на связи
+              и вношу необходимые изменения.</p>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SEO COMPARE (before/after drag slider)
+     ============================================================ -->
+  <section id="seo-compare" class="seo-compare">
+    <div class="compare-slider" id="compareSlider" style="--pos:50%">
+      <div class="compare-panel compare-panel--after">
+        <div class="compare-content">
+          <h2 data-ru="С SEO" data-en="With SEO">With SEO</h2>
+          <p data-ru="Быстро, заметно, впереди" data-en="Fast, Visible, Ahead">Fast, Visible, Ahead</p>
+        </div>
+        <div class="compare-img-frame">
+          <img src="img/seo-with.jpg" alt="With SEO" class="compare-img" />
+        </div>
+      </div>
+      <div class="compare-panel compare-panel--before" id="comparePanelBefore">
+        <div class="compare-content">
+          <h2 data-ru="Без SEO" data-en="Without SEO">Without SEO</h2>
+          <p data-ru="Медленно, теряется, отстаёт" data-en="Slow, Struggles, Stays Behind">Slow, Struggles, Stays Behind
+          </p>
+        </div>
+        <div class="compare-img-frame">
+          <img src="img/seo-without.jpg" alt="Without SEO" class="compare-img" />
+        </div>
+      </div>
+
+      <div class="compare-handle" id="compareHandle" role="slider" tabindex="0"
+        aria-label="Compare without and with SEO" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <span class="compare-handle-hit"></span>
+        <span class="compare-handle-line" aria-hidden="true"></span>
+        <span class="compare-handle-grip" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 3 12 9 18" />
+            <polyline points="15 6 21 12 15 18" />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="compare-footer">
+      <p class="compare-tagline" data-ru="<em>Сила</em> <em>оптимизации</em>"
+        data-en="The <em>Power</em> of <em>Optimization</em>">The <em>Power</em> of <em>Optimization</em></p>
+      <a href="#pricing" class="btn-primary smooth-scroll" data-ru="Заказать SEO-оптимизацию"
+        data-en="Order SEO Optimization">Order SEO Optimization</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PORTFOLIO
+     ============================================================ -->
+  <section id="portfolio" class="section section-dark">
+    <div class="container">
+      <div class="section-header anim">
+        <div class="section-tag" data-ru="Портфолио" data-en="Projects">Портфолио</div>
+        <h2 data-ru="Мои работы" data-en="My Works">Мои работы</h2>
+        <p data-ru="Примеры лендингов для разных направлений бизнеса"
+          data-en="Landing page examples for different business niches">Примеры лендингов для разных направлений бизнеса
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- Card 1 — AG Motors Miami / RentCar -->
+        <a href="projects/ag-motors-miami.html" class="p-card">
+          <div class="p-card-tags">
+            <span class="p-num">/001/</span>
+            <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и
+              разработка</span>
+          </div>
+          <div class="p-preview">
+            <div class="p-browser">
+              <div class="p-dots"><span></span><span></span><span></span></div>
+              <div class="p-url">agmotorsmiami.com</div>
+            </div>
+            <img src="img/rentcar-preview.png" alt="AG Motors Miami" class="p-img" />
+          </div>
+          <div class="p-info">
+            <div class="p-info-row">
+              <h3>AG Motors Miami</h3>
+              <span class="p-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
+            </div>
+            <span class="p-tag" data-ru="Аренда авто" data-en="Car Rental">Аренда авто</span>
+          </div>
+        </a>
+
+        <!-- Card 2 — Resto Bistro -->
+        <a href="projects/resto-bistro.html" class="p-card">
+          <div class="p-card-tags">
+            <span class="p-num">/002/</span>
+            <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и
+              разработка</span>
+          </div>
+          <div class="p-preview">
+            <div class="p-browser">
+              <div class="p-dots"><span></span><span></span><span></span></div>
+              <div class="p-url">restobistro.com</div>
+            </div>
+            <img src="img/resto-bistro-preview.png" alt="Resto Bistro" class="p-img" />
+          </div>
+          <div class="p-info">
+            <div class="p-info-row">
+              <h3>Resto Bistro</h3>
+              <span class="p-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
+            </div>
+            <span class="p-tag" data-ru="Ресторан" data-en="Restaurant">Ресторан</span>
+          </div>
+        </a>
+
+        <!-- Card 3 — Frostline -->
+        <a href="projects/frostline.html" class="p-card">
+          <div class="p-card-tags">
+            <span class="p-num">/003/</span>
+            <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и
+              разработка</span>
+          </div>
+          <div class="p-preview">
+            <div class="p-browser">
+              <div class="p-dots"><span></span><span></span><span></span></div>
+              <div class="p-url">frostline.co</div>
+            </div>
+            <img src="img/frostline-preview.jpg" alt="Frostline" class="p-img" />
+          </div>
+          <div class="p-info">
+            <div class="p-info-row">
+              <h3>Frostline</h3>
+              <span class="p-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
+            </div>
+            <span class="p-tag" data-ru="Горный курорт" data-en="Mountain Resort">Горный курорт</span>
+          </div>
+        </a>
+
+        <!-- Card 4 — Velluto Ice Cream -->
+        <a href="projects/velluto.html" class="p-card">
+          <div class="p-card-tags">
+            <span class="p-num">/004/</span>
+            <span class="p-devtag" data-ru="Веб-дизайн и разработка" data-en="Web Design &amp; Development">Веб-дизайн и
+              разработка</span>
+          </div>
+          <div class="p-preview">
+            <div class="p-browser">
+              <div class="p-dots"><span></span><span></span><span></span></div>
+              <div class="p-url">velluto-icecream.com</div>
+            </div>
+            <img src="img/velluto-preview.png" alt="Velluto Ice Cream" class="p-img" />
+          </div>
+          <div class="p-info">
+            <div class="p-info-row">
+              <h3>Velluto</h3>
+              <span class="p-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
+            </div>
+            <span class="p-tag" data-ru="Мороженое" data-en="Ice Cream">Мороженое</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PROCESS
+     ============================================================ -->
+  <section id="process" class="section section-gray">
+    <div class="container">
+      <div class="section-header anim">
+        <div class="section-tag" data-ru="Как работаем" data-en="How We Work">Как работаем</div>
+        <h2 data-ru="4 шага к вашему сайту" data-en="4 steps to your website">4 шага к вашему сайту</h2>
+      </div>
+
+      <div class="process-row">
+        <div class="process-step anim">
+          <div class="step-num">01</div>
+          <h3 data-ru="Консультация" data-en="Consultation">Консультация</h3>
+          <p data-ru="Обсуждаем ваш бизнес, цели и пожелания. Задаю правильные вопросы, чтобы сайт работал на вас."
+            data-en="We discuss your business, goals and wishes. I ask the right questions to make the site work for you.">
+            Обсуждаем ваш бизнес, цели и пожелания. Задаю правильные вопросы, чтобы сайт работал на вас.</p>
+        </div>
+        <div class="process-step anim delay-1">
+          <div class="step-num">02</div>
+          <h3 data-ru="Дизайн" data-en="Design">Дизайн</h3>
+          <p data-ru="Разрабатываю макет с учётом вашего бренда и целевой аудитории. Вы видите результат до начала вёрстки."
+            data-en="I develop a layout considering your brand and target audience. You see the result before coding begins.">
+            Разрабатываю макет с учётом вашего бренда и целевой аудитории. Вы видите результат до начала вёрстки.</p>
+        </div>
+        <div class="process-step anim delay-2">
+          <div class="step-num">03</div>
+          <h3 data-ru="Разработка" data-en="Development">Разработка</h3>
+          <p data-ru="Верстаю сайт, добавляю анимации и адаптацию. Подключаю форму заявок в ваш Telegram."
+            data-en="I code the site, add animations and responsiveness. Connect the lead form to your Telegram.">
+            Верстаю сайт, добавляю анимации и адаптацию. Подключаю форму заявок в ваш Telegram.</p>
+        </div>
+        <div class="process-step anim delay-3">
+          <div class="step-num">04</div>
+          <h3 data-ru="Запуск" data-en="Launch">Запуск</h3>
+          <p data-ru="Публикую сайт, помогаю с доменом и хостингом. Ваш бизнес готов работать в сети."
+            data-en="I publish the site, help with domain and hosting. Your business is ready to work online.">Публикую
+            сайт, помогаю с доменом и хостингом. Ваш бизнес готов работать в сети.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRICING
+     ============================================================ -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header anim">
+        <div class="section-tag" data-ru="Тарифы" data-en="Pricing">Тарифы</div>
+        <h2 data-ru="Простые и понятные цены" data-en="Simple and clear pricing">Простые и понятные цены</h2>
+        <p data-ru="Без скрытых платежей и неожиданных доплат" data-en="No hidden fees or unexpected surcharges">Без
+          скрытых платежей и неожиданных доплат</p>
+      </div>
+
+      <div class="pricing-row">
+
+        <!-- Plan 1: Start -->
+        <div class="price-card anim">
+          <div class="price-head">
+            <div class="price-name" data-ru="Старт" data-en="Start">Старт</div>
+            <div class="price-val">
+              <span class="price-cur">$</span><span class="price-num">349</span>
+            </div>
+            <div class="price-sub" data-ru="Для тех, кто только выходит в онлайн" data-en="For those just going online">
+              Для тех, кто только выходит в онлайн</div>
+          </div>
+          <div class="price-flat-row">
+            <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
+            <span class="price-flat-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 12 9 17 20 5" />
+              </svg>
+            </span>
+          </div>
+          <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
+          <ul class="price-list">
+            <li class="yes" data-ru="Одностраничный лендинг" data-en="One-page landing">Одностраничный лендинг</li>
+            <li class="yes" data-ru="Адаптивный дизайн" data-en="Responsive design">Адаптивный дизайн</li>
+            <li class="yes" data-ru="Форма обратной связи" data-en="Contact form">Форма обратной связи</li>
+            <li class="yes" data-ru="Базовая SEO-оптимизация" data-en="Basic SEO">Базовая SEO-оптимизация</li>
+            <li class="yes" data-ru="Помощь с публикацией" data-en="Publishing help">Помощь с публикацией</li>
+            <li class="yes" data-ru="1 правка после сдачи" data-en="1 revision">1 правка после сдачи</li>
+            <li class="no" data-ru="Анимации и scroll-эффекты" data-en="Animations & scroll effects">Анимации и
+              scroll-эффекты</li>
+            <li class="no" data-ru="Поддержка 30 дней" data-en="30-day support">Поддержка 30 дней</li>
+          </ul>
+          <div class="price-time" data-ru="⏱ Срок: 3–4 дня" data-en="⏱ Delivery: 3–4 days">⏱ Срок: 3–4 дня</div>
+          <a href="#contact" class="btn-outline smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
+        </div>
+
+        <!-- Plan 2: Business (recommended) -->
+        <div class="price-card price-card--hot anim delay-2">
+          <div class="reco-badge" data-ru="Рекомендуем" data-en="Recommended">Рекомендуем</div>
+          <div class="price-head">
+            <div class="price-name" data-ru="Бизнес" data-en="Business">Бизнес</div>
+            <div class="price-val">
+              <span class="price-cur">$</span><span class="price-num">699</span>
+            </div>
+            <div class="price-sub" data-ru="Для тех, кто хочет выделиться среди конкурентов"
+              data-en="For those who want to stand out from competitors">Для тех, кто хочет выделиться среди конкурентов
+            </div>
+          </div>
+          <div class="price-flat-row">
+            <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
+            <span class="price-flat-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 12 9 17 20 5" />
+              </svg>
+            </span>
+          </div>
+          <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
+          <ul class="price-list">
+            <li class="yes" data-ru="Многосекционный лендинг" data-en="Multi-section landing">Многосекционный лендинг
+            </li>
+            <li class="yes" data-ru="Адаптивный дизайн" data-en="Responsive design">Адаптивный дизайн</li>
+            <li class="yes" data-ru="Анимации и scroll-эффекты" data-en="Animations & scroll effects">Анимации и
+              scroll-эффекты</li>
+            <li class="yes" data-ru="Форма заявок → Telegram" data-en="Lead form → Telegram">Форма заявок → Telegram
+            </li>
+            <li class="yes" data-ru="Продвинутая SEO-оптимизация" data-en="Advanced SEO">Продвинутая SEO-оптимизация
+            </li>
+            <li class="yes" data-ru="Помощь с доменом и хостингом" data-en="Domain & hosting help">Помощь с доменом и
+              хостингом</li>
+            <li class="yes" data-ru="3 правки после сдачи" data-en="3 revisions">3 правки после сдачи</li>
+            <li class="yes" data-ru="Поддержка 30 дней" data-en="30-day support">Поддержка 30 дней</li>
+          </ul>
+          <div class="price-time" data-ru="⏱ Срок: 5–7 дней" data-en="⏱ Delivery: 5–7 days">⏱ Срок: 5–7 дней</div>
+          <a href="#contact" class="btn-primary smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
+        </div>
+
+        <!-- Plan 3: Premium -->
+        <div class="price-card anim delay-3">
+          <div class="price-head">
+            <div class="price-name" data-ru="Премиум" data-en="Premium">Премиум</div>
+            <div class="price-val">
+              <span class="price-cur">$</span><span class="price-num">1199</span>
+            </div>
+            <div class="price-sub" data-ru="Для тех, кому нужен полноценный сайт с расширенными возможностями"
+              data-en="For those who need a full website with advanced capabilities">Для тех, кому нужен полноценный
+              сайт с расширенными возможностями</div>
+          </div>
+          <div class="price-flat-row">
+            <span data-ru="Фиксированная цена" data-en="Flat rate">Фиксированная цена</span>
+            <span class="price-flat-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 12 9 17 20 5" />
+              </svg>
+            </span>
+          </div>
+          <div class="price-included-label" data-ru="Что включено" data-en="What's Included">Что включено</div>
+          <ul class="price-list">
+            <li class="yes" data-ru="Многостраничный сайт (до 5 страниц)" data-en="Multi-page website (up to 5 pages)">
+              Многостраничный сайт (до 5 страниц)</li>
+            <li class="yes" data-ru="Всё из тарифа «Бизнес»" data-en="Everything in Business plan">Всё из тарифа
+              «Бизнес»</li>
+            <li class="yes" data-ru="Индивидуальный дизайн разделов" data-en="Custom section design">Индивидуальный
+              дизайн разделов</li>
+            <li class="yes" data-ru="Расширенная аналитика" data-en="Advanced analytics">Расширенная аналитика</li>
+            <li class="yes" data-ru="Приоритетная поддержка 60 дней" data-en="Priority 60-day support">Приоритетная
+              поддержка 60 дней</li>
+            <li class="yes" data-ru="5 правок после сдачи" data-en="5 revisions">5 правок после сдачи</li>
+            <li class="yes" data-ru="Личная онбординг-консультация" data-en="Personal onboarding call">Личная
+              онбординг-консультация</li>
+          </ul>
+          <div class="price-time" data-ru="⏱ Срок: 10–14 дней" data-en="⏱ Delivery: 10–14 days">⏱ Срок: 10–14 дней</div>
+          <a href="#contact" class="btn-outline smooth-scroll price-btn" data-ru="Заказать" data-en="Order">Заказать</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FAQ
+     ============================================================ -->
+  <section id="faq" class="section section-gray">
+    <div class="container">
+      <div class="section-header anim">
+        <h2 data-ru="<em>Часто</em> задаваемые вопросы" data-en="<em>Frequently</em> Asked Questions"><em>Часто</em>
+          задаваемые вопросы</h2>
+      </div>
+
+      <div class="faq-wrap anim">
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-ru="Сколько времени занимает создание сайта?"
+              data-en="How long does it take to build a website?">Сколько времени занимает создание сайта?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p data-ru="Зависит от тарифа. Тариф «Старт» — 3–4 рабочих дня, тариф «Бизнес» — 5–7 рабочих дней. Точные сроки обсуждаем на консультации."
+              data-en="It depends on the plan. 'Start' — 3–4 business days, 'Business' — 5–7 business days. Exact timelines are discussed at the consultation.">
+              Зависит от тарифа. Тариф «Старт» — 3–4 рабочих дня, тариф «Бизнес» — 5–7 рабочих дней. Точные сроки
+              обсуждаем на консультации.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-ru="Работаете ли вы с малым бизнесом?" data-en="Do you work with small businesses?">Работаете ли
+              вы с малым бизнесом?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p data-ru="Да, именно малый бизнес — моя специализация. Я работаю с барбершопами, кафе, стоматологиями, фитнес-студиями и другими локальными бизнесами."
+              data-en="Yes, small business is my specialization. I work with barbershops, cafes, dental clinics, fitness studios and other local businesses.">
+              Да, именно малый бизнес — моя специализация. Я работаю с барбершопами, кафе, стоматологиями,
+              фитнес-студиями и другими локальными бизнесами.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-ru="Помогаете с доменом и хостингом?" data-en="Do you help with domain and hosting?">Помогаете с
+              доменом и хостингом?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p data-ru="Да. Помогу выбрать домен, настроить хостинг и опубликовать сайт. Вам не нужно разбираться в технической стороне — я всё сделаю сам."
+              data-en="Yes. I'll help choose a domain, set up hosting and publish the site. You don't need to deal with the technical side — I'll handle everything.">
+              Да. Помогу выбрать домен, настроить хостинг и опубликовать сайт. Вам не нужно разбираться в технической
+              стороне — я всё сделаю сам.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-ru="Будет ли сайт адаптирован под телефон?" data-en="Will the site work on mobile?">Будет ли сайт
+              адаптирован под телефон?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p data-ru="Абсолютно. Все мои сайты корректно отображаются на телефонах, планшетах и компьютерах. Адаптивность — обязательная часть каждого проекта."
+              data-en="Absolutely. All my sites display correctly on phones, tablets and computers. Responsiveness is a mandatory part of every project.">
+              Абсолютно. Все мои сайты корректно отображаются на телефонах, планшетах и компьютерах. Адаптивность —
+              обязательная часть каждого проекта.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span data-ru="Можно вносить правки после сдачи?" data-en="Can changes be made after delivery?">Можно
+              вносить правки после сдачи?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p data-ru="Да. В течение 14 дней после сдачи проекта правки включены в стоимость (в рамках вашего тарифа). После этого — по договорённости."
+              data-en="Yes. Within 14 days after delivery, revisions are included in the price (within your plan). After that — by agreement.">
+              Да. В течение 14 дней после сдачи проекта правки включены в стоимость (в рамках вашего тарифа). После
+              этого — по договорённости.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CONTACT
+     ============================================================ -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: heading + CTA -->
+        <div class="contact-left anim">
+          <div class="contact-badge">
+            <span class="contact-badge-bar" aria-hidden="true"></span>
+            <span data-ru="Контакты" data-en="Contact">Контакты</span>
+          </div>
+          <h2 data-ru="Начнём работу?" data-en="Ready to start?">Начнём работу?</h2>
+          <p data-ru="Оставьте заявку — отвечу в течение 24 часов"
+            data-en="Leave a request — I'll reply within 24 hours">Оставьте заявку — отвечу в течение 24 часов</p>
+
+          <a href="mailto:davidmarco.prod@gmail.com" class="contact-link">
+            <span class="contact-link-label" data-ru="Написать мне" data-en="Get in touch">Написать мне</span>
+            <span class="contact-link-value">
+              <span data-ru="Связаться со мной" data-en="Contact With Me">Contact With Me</span>
+              <svg class="contact-link-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap anim delay-2">
+          <form id="contactForm" novalidate>
+            <div class="field-dark">
+              <label for="fname" data-ru="Ваше имя" data-en="Name">Ваше имя</label>
+              <input type="text" id="fname" data-ru-placeholder="Ваше имя" data-en-placeholder="Your name"
+                placeholder="Ваше имя" required autocomplete="off" />
+            </div>
+            <div class="field-dark">
+              <label for="fphone" data-ru="WhatsApp или Telegram" data-en="Phone">WhatsApp или Telegram</label>
+              <input type="text" id="fphone" data-ru-placeholder="Ваш номер" data-en-placeholder="Your number"
+                placeholder="Ваш номер" required autocomplete="off" />
+            </div>
+            <div class="field-dark">
+              <label for="femail" data-ru="Email (необязательно)" data-en="Email">Email (необязательно)</label>
+              <input type="email" id="femail" data-ru-placeholder="Ваш email" data-en-placeholder="Enter your email"
+                placeholder="Ваш email" autocomplete="off" />
+            </div>
+            <div class="field-dark">
+              <label data-ru="Выберите тариф" data-en="Select Plan">Выберите тариф</label>
+              <div class="plan-toggle" id="planToggle">
+                <button type="button" class="plan-opt" data-plan="Start" data-ru="Старт" data-en="Start">Старт</button>
+                <button type="button" class="plan-opt" data-plan="Business" data-ru="Бизнес"
+                  data-en="Business">Бизнес</button>
+                <button type="button" class="plan-opt" data-plan="Premium" data-ru="Премиум"
+                  data-en="Premium">Премиум</button>
+              </div>
+            </div>
+            <div class="field-dark">
+              <label for="fmessage" data-ru="Расскажите о своём бизнесе" data-en="Send Message">Расскажите о своём
+                бизнесе</label>
+              <textarea id="fmessage" data-ru-placeholder="Расскажите подробнее" data-en-placeholder="Give us more info"
+                placeholder="Расскажите подробнее" rows="4"></textarea>
+            </div>
+            <label class="policy-check" for="fagree">
+              <input type="checkbox" id="fagree" required />
+              <span class="policy-check-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 12 9 17 20 5" />
+                </svg>
+              </span>
+              <span class="policy-check-text"
+                data-ru='Я согласен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>'
+                data-en='I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>'>Я
+                согласен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой
+                  конфиденциальности</a></span>
+            </label>
+            <button type="submit" class="btn-primary btn-full" id="submitBtn" data-ru="Отправить заявку →"
+              data-en="Send Request →">
+              Отправить заявку →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-top">
-      <a href="#hero" class="footer-logo smooth-scroll">
-        <img src="img/logo-128.png"
-             srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w"
-             sizes="120px"
-             alt="DAVITO logo" width="120" height="105" />
-      </a>
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo smooth-scroll">
+          <img src="img/logo-128.png"
+            srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w, img/logo-512.png 512w"
+            sizes="120px" alt="DAVITO logo" width="120" height="105" />
+        </a>
 
-      <nav class="footer-col">
-        <span class="footer-col-label" data-ru="/Навигация/" data-en="/Navigation/">/Навигация/</span>
-        <a href="#hero"      class="footer-col-link smooth-scroll" data-ru="Главная"   data-en="Home">Главная</a>
-        <a href="#about"     class="footer-col-link smooth-scroll" data-ru="Про меня"  data-en="About">Про меня</a>
-        <a href="#portfolio" class="footer-col-link smooth-scroll" data-ru="Портфолио" data-en="Projects">Портфолио</a>
-        <a href="#contact"   class="footer-col-link smooth-scroll" data-ru="Контакты"  data-en="Contact">Контакты</a>
-      </nav>
+        <nav class="footer-col">
+          <span class="footer-col-label" data-ru="/Навигация/" data-en="/Navigation/">/Навигация/</span>
+          <a href="#hero" class="footer-col-link smooth-scroll" data-ru="Главная" data-en="Home">Главная</a>
+          <a href="#about" class="footer-col-link smooth-scroll" data-ru="Про меня" data-en="About">Про меня</a>
+          <a href="#portfolio" class="footer-col-link smooth-scroll" data-ru="Портфолио"
+            data-en="Projects">Портфолио</a>
+          <a href="#contact" class="footer-col-link smooth-scroll" data-ru="Контакты" data-en="Contact">Контакты</a>
+        </nav>
 
-      <nav class="footer-col">
-        <span class="footer-col-label" data-ru="/Ресурсы/" data-en="/Resources/">/Ресурсы/</span>
-        <a href="privacy-policy.html"   class="footer-col-link" data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</a>
-        <a href="terms-conditions.html" class="footer-col-link" data-ru="Условия использования" data-en="Terms &amp; Conditions">Условия использования</a>
-      </nav>
-    </div>
+        <nav class="footer-col">
+          <span class="footer-col-label" data-ru="/Ресурсы/" data-en="/Resources/">/Ресурсы/</span>
+          <a href="privacy-policy.html" class="footer-col-link" data-ru="Политика конфиденциальности"
+            data-en="Privacy Policy">Политика конфиденциальности</a>
+          <a href="terms-conditions.html" class="footer-col-link" data-ru="Условия использования"
+            data-en="Terms &amp; Conditions">Условия использования</a>
+        </nav>
+      </div>
 
-    <div class="footer-social-block">
-      <span class="footer-col-label" data-ru="/Соцсети/" data-en="/Socials/">/Соцсети/</span>
-      <div class="footer-social-row">
-        <a href="https://t.me/davitoo7" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="Telegram">
-          <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true"><path d="M248 8C111 8 8 111 8 248s103 240 240 240 240-103 240-240S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239-92.1c11.1-4 20.8 2.7 17.3 19.4z"/></svg>
-        </a>
-        <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        </a>
-        <a href="https://g.page/r/CXDAESpnKGIWEBM/review" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="Google">
-          <svg viewBox="0 0 488 512" fill="currentColor" aria-hidden="true"><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/davitoo7/" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="Instagram">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@davitomain" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="YouTube">
-          <svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M549.655 148.28c-6.281-23.64-24.041-42.396-47.655-48.685C462.923 85 288 85 288 85S113.077 85 74 99.595c-23.614 6.289-41.374 25.045-47.655 48.685-12.614 47.328-12.614 147.717-12.614 147.717s0 100.39 12.614 147.718c6.281 23.64 24.041 42.396 47.655 48.684C113.077 427 288 427 288 427s174.923 0 214-14.595c23.614-6.289 41.374-25.045 47.655-48.685 12.614-47.328 12.614-147.718 12.614-147.718s0-100.389-12.614-147.717zM240 336V176l144 80-144 80z"/></svg>
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="LinkedIn">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
-        </a>
+      <div class="footer-social-block">
+        <span class="footer-col-label" data-ru="/Соцсети/" data-en="/Socials/">/Соцсети/</span>
+        <div class="footer-social-row">
+          <a href="https://t.me/davitoo7" target="_blank" rel="noopener noreferrer" class="footer-social-item"
+            aria-label="Telegram">
+            <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M248 8C111 8 8 111 8 248s103 240 240 240 240-103 240-240S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239-92.1c11.1-4 20.8 2.7 17.3 19.4z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="footer-social-item"
+            aria-label="WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+          </a>
+          <a href="https://g.page/r/CXDAESpnKGIWEBM/review" target="_blank" rel="noopener noreferrer"
+            class="footer-social-item" aria-label="Google">
+            <svg viewBox="0 0 488 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/davitoo7/" target="_blank" rel="noopener noreferrer"
+            class="footer-social-item" aria-label="Instagram">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@davitomain" target="_blank" rel="noopener noreferrer"
+            class="footer-social-item" aria-label="YouTube">
+            <svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M549.655 148.28c-6.281-23.64-24.041-42.396-47.655-48.685C462.923 85 288 85 288 85S113.077 85 74 99.595c-23.614 6.289-41.374 25.045-47.655 48.685-12.614 47.328-12.614 147.717-12.614 147.717s0 100.39 12.614 147.718c6.281 23.64 24.041 42.396 47.655 48.684C113.077 427 288 427 288 427s174.923 0 214-14.595c23.614-6.289 41.374-25.045 47.655-48.685 12.614-47.328 12.614-147.718 12.614-147.718s0-100.389-12.614-147.717zM240 336V176l144 80-144 80z" />
+            </svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-item" aria-label="LinkedIn">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy" data-ru="© 2026 David Marco Web Studio. Все права защищены."
+          data-en="© 2026 David Marco Web Studio. All rights reserved.">
+          © 2026 David Marco Web Studio. Все права защищены.
+        </p>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-divider"></div>
-
-    <div class="footer-bottom">
-      <p class="footer-copy" data-ru="© 2026 David Marco Web Studio. Все права защищены." data-en="© 2026 David Marco Web Studio. All rights reserved.">
-        © 2026 David Marco Web Studio. Все права защищены.
-      </p>
-    </div>
-  </div>
-</footer>
-
-<!-- ============================================================
+  <!-- ============================================================
      THANK YOU MODAL
      ============================================================ -->
-<div class="modal-overlay" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal-box" id="modalBox">
-    <button type="button" class="modal-close" id="modalClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-        <line x1="5" y1="5" x2="19" y2="19"/>
-        <line x1="19" y1="5" x2="5" y2="19"/>
-      </svg>
-    </button>
+  <div class="modal-overlay" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box" id="modalBox">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round">
+          <line x1="5" y1="5" x2="19" y2="19" />
+          <line x1="19" y1="5" x2="5" y2="19" />
+        </svg>
+      </button>
 
-    <img src="img/logo-128.png"
-         srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w"
-         sizes="56px"
-         alt="DAVITO logo" class="modal-logo" width="56" height="49" />
+      <img src="img/logo-128.png" srcset="img/logo-64.png 64w, img/logo-128.png 128w, img/logo-256.png 256w"
+        sizes="56px" alt="DAVITO logo" class="modal-logo" width="56" height="49" />
 
-    <div class="modal-icon" id="modalIcon">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 13l4 4L19 7"/>
-      </svg>
+      <div class="modal-icon" id="modalIcon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h3 class="modal-title" id="modalTitle" data-ru="Сообщение успешно отправлено"
+        data-en="Message sent successfully">Сообщение успешно отправлено</h3>
+      <p class="modal-text" data-ru="Мы свяжемся с вами в ближайшее время" data-en="We'll get back to you soon">Мы
+        свяжемся с вами в ближайшее время</p>
+
+      <button type="button" class="btn-primary modal-btn" id="modalOkBtn" data-ru="Понятно"
+        data-en="Got it">Понятно</button>
     </div>
-
-    <h3 class="modal-title" id="modalTitle" data-ru="Сообщение успешно отправлено" data-en="Message sent successfully">Сообщение успешно отправлено</h3>
-    <p class="modal-text" data-ru="Мы свяжемся с вами в ближайшее время" data-en="We'll get back to you soon">Мы свяжемся с вами в ближайшее время</p>
-
-    <button type="button" class="btn-primary modal-btn" id="modalOkBtn" data-ru="Понятно" data-en="Got it">Понятно</button>
   </div>
-</div>
 
-<!-- ============================================================
+  <!-- ============================================================
      FLOATING CONTACT BUTTON
      ============================================================ -->
-<button type="button" class="contact-fab" id="contactFabBtn" aria-haspopup="true" aria-expanded="false" aria-controls="contactFabPanel">
-  <svg class="fab-btn-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-  </svg>
-  <span data-ru="Отправить сообщение" data-en="Send a message">Отправить сообщение</span>
-</button>
+  <button type="button" class="contact-fab" id="contactFabBtn" aria-haspopup="true" aria-expanded="false"
+    aria-controls="contactFabPanel">
+    <svg class="fab-btn-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+      stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path
+        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+    <span data-ru="Отправить сообщение" data-en="Send a message">Отправить сообщение</span>
+  </button>
 
-<div class="contact-fab-panel" id="contactFabPanel" role="dialog" aria-modal="false" aria-label="Contact options">
-  <div class="fab-panel-header">
-    <span class="fab-panel-title" data-ru="Написать мне" data-en="Message me">Написать мне</span>
-    <button type="button" class="fab-panel-close" id="contactFabClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-        <line x1="5" y1="5" x2="19" y2="19"/>
-        <line x1="19" y1="5" x2="5" y2="19"/>
-      </svg>
-    </button>
+  <div class="contact-fab-panel" id="contactFabPanel" role="dialog" aria-modal="false" aria-label="Contact options">
+    <div class="fab-panel-header">
+      <span class="fab-panel-title" data-ru="Написать мне" data-en="Message me">Написать мне</span>
+      <button type="button" class="fab-panel-close" id="contactFabClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round">
+          <line x1="5" y1="5" x2="19" y2="19" />
+          <line x1="19" y1="5" x2="5" y2="19" />
+        </svg>
+      </button>
+    </div>
+
+    <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
+      <span class="fab-panel-icon fab-icon--whatsapp">
+        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+          <path
+            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+      </span>
+      <span class="fab-panel-text" data-ru="Написать в WhatsApp" data-en="Send to WhatsApp">Написать в WhatsApp</span>
+    </a>
+
+    <a href="https://t.me/davitoo7" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
+      <span class="fab-panel-icon fab-icon--telegram">
+        <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
+          <path
+            d="M248 8C111 8 8 111 8 248s103 240 240 240 240-103 240-240S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239-92.1c11.1-4 20.8 2.7 17.3 19.4z" />
+        </svg>
+      </span>
+      <span class="fab-panel-text" data-ru="Написать в Telegram" data-en="Send to Telegram">Написать в Telegram</span>
+    </a>
+
+    <a href="mailto:davidmarco.prod@gmail.com" class="fab-panel-item">
+      <span class="fab-panel-icon fab-icon--email">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
+          <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path>
+          <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon>
+          <path fill="#c62828"
+            d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path>
+          <path fill="#fbc02d"
+            d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z">
+          </path>
+        </svg>
+      </span>
+      <span class="fab-panel-text" data-ru="Написать на Email" data-en="Send to Email">Написать на Email</span>
+    </a>
   </div>
+  <div class="contact-fab-overlay" id="contactFabOverlay"></div>
 
-  <a href="https://wa.me/19544455820" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
-    <span class="fab-panel-icon fab-icon--whatsapp">
-      <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-      </svg>
-    </span>
-    <span class="fab-panel-text" data-ru="Написать в WhatsApp" data-en="Send to WhatsApp">Написать в WhatsApp</span>
-  </a>
-
-  <a href="https://t.me/davitoo7" target="_blank" rel="noopener noreferrer" class="fab-panel-item">
-    <span class="fab-panel-icon fab-icon--telegram">
-      <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
-        <path d="M248 8C111 8 8 111 8 248s103 240 240 240 240-103 240-240S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239-92.1c11.1-4 20.8 2.7 17.3 19.4z"/>
-      </svg>
-    </span>
-    <span class="fab-panel-text" data-ru="Написать в Telegram" data-en="Send to Telegram">Написать в Telegram</span>
-  </a>
-
-  <a href="mailto:davidmarco.prod@gmail.com" class="fab-panel-item">
-    <span class="fab-panel-icon fab-icon--email">
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
-        <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path>
-        <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon>
-        <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path>
-        <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"></path>
-      </svg>
-    </span>
-    <span class="fab-panel-text" data-ru="Написать на Email" data-en="Send to Email">Написать на Email</span>
-  </a>
-</div>
-<div class="contact-fab-overlay" id="contactFabOverlay"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=21"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="js/main.js?v=22"></script>
 </body>
+
 </html>
