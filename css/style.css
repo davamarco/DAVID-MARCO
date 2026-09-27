@@ -1605,9 +1605,12 @@ footer {
   .hc-wa { flex: 1 1 100%; }
   .hc-call { flex: 1 1 0; min-width: 0; }
   .hc-ig { width: 56px; height: 56px; border-radius: 13px; }
-  .hero-actions { gap: 12px; margin-bottom: 40px; }
+  .hero-actions { gap: 12px; margin-bottom: 40px; width: 100%; max-width: 320px; }
   .hero-actions .btn-primary,
   .hero-actions .btn-outline { width: 100%; max-width: 320px; padding: 12px 26px; font-size: 14px; }
+  /* View Works first, then Order Website with the arrow at the very bottom */
+  .hero-actions .btn-outline { order: 1; }
+  .hero-order { order: 2; width: 100%; }
   .hero-arrow { width: 40px; height: 40px; }
   .hero-arrow svg { width: 22px; height: 22px; }
 
