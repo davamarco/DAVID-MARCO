@@ -1596,11 +1596,20 @@ footer {
   .ggb-score    { font-size: 13px; }
   .ggb-reviews  { font-size: 12px; }
   .hero-actions { flex-direction: column; align-items: center; }
-  .hero-contacts { flex-direction: column; align-items: center; }
-  .hero-main { align-items: center; margin: 0; }
-  .hc-btn { flex: none; width: 100%; max-width: 300px; }
+  /* WhatsApp on its own row, Call + Instagram icon share the next one */
+  .hero-main { align-items: center; margin: 0 0 34px; }
+  .hero-title.hero-title--brand, html:lang(ru) .hero-title.hero-title--brand { margin-bottom: 24px; }
+  .hero-google-badge { margin-bottom: 20px; }
+  .hero-contacts { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 320px; }
+  .hc-btn { height: 50px; font-size: 13.5px; }
+  .hc-wa { flex: 1 1 100%; }
+  .hc-call { flex: 1 1 0; min-width: 0; }
+  .hc-ig { width: 56px; height: 56px; border-radius: 13px; }
+  .hero-actions { gap: 12px; margin-bottom: 40px; }
   .hero-actions .btn-primary,
-  .hero-actions .btn-outline { width: 100%; max-width: 300px; }
+  .hero-actions .btn-outline { width: 100%; max-width: 320px; padding: 12px 26px; font-size: 14px; }
+  .hero-arrow { width: 40px; height: 40px; }
+  .hero-arrow svg { width: 22px; height: 22px; }
 
   .timeline-line { left: 20px; transform: none; }
   .timeline-item { grid-template-columns: 32px 1fr; gap: 0 16px; }
