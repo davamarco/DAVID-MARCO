@@ -364,7 +364,7 @@ html.skip-preloader #preloader { display: none; }
 
 .hero-inner {
   display: grid; grid-template-columns: 1fr 1fr;
-  align-items: stretch; gap: 60px;
+  align-items: stretch; gap: 32px;
   max-width: 1280px; margin: 0 auto;
   padding: 40px 40px;
   width: 100%;
@@ -383,10 +383,8 @@ html.skip-preloader #preloader { display: none; }
   display: flex; flex-direction: column; justify-content: center;
   align-items: flex-start;
 }
-/* Wider container for the text column; the photo column stays exactly
-   570px (its old width) so the crop of david.jpg doesn't change. */
 @media (min-width: 1281px) {
-  .hero-inner { max-width: 1360px; grid-template-columns: minmax(0, 1fr) 570px; }
+  .hero-inner { max-width: 1360px; }
 }
 
 /* "Ready for new projects" — its own section now, right below #hero. */
@@ -440,9 +438,9 @@ html:lang(ru) .hero-title {
    language modes, so it opts out of the RU-specific size curve above. */
 .hero-title.hero-title--brand,
 html:lang(ru) .hero-title.hero-title--brand {
-  font-size: clamp(28px, 3.8vw, 60px);
+  font-size: clamp(22px, 3.1vw, 48px);
   line-height: 1.1; letter-spacing: -.01em;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 }
 .hero-title--brand em {
   background: linear-gradient(100deg, #6db3ff 0%, var(--blue) 55%, #1560C0 100%);
@@ -457,8 +455,8 @@ html:lang(ru) .hero-title.hero-title--brand {
   background: #fff;
   border: 1px solid var(--gray-border);
   border-radius: 999px;
-  padding: 12px 24px;
-  margin-bottom: 28px;
+  padding: 10px 20px;
+  margin-bottom: 24px;
   cursor: pointer;
 }
 /* Higher specificity than .fade-up's transition shorthand so hover stays a snappy .2s */
@@ -471,13 +469,13 @@ a.hero-google-badge:hover {
   border-color: #c8c8ce;
 }
 .hero-google-badge.fade-up { transition-delay: .27s; }
-.ggb-icon { flex-shrink: 0; }
+.ggb-icon { flex-shrink: 0; width: 16px; height: 16px; }
 .ggb-stars {
-  color: #FBBC05; font-size: 15px; letter-spacing: 1px; line-height: 1;
+  color: #FBBC05; font-size: 13px; letter-spacing: 1px; line-height: 1;
 }
-.ggb-score { font-size: 14px; font-weight: 800; color: #1d1d1f; }
-.ggb-sep { font-size: 13px; color: var(--gray-border); }
-.ggb-reviews { font-size: 13px; font-weight: 600; color: #1d1d1f; white-space: nowrap; }
+.ggb-score { font-size: 13px; font-weight: 800; color: #1d1d1f; }
+.ggb-sep { font-size: 12px; color: var(--gray-border); }
+.ggb-reviews { font-size: 12px; font-weight: 600; color: #1d1d1f; white-space: nowrap; }
 
 /* Actions */
 /* Badge + title + contact buttons sit centered in the free space; the
@@ -487,58 +485,58 @@ a.hero-google-badge:hover {
   display: flex; flex-direction: column; align-items: flex-start;
 }
 .hero-actions {
-  display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start;
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start;
   margin-bottom: 56px; /* keeps the arrow clear of the fixed "Send a message" pill */
 }
-.hero-order { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.hero-order { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-actions .btn-primary { padding: 14px 28px; font-size: 13px; }
 /* line the outline button's height up with .btn-primary (its 1.5px border
    otherwise makes it 1px shorter) */
-.hero-actions .btn-outline { padding: 14px 30px; }
+.hero-actions .btn-outline { padding: 13px 28px; font-size: 13px; }
 
 /* Bold bouncing arrow under "Order Website" */
 .hero-arrow {
   display: flex; align-items: center; justify-content: center;
-  width: 46px; height: 46px; border-radius: 50%;
+  width: 38px; height: 38px; border-radius: 50%;
   color: #fff; background: rgba(29,121,233,.18);
   border: 1.5px solid rgba(29,121,233,.55);
   animation: arrowBounce 1.5s ease-in-out infinite;
   transition: background var(--trans), border-color var(--trans);
 }
 .hero-arrow:hover { background: var(--blue); border-color: var(--blue); animation-play-state: paused; }
-.hero-arrow svg { display: block; }
+.hero-arrow svg { display: block; width: 21px; height: 21px; }
 @keyframes arrowBounce {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(8px); }
+  50%      { transform: translateY(5px); }
 }
 @media (prefers-reduced-motion: reduce) { .hero-arrow { animation: none; } }
 
 /* Contact buttons row */
 .hero-contacts {
-  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
   width: 100%;
 }
 .hc-btn {
-  flex: 1 1 170px; min-width: 0;
-  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-  height: 58px; padding: 0 16px;
+  flex: 0 0 auto; min-width: 0;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 50px; padding: 0 22px;
   font-size: 14px; font-weight: 700; white-space: nowrap;
   color: #fff; position: relative;
   transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
 @media (min-width: 1025px) {
-  .hero-contacts { flex-wrap: nowrap; }
-  .hc-btn { flex: 1 1 auto; padding: 0 12px; font-size: clamp(12px, 1vw, 14px); gap: 7px; }
+  .hc-btn { flex: 0 0 auto; padding: 0 20px; font-size: 14px; gap: 8px; }
 }
 .hc-btn:hover { transform: translateY(-3px); filter: brightness(1.08); }
 .hc-btn:active { transform: translateY(0); }
-.hc-btn svg { flex: none; }
+.hc-btn svg { flex: none; width: 17px; height: 17px; }
 .hc-wa   { background: #008000; border-radius: 100px; box-shadow: 0 8px 22px rgba(0,128,0,.35); }
 .hc-call { background: #ff0000; border-radius: 100px; box-shadow: 0 8px 22px rgba(255,0,0,.35); }
 
 /* Instagram — the classic 2011 camera icon, a square link */
 .hc-ig {
   flex: none; align-self: center;
-  width: 64px; height: 64px; border-radius: 15px;
+  width: 54px; height: 54px; border-radius: 13px;
   display: block;
   box-shadow: 0 8px 22px rgba(0,0,0,.45);
   transition: transform .25s ease, filter .25s ease;
@@ -546,36 +544,29 @@ a.hero-google-badge:hover {
 .hc-ig svg { display: block; width: 100%; height: 100%; }
 .hc-ig:hover { transform: translateY(-3px) rotate(-3deg); filter: brightness(1.06); }
 
-/* Photo — full-bleed to the bottom edge of the hero, no card/frame, so
-   it reaches all the way down instead of floating with dead space below
-   it (was a fixed 680px card; .hero-inner now stretches full height and
-   this fills 100% of that). */
+/* Character video (left column). The clip is shot on pure black, so
+   `screen` blending drops the black and lets it sit on the page background;
+   the edge mask hides any compression noise near the frame border. */
 .hero-visual {
-  display: flex; justify-content: flex-end; align-items: flex-end;
+  display: flex; justify-content: center; align-items: center;
   height: 100%; position: relative;
 }
 .hero-photo-wrap {
-  position: relative; height: 100%; width: 100%;
-  display: flex; align-items: flex-end;
+  position: relative; width: 100%;
+  display: flex; align-items: center; justify-content: center;
   will-change: transform;
+  /* will-change isolates this group, so the blend needs an opaque backdrop here */
+  background: var(--dark-bg);
 }
 .hero-photo {
-  /* david.jpg is a wide 2091x1166 landscape frame (the subject only
-     occupies its center ~40%) — width:auto let the box's rendered width
-     follow that landscape ratio at full height, which at hero height
-     massively overflowed the column and got clipped by #hero's
-     overflow:hidden, cutting off his arm. Locking both dimensions to
-     the column's own box lets object-fit actually crop as intended;
-     54% keeps the crop centered on him (measured from the source photo,
-     not a guess). */
-  height: 100%; width: 100%;
-  object-fit: cover; object-position: 54% center;
-  position: relative; z-index: 2;
-  display: block;
-  filter: contrast(1.05) brightness(.97);
-  transition: filter .4s ease;
+  display: block; width: 100%; max-width: 720px; aspect-ratio: 1 / 1;
+  height: auto; object-fit: contain;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
 }
-.hero-photo:hover { filter: contrast(1.12) brightness(.98); }
 
 /* ================================================================
    SCROLL ANIMATIONS
@@ -1554,7 +1545,8 @@ footer {
   #hero { height: auto; min-height: 100svh; }
   .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; padding: 28px 40px 60px; flex: none; }
   .hero-content { align-items: center; }
-  .hero-visual { order: -1; height: 400px; justify-content: center; }
+  .hero-visual { order: -1; height: auto; justify-content: center; }
+  .hero-photo { max-width: 440px; }
   .hero-actions, .hero-contacts { justify-content: center; }
   .hero-main { align-items: center; }
   .ready-text { max-width: 75%; }
@@ -1591,7 +1583,7 @@ footer {
   .section      { padding: 80px 0; }
 
   .hero-inner   { padding: 8px 20px 60px; }
-  .hero-visual  { height: 320px; }
+  .hero-photo   { max-width: 340px; }
   .hero-ready-strip { padding: 16px 20px 44px; }
   .ready-text   { max-width: 92%; }
   .hero-google-badge { padding: 10px 18px; gap: 8px; margin-bottom: 24px; }
@@ -1603,6 +1595,7 @@ footer {
   .hero-main { align-items: center; margin: 0 0 34px; }
   .hero-title.hero-title--brand, html:lang(ru) .hero-title.hero-title--brand { margin-bottom: 24px; }
   .hero-google-badge { margin-bottom: 20px; }
+  .hero-title.hero-title--brand, html:lang(ru) .hero-title.hero-title--brand { font-size: 27px; }
   .hero-contacts { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 320px; }
   .hc-btn { height: 50px; font-size: 13.5px; }
   .hc-wa { flex: 1 1 100%; }
@@ -1685,7 +1678,7 @@ footer {
   .header-cta { padding: 8px 12px; font-size: 11px; }
 
   .about-cards { grid-template-columns: 1fr; }
-  .hero-visual { height: 260px; }
+  .hero-photo  { max-width: 320px; }
   .pricing-row { grid-template-columns: 1fr; }
 
   .price-card  { padding: 28px 20px; }
@@ -1696,6 +1689,7 @@ footer {
   h2 { font-size: 28px; }
   .policy-hero h1 { font-size: 28px; }
 
+  .hero-title.hero-title--brand, html:lang(ru) .hero-title.hero-title--brand { font-size: 25px; }
   .hero-google-badge { padding: 9px 14px; gap: 6px; }
   .ggb-icon    { width: 16px; height: 16px; }
   .ggb-stars   { font-size: 12px; letter-spacing: .5px; }
