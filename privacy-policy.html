@@ -7,22 +7,6 @@
   <meta name="description" content="Privacy Policy for David Marco / ITDAVITO LLC — how we collect, use and protect your information." />
   <meta name="robots" content="noindex" />
 
-  <!-- Runs synchronously before #preloader ever paints, so an internal
-       navigation within the same tab session can skip the intro with zero
-       flash — see the .skip-preloader rule in style.css and initPreloader()
-       in main.js. -->
-  <script>
-    (function () {
-      try {
-        var nav = performance.getEntriesByType('navigation')[0];
-        var isReload = nav && nav.type === 'reload';
-        var visited = sessionStorage.getItem('dm_visited') === '1';
-        if (visited && !isReload) document.documentElement.classList.add('skip-preloader');
-        sessionStorage.setItem('dm_visited', '1');
-      } catch (e) {}
-    })();
-  </script>
-
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,25 +15,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=84" />
+  <link rel="stylesheet" href="css/style.css?v=86" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="apple-touch-icon" href="assets/favicon-180.png" />
 </head>
 <body>
-
-<!-- ============================================================
-     PRELOADER
-     ============================================================ -->
-<div id="preloader" role="status" aria-live="polite" aria-label="Loading">
-  <div class="preloader-inner">
-    <div class="pl-word" aria-hidden="true">
-      <span class="pl-letter">d</span><span class="pl-letter">a</span><span class="pl-letter">v</span><span class="pl-letter">i</span><span class="pl-letter">d</span><span class="pl-letter pl-space">&nbsp;</span><span class="pl-letter">m</span><span class="pl-letter">a</span><span class="pl-letter">r</span><span class="pl-letter">c</span><span class="pl-letter">o</span>
-    </div>
-    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
-  </div>
-</div>
 
 <!-- ============================================================
      HEADER
@@ -319,6 +291,6 @@
 </div>
 <div class="contact-fab-overlay" id="contactFabOverlay"></div>
 
-<script src="js/main.js?v=24"></script>
+<script src="js/main.js?v=26"></script>
 </body>
 </html>

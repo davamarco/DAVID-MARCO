@@ -15,7 +15,8 @@
       try {
         var nav = performance.getEntriesByType('navigation')[0];
         var isReload = nav && nav.type === 'reload';
-        var visited = sessionStorage.getItem('dm_visited') === '1';
+        var fromSite = !!document.referrer && new URL(document.referrer).origin === location.origin;
+        var visited = sessionStorage.getItem('dm_visited') === '1' || fromSite;
         if (visited && !isReload) document.documentElement.classList.add('skip-preloader');
         sessionStorage.setItem('dm_visited', '1');
       } catch (e) {}
@@ -30,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../css/style.css?v=84" />
+  <link rel="stylesheet" href="../css/style.css?v=86" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
@@ -276,6 +277,6 @@
 </div>
 <div class="contact-fab-overlay" id="contactFabOverlay"></div>
 
-<script src="../js/main.js?v=24"></script>
+<script src="../js/main.js?v=26"></script>
 </body>
 </html>

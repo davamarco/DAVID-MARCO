@@ -73,9 +73,14 @@ document.querySelectorAll('.smooth-scroll').forEach(el => {
    ================================================================ */
 const header = document.getElementById('header');
 
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 90);
-}, { passive: true });
+// Sub-pages open on a light background, where a transparent header with
+// white text would vanish — they keep the scrolled look from the start.
+const headerAlwaysSolid = !document.getElementById('hero');
+function updateHeader() {
+  header.classList.toggle('is-scrolled', headerAlwaysSolid || window.scrollY > 20);
+}
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
 
 (function initNavIndicator() {
   const nav       = document.getElementById('headerNav');
@@ -152,9 +157,12 @@ const hamburger  = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
 if (hamburger && mobileMenu) {
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-controls', 'mobileMenu');
   hamburger.addEventListener('click', () => {
     const open = mobileMenu.classList.toggle('open');
     hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
 }
 
@@ -162,7 +170,12 @@ function closeMobileMenu() {
   if (!hamburger || !mobileMenu) return;
   mobileMenu.classList.remove('open');
   hamburger.classList.remove('active');
+  hamburger.setAttribute('aria-expanded', 'false');
 }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
 
 document.addEventListener('click', e => {
   if (!header.contains(e.target)) closeMobileMenu();
