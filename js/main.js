@@ -342,6 +342,85 @@ function buildReadyTextAnimation() {
 })();
 
 /* ================================================================
+   PORTFOLIO SLIDER (touch swipe is native scroll; mouse drag + arrows here)
+   ================================================================ */
+(function initPortfolioSlider() {
+  const track = document.getElementById('portfolioTrack');
+  const prev  = document.getElementById('portfolioPrev');
+  const next  = document.getElementById('portfolioNext');
+  const bar   = document.getElementById('portfolioProgress');
+  if (!track || !prev || !next || !bar) return;
+
+  const cards = Array.from(track.children);
+  const maxScroll = () => track.scrollWidth - track.clientWidth;
+  const posOf = (i) => cards[i].offsetLeft - cards[0].offsetLeft;
+  const step = () => (cards.length > 1 ? posOf(1) : track.clientWidth);
+
+  function goTo(i) {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    track.scrollTo({ left: Math.min(posOf(i), maxScroll()), behavior: 'smooth' });
+  }
+
+  function update() {
+    const max = maxScroll();
+    const visible = track.clientWidth / track.scrollWidth;
+    const p = max > 0 ? track.scrollLeft / max : 1;
+    bar.style.transform = `scaleX(${visible + (1 - visible) * p})`;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= max - 2;
+  }
+
+  prev.addEventListener('click', () => goTo(Math.round(track.scrollLeft / step()) - 1));
+  next.addEventListener('click', () => goTo(Math.round(track.scrollLeft / step()) + 1));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  let down = false, moved = false, suppressClick = false;
+  let startX = 0, startScroll = 0, snapTimer = 0;
+
+  track.addEventListener('dragstart', (e) => e.preventDefault());
+
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    down = true; moved = false;
+    startX = e.clientX; startScroll = track.scrollLeft;
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 5) {
+      moved = true;
+      clearTimeout(snapTimer);
+      track.classList.add('is-dragging', 'no-snap');
+    }
+    if (moved) track.scrollLeft = startScroll - dx;
+  });
+
+  window.addEventListener('pointerup', (e) => {
+    if (!down) return;
+    down = false;
+    if (!moved) return;
+    track.classList.remove('is-dragging');
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 0);
+
+    const dx = e.clientX - startX;
+    const raw = track.scrollLeft / step();
+    const target = Math.abs(dx) < 40 ? Math.round(startScroll / step())
+                 : dx < 0 ? Math.ceil(raw) : Math.floor(raw);
+    goTo(target);
+    // Re-enabling mandatory snap mid-animation would cut the smooth scroll short
+    snapTimer = setTimeout(() => track.classList.remove('no-snap'), 500);
+  });
+
+  track.addEventListener('click', (e) => {
+    if (suppressClick) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+})();
+
+/* ================================================================
    FAQ ACCORDION
    ================================================================ */
 document.querySelectorAll('.faq-q').forEach(btn => {

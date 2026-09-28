@@ -749,10 +749,76 @@ h2 {
   color: rgba(255,255,255,.5);
 }
 
-.portfolio-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-  align-items: start;
+/* Horizontal swipe track. Vertical padding + negative margin leave room
+   for the card hover lift/shadow, which overflow-x would otherwise clip. */
+.portfolio-track {
+  --p-gap: 32px;
+  display: flex; gap: var(--p-gap);
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  padding: 16px 0 48px; margin: -16px 0 -24px;
+  position: relative;
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
 }
+.portfolio-track::-webkit-scrollbar { display: none; }
+.portfolio-track.no-snap { scroll-snap-type: none; }
+.portfolio-track.is-dragging { cursor: grabbing; }
+.portfolio-track.is-dragging .p-card { pointer-events: none; }
+.portfolio-track > .p-card {
+  flex: 0 0 calc((100% - var(--p-gap)) / 2.25);
+  scroll-snap-align: start;
+  display: flex; flex-direction: column;
+}
+.portfolio-track .p-img {
+  aspect-ratio: 16 / 9; object-fit: cover; object-position: top;
+  -webkit-user-drag: none;
+}
+.portfolio-track .p-info { margin-top: auto; }
+
+.portfolio-controls {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; margin-top: 8px;
+}
+.portfolio-meta { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+.portfolio-hint {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: rgba(255,255,255,.5);
+}
+.portfolio-hint-arrow { color: var(--blue); animation: portfolioHint 1.6s ease-in-out infinite; }
+@keyframes portfolioHint {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(6px); }
+}
+.portfolio-progress {
+  flex: 1; max-width: 320px; height: 2px;
+  background: rgba(255,255,255,.1); overflow: hidden;
+}
+.portfolio-progress span {
+  display: block; height: 100%; background: var(--blue);
+  transform-origin: left; transform: scaleX(0);
+  transition: transform .15s linear;
+}
+.portfolio-nav { display: flex; gap: 10px; flex-shrink: 0; }
+.portfolio-btn {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; color: rgba(255,255,255,.7);
+  border: 1.5px solid rgba(255,255,255,.15); border-radius: 8px;
+  cursor: pointer;
+  transition: border-color var(--trans), color var(--trans), background var(--trans), opacity var(--trans);
+}
+.portfolio-btn:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); background: var(--blue-alpha10); }
+.portfolio-btn:disabled { opacity: .3; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-hint-arrow { animation: none; }
+}
+
 .p-card {
   display: block; text-decoration: none; color: inherit;
   background-color: var(--dark-card); border: 1px solid rgba(255,255,255,.08);
@@ -1552,7 +1618,8 @@ footer {
   .ready-text { max-width: 75%; }
 
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .portfolio-grid { gap: 24px; }
+  .portfolio-track { --p-gap: 24px; }
+  .portfolio-track > .p-card { flex-basis: 62%; }
   .process-row { grid-template-columns: 1fr 1fr; gap: 32px; }
   .process-row::before { display: none; }
   .pricing-row { grid-template-columns: 1fr; max-width: 480px; }
@@ -1623,7 +1690,16 @@ footer {
   .service-icon svg { width: 19px; height: 19px; }
   .channel-chip { width: 26px; height: 26px; }
 
-  .portfolio-grid { grid-template-columns: 1fr; }
+  /* Full-bleed track so the next card peeks in from the screen edge */
+  .portfolio-track {
+    --p-gap: 14px;
+    margin: -16px -20px -24px; padding: 16px 20px 48px;
+    scroll-padding-inline: 20px;
+  }
+  .portfolio-track > .p-card { flex-basis: 86%; }
+  .portfolio-controls { gap: 16px; }
+  .portfolio-meta { gap: 14px; }
+  .portfolio-btn { width: 44px; height: 44px; }
   .p-card-tags { padding: 16px 18px 0; }
   .p-num, .p-devtag { font-size: 9.5px; padding: 3px 8px; }
   .p-preview { padding: 16px 18px; }
