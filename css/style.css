@@ -925,8 +925,61 @@ h2 {
 .case-title { font-size: clamp(32px, 5.5vw, 56px); margin-bottom: 22px; }
 .case-desc  { font-size: 16px; color: var(--gray-text); line-height: 1.75; max-width: 520px; margin-bottom: 32px; }
 
-.case-cta { margin-bottom: 40px; }
-.case-cta svg { margin-left: 10px; }
+.case-cta {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 40px; padding: 8px 8px 8px 24px;
+  border-radius: 100px;
+  font-family: 'Orbitron', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: #fff; text-decoration: none;
+  background: linear-gradient(135deg, #3b8ff5 0%, var(--blue) 45%, #0f4fb0 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.18) inset,
+    0 12px 32px -6px var(--blue-glow),
+    0 4px 12px rgba(29,121,233,.25);
+  animation: ctaPulse 2.6s ease-in-out infinite;
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+/* Light sweep that runs across the button every few seconds */
+.case-cta::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: ctaShine 3.2s ease-in-out infinite;
+}
+.case-cta:hover {
+  animation: none;
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.25) inset,
+    0 18px 44px -6px rgba(29,121,233,.6),
+    0 6px 16px rgba(29,121,233,.3);
+}
+.case-cta:active { transform: translateY(-1px); }
+.case-cta:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+.case-cta-icon {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff; color: var(--blue);
+  transition: transform var(--trans);
+}
+.case-cta-icon svg { transition: transform var(--trans); }
+.case-cta:hover .case-cta-icon { transform: scale(1.06); }
+.case-cta:hover .case-cta-icon svg { transform: translate(2px, -2px); }
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 12px 32px -6px var(--blue-glow), 0 0 0 0 rgba(29,121,233,.45); }
+  50%      { box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 12px 32px -6px var(--blue-glow), 0 0 0 10px rgba(29,121,233,0); }
+}
+@keyframes ctaShine {
+  0%, 55% { transform: translateX(-120%); }
+  100%    { transform: translateX(120%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-cta, .case-cta::before { animation: none; }
+}
 
 .case-stats {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -948,14 +1001,25 @@ h2 {
 }
 .case-stat-value { font-size: 18px; font-weight: 700; }
 
-.case-preview-frame {
-  background: #0a0a0a; border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow-lg); position: sticky; top: calc(var(--header-h) + 40px);
+/* iPad mockup; layered drop-shadows + a floor shadow give the lifted 3D look */
+.case-device {
+  position: sticky; top: calc(var(--header-h) + 40px);
+  padding-bottom: 48px;
 }
-.case-preview-frame .p-browser { margin-bottom: 0; }
-.case-preview-img {
+.case-device--portrait { max-width: 420px; margin: 0 auto; width: 100%; }
+.case-device-img {
+  position: relative; z-index: 1;
   display: block; width: 100%; height: auto;
-  aspect-ratio: 4 / 3; object-fit: cover; object-position: top center;
+  filter:
+    drop-shadow(0 2px 2px rgba(0,0,0,.18))
+    drop-shadow(0 12px 18px rgba(0,0,0,.16))
+    drop-shadow(0 32px 48px rgba(0,0,0,.2));
+}
+.case-device::after {
+  content: ''; position: absolute; z-index: 0;
+  left: 8%; right: 8%; bottom: 22px; height: 36px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.38) 0%, rgba(0,0,0,.12) 45%, transparent 72%);
+  filter: blur(6px);
 }
 
 /* ================================================================
@@ -1628,7 +1692,7 @@ footer {
   .contact-grid { grid-template-columns: 1fr; }
 
   .case-grid { grid-template-columns: 1fr; gap: 40px; }
-  .case-preview-frame { position: static; }
+  .case-device { position: relative; top: 0; }
 }
 
 /* ── Mobile ≤768px ──────────────────────────────────────────── */
@@ -1707,6 +1771,7 @@ footer {
   .about-cards    { grid-template-columns: 1fr 1fr; }
 
   .case-hero  { padding: calc(var(--header-h) + 32px) 0 70px; }
+  .case-cta   { display: flex; width: 100%; justify-content: space-between; font-size: 14px; padding-left: 20px; }
   .case-stat  { padding: 20px; }
   .faq-item   { padding: 0 20px; }
   .policy-hero { padding: calc(var(--header-h) + 32px) 0 10px; }
